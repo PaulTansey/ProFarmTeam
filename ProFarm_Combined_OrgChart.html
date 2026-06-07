@@ -2032,6 +2032,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
       <div class="branch-stem"></div>
 
       <div id="super-fin" class="super-col">
+        <div id="section-title-fin" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Finance</div>
         <div class="connector-v" style="height:20px;"></div>
         <div class="fin-label" id="lbl-fin">
           <button class="toggle-btn" id="btn-fin">▲</button>
@@ -3202,7 +3203,7 @@ function raiseSectionTitles() {
   const levonRect = levon.getBoundingClientRect();
   const levonMidY = levonRect.top + levonRect.height / 2;
 
-  ['section-title-commercial', 'section-title-rd', 'section-title-ops'].forEach(id => {
+  ['section-title-commercial', 'section-title-rd', 'section-title-ops', 'section-title-fin'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     el.style.transform = ''; // reset first
