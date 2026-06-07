@@ -452,16 +452,16 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 
   /* chain highlight states */
   .card.chain-self {
-    outline: 4px solid #1565c0 !important; outline-offset: 3px;
+    box-shadow: 0 0 0 4px #1565c0, 0 4px 20px rgba(21,101,192,0.4) !important;
     position: relative; z-index: 10;
   }
   .card.chain-ancestor {
-    outline: 2.5px solid #64b5f6 !important; outline-offset: 2px;
+    box-shadow: 0 0 0 3px #64b5f6, 0 2px 12px rgba(100,181,246,0.35) !important;
   }
   .card.chain-descendant {
-    outline: 2px solid #81c784 !important; outline-offset: 2px;
+    box-shadow: 0 0 0 3px #43a047, 0 2px 12px rgba(67,160,71,0.35) !important;
   }
-  .card.chain-dim { opacity: 0.11 !important; transition: opacity 0.15s; }
+  .card.chain-dim { opacity: 0.2 !important; transition: opacity 0.15s; }
 
   /* last updated stamp in header */
   .logo-area { display: flex; align-items: baseline; gap: 10px; }
@@ -3152,7 +3152,6 @@ document.getElementById('chart').addEventListener('click', e => {
     else                                      c.classList.add('chain-descendant');
   });
   chainActive = true;
-  panToCard(card);
 });
 
 // ── DYNAMIC HEADCOUNT ─────────────────────────────────────────────────────
