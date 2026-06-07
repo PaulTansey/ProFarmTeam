@@ -124,7 +124,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 
 /* ── LAYOUT ── */
 .chart-root { display: flex; flex-direction: column; align-items: center; }
-.connector-v { width: 2px; background: #9e9e9e; flex-shrink: 0; }
+.connector-v { width: 2px; background: #2d2d2d; flex-shrink: 0; }
 .commercial-label {
   background: #334155; color: white; font-size: 14px; font-weight: 700;
   padding: 8px 28px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
@@ -135,7 +135,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 .branch { display: flex; flex-direction: column; align-items: center; min-width: 500px; }
 .branch.single { min-width: 240px; }
 .branch-stem {
-  width: 2px; height: 20px; background: #9e9e9e;
+  width: 2px; height: 20px; background: #2d2d2d;
   position: relative; z-index: 5;
 }
 .branch-stem::after {
@@ -145,12 +145,12 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   transform: translateX(-50%);
   width: 10px; height: 10px;
   border-radius: 50%;
-  background: white; border: 2px solid #9e9e9e;
+  background: white; border: 2px solid #2d2d2d;
   z-index: 5;
 }
 
 /* small stem between head card and its sub-team */
-.card-stem { width: 2px; height: 18px; background: #9e9e9e; margin: 0 auto; }
+.card-stem { width: 2px; height: 18px; background: #2d2d2d; margin: 0 auto; }
 
 /* ── CARDS ── */
 .card {
@@ -243,17 +243,17 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 .team-pairs::before {
   content: ''; position: absolute; left: 50%; transform: translateX(-50%);
   top: var(--spine-top, 0px); height: var(--spine-height, 0px);
-  width: 2px; background: #9e9e9e; z-index: 0;
+  width: 2px; background: #2d2d2d; z-index: 0;
 }
 .pair-v { width: 2px; height: 20px; background: transparent; flex-shrink: 0; }
 .pair-row {
   display: flex; flex-direction: row; align-items: center;
   position: relative; z-index: 1;
 }
-.pair-h-arm { width: 20px; height: 2px; background: #9e9e9e; flex-shrink: 0; }
+.pair-h-arm { width: 20px; height: 2px; background: #2d2d2d; flex-shrink: 0; }
 .pair-dot {
   width: 10px; height: 10px; border-radius: 50%;
-  background: white; border: 2px solid #9e9e9e;
+  background: white; border: 2px solid #2d2d2d;
   flex-shrink: 0; position: relative; z-index: 2;
 }
 .pair-solo-wrap {
@@ -289,8 +289,8 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   padding: 4px 10px; border-radius: 12px; background: #f1f3f5; color: #1e293b;
   text-align: center; white-space: nowrap; align-self: center;
 }
-.ldr-stem { width: 2px; height: 14px; background: #9e9e9e; align-self: center; }
-.report-stem { width: 2px; height: 14px; background: #9e9e9e; align-self: center; }
+.ldr-stem { width: 2px; height: 14px; background: #2d2d2d; align-self: center; }
+.report-stem { width: 2px; height: 14px; background: #2d2d2d; align-self: center; }
 .rd-label {
   font-size: 13px; font-weight: 700; background: #334155;
   color: white; border-radius: 8px; padding: 8px 24px;
@@ -522,7 +522,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 
   <!-- ── LEVON BRANCHES: Commercial | Paul | Scott ── -->
   <div id="levon-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
-    <div id="levon-hbar" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+    <div id="levon-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
 
     <!-- COMMERCIAL (direct under Levon) -->
     <div id="super-commercial" class="super-col">
@@ -535,7 +535,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
       <div id="branches-outer" style="display:flex;flex-direction:column;align-items:center;width:100%;">
         <div class="connector-v" style="height:20px;"></div>
         <div class="branch-row" id="branch-row">
-          <div id="h-bar" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+          <div id="h-bar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
 <!-- ── LATAM & EMEA ── -->
       <div class="branch single" id="branch-latam">
         <div class="branch-stem"></div>
@@ -610,7 +610,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         <div class="card-stem"></div>
         <div id="team-tim" style="display:flex;flex-direction:column;align-items:center;width:100%;">
           <div id="tim-sub-row" style="display:flex;flex-direction:row;align-items:flex-start;gap:40px;position:relative;">
-            <div id="tim-hbar" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+            <div id="tim-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
 
             <!-- RAMs -->
             <div style="display:flex;flex-direction:column;align-items:center;">
@@ -782,7 +782,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         <div class="card-stem"></div>
         <div id="team-nevada" style="display:flex;flex-direction:column;align-items:center;width:100%;">
           <div id="nevada-sub-row" style="display:flex;flex-direction:row;align-items:flex-start;gap:40px;position:relative;">
-            <div id="nevada-hbar" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+            <div id="nevada-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
 
             <!-- Direct reports -->
             <div style="display:flex;flex-direction:column;align-items:center;">
@@ -880,7 +880,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
                 <div class="pair-v"></div>
               </div>
               <!-- Amanda solo, outside team-pairs -->
-              <div style="width:2px;height:20px;background:#9e9e9e;"></div>
+              <div style="width:2px;height:20px;background:#2d2d2d;"></div>
               <div class="card c-mkt" data-slack="amanda" style="margin-bottom:0;">
                 <div class="card-inner">
                   <div class="card-name">Amanda Koppel</div>
@@ -939,7 +939,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
       <div class="connector-v" style="height:20px;"></div>
       <!-- paul-branches: R&D + Ops + HR -->
       <div id="paul-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
-        <div id="paul-hbar" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+        <div id="paul-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
     <div id="super-rd" class="super-col">
       <div id="section-title-rd" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">R&amp;D + Regulatory</div>
       <div class="branch-stem"></div>
@@ -963,7 +963,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         </div>
         <div class="connector-v" style="height:20px;"></div>
         <div class="branch-row" id="branch-row-rd" style="position:relative;align-items:flex-start;">
-          <div id="h-bar-rd" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+          <div id="h-bar-rd" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
 <!-- COLUMN: Invertebrate Pest Biology -->
       <div class="rd-column" id="col-inv">
         <div class="branch-stem"></div>
@@ -1299,7 +1299,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         <div class="connector-v" style="height:20px;"></div>
         
     <div id="ops-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:50px;position:relative;">
-      <div id="h-bar-ops" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+      <div id="h-bar-ops" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
       
       <div class="ops-dept-col" id="ops-col-fac" style="min-width:200px;">
         <div class="ops-dept-label" style="background:#0097a7;">Facilities (2)</div>
@@ -1347,7 +1347,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         
         <div class="connector-v" style="height:20px;"></div>
         <div id="tamara-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:30px;position:relative;">
-          <div id="h-bar-tamara" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+          <div id="h-bar-tamara" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
           <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="nathan.b">
               <div class="card-inner">
                 <div class="dept-badge">Quality</div>
@@ -1409,7 +1409,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
             </div>
         <div class="connector-v" style="height:20px;"></div>
         <div id="amanjit-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
-          <div id="h-bar-amanjit" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+          <div id="h-bar-amanjit" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
           <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="symphony">
               <div class="card-inner">
                 <div class="dept-badge">Quality</div>
@@ -1542,7 +1542,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         
         <div class="connector-v" style="height:20px;"></div>
         <div id="luis-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
-          <div id="h-bar-luis" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+          <div id="h-bar-luis" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
           <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-sc" data-slack="kevin.g">
               <div class="card-inner">
                 <div class="dept-badge">Supply Chain</div>
@@ -1692,7 +1692,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         
         <div class="connector-v" style="height:20px;"></div>
         <div id="douglas-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
-          <div id="h-bar-douglas" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+          <div id="h-bar-douglas" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
           <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="michelle.l">
               <div class="card-inner">
                 <div class="dept-badge">Manufacturing</div>
@@ -1790,7 +1790,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
             </div>
         <div class="connector-v" style="height:20px;"></div>
         <div id="peter-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:20px;position:relative;">
-          <div id="h-bar-peter" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+          <div id="h-bar-peter" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
           <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="sherry">
               <div class="card-inner">
                 <div class="dept-badge">Manufacturing</div>
@@ -2071,7 +2071,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
           
         <div class="connector-v" style="height:20px;"></div>
         <div id="nancy-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
-          <div id="h-bar-nancy" style="position:absolute;top:0;height:2px;background:#9e9e9e;width:0;pointer-events:none;"></div>
+          <div id="h-bar-nancy" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
           <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="andrew.z">
               <div class="card-inner">
                 <div class="dept-badge">Finance</div>
