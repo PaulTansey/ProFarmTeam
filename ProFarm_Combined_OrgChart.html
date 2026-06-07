@@ -304,7 +304,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 #super-commercial, #super-rd, #super-ops, #super-hr, #super-fin {
   background: #ffffff;
   border-radius: 28px;
-  padding: 28px 36px 36px;
+  padding: 0 36px 36px;
 }
 
 /* ── AI BAR ── */
@@ -3214,6 +3214,9 @@ function raiseSectionTitles() {
     el.style.position = 'relative';
     el.style.zIndex = '20';
     el.style.pointerEvents = 'none';
+    el.style.height = '0';
+    el.style.overflow = 'visible';
+    el.style.marginBottom = '0';
   });
 }
 
