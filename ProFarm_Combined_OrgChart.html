@@ -2931,6 +2931,155 @@ function panToCard(card) {
 }
 
 // ── CHAIN HIGHLIGHT ─────────────────────────────────────────────────────
+
+// ── REPORTING MAP (static — drives chain highlight) ───────────────────────
+const REPORTING_TO = {
+  // Levon direct reports
+  'ptansey':      'levon',
+  'scott.n':      'levon',
+
+  // Paul direct reports (commercial branches + ops + p&c)
+  'ruben':        'ptansey',
+  'keith':        'ptansey',
+  'denis':        'ptansey',
+  'tim':          'ptansey',
+  'nevada':       'ptansey',
+  'andre':        'ptansey',
+  'cassie':       'ptansey',
+  'lacey.g':      'ptansey',
+  'tamara.n':     'ptansey',
+  'luis.l':       'ptansey',
+  'douglas':      'ptansey',
+  'aveonna':      'ptansey',
+  'marina':       'ptansey',
+
+  // Tim's team
+  'wyly':         'tim',
+  'taylor':       'tim',
+  'john.driver':  'tim',
+  'doug.mcdowell':'tim',
+  'brad':         'tim',
+  'jake':         'tim',
+  'david.youngquist': 'tim',
+  'jon.collison': 'tim',
+  'john.torbert': 'tim',
+
+  // Nevada's team
+  'nancy.n':      'nevada',
+  'caleb':        'nevada',
+  'jr':           'nevada',
+  'seth':         'nevada',
+  'melissa':      'nevada',
+  'rob.blundell': 'nevada',
+  'amanda':       'nevada',
+
+  // Cassie → R&D + Regulatory
+  'cole':         'cassie',
+  'liz':          'cassie',
+  'ratnakar':     'cassie',
+  'bob':          'cassie',
+  'maggie':       'cassie',
+  'nashmin':      'cassie',
+
+  // Cole → Invertebrate
+  'anna':         'cole',
+
+  // Liz → Microbiology
+  'dale':         'liz',
+  'rachel':       'liz',
+  'gabriela':     'liz',
+
+  // Ratnakar → Chemistry
+  'makela':       'ratnakar',
+  'vanessa':      'ratnakar',
+
+  // Bob → Fermentation
+  'kevin':        'bob',
+  'jacob':        'bob',
+  'brian':        'bob',
+
+  // Maggie → Regulatory
+  'conor':        'maggie',
+  'eva':          'maggie',
+  'krista':       'maggie',
+  'lorena':       'maggie',
+  'isabel.diez':  'maggie',
+
+  // Nashmin → EU R&D
+  'madan':        'nashmin',
+  'iman':         'nashmin',
+  'raziyeh':      'nashmin',
+
+  // Facilities (Lacey)
+  'nicholas.r':   'lacey.g',
+
+  // Quality (Tamara)
+  'nathan.b':     'tamara.n',
+  'daisie':       'tamara.n',
+  'stellar':      'tamara.n',
+  'tiffany.d':    'tamara.n',
+  'amanjit':      'tamara.n',
+
+  // Amanjit → QC/Manufacturing
+  'symphony':     'amanjit',
+  'abigail':      'amanjit',
+  'breanna':      'amanjit',
+  'evan.m':       'amanjit',
+  'madeline':     'amanjit',
+  'rafael.m':     'amanjit',
+  'haley.f':      'amanjit',
+  'naiki':        'amanjit',
+  'raji':         'amanjit',
+
+  // Supply Chain (Luis)
+  'kevin.g':      'luis.l',
+  'mercedes':     'luis.l',
+  'anthony':      'luis.l',
+  'adriana':      'luis.l',
+  'monica':       'luis.l',
+  'shelley':      'luis.l',
+  'carol':        'luis.l',
+  'sabra':        'luis.l',
+  'lou':          'luis.l',
+  'tatiana':      'luis.l',
+  'alexandr':     'luis.l',
+
+  // Manufacturing (Douglas)
+  'michelle.l':   'douglas',
+  'marbella':     'douglas',
+  'dominik':      'douglas',
+  'rob.w':        'douglas',
+  'chris.c':      'douglas',
+  'john.s':       'douglas',
+  'david.c':      'douglas',
+  'peter':        'douglas',
+
+  // Peter's team
+  'sherry':       'peter',
+  'katie':        'peter',
+  'joseph':       'peter',
+  'wade':         'peter',
+  'andy':         'peter',
+  'brittany':     'peter',
+  'joshua':       'peter',
+  'doug.f':       'peter',
+  'jack':         'peter',
+  'jeremy':       'peter',
+  'chance':       'peter',
+  'michael.s':    'peter',
+
+  // Finance (Scott)
+  'nancy.h':      'scott.n',
+  'andrew.z':     'nancy.h',
+  'danielle':     'nancy.h',
+  'eleanor':      'nancy.h',
+  'paola':        'nancy.h',
+  'shelley.a':    'nancy.h',
+  'minh':         'nancy.h',
+  'mitra':        'nancy.h',
+  'anastassia':   'nancy.h',
+};
+
 let chainActive = false;
 let _orgMap = null;
 
@@ -2944,47 +3093,15 @@ function getDirectCard(el) {
 }
 
 function buildOrgMap() {
-  const parentOf   = {};
+  const parentOf   = { ...REPORTING_TO };
   const childrenOf = {};
-  const ownerOf    = {};
-
-  // For each -reports / -branches section, find the card that owns it
-  document.querySelectorAll('[id]').forEach(section => {
-    const id = section.id;
-    if (!id.match(/-(reports|branches)$/) || id.startsWith('h-bar')) return;
-    let container = section; let found = false;
-    while (container && container.id !== 'chart-root' && !found) {
-      let sib = container.previousElementSibling;
-      while (sib && !found) {
-        const card = getDirectCard(sib);
-        if (card) { ownerOf[id] = card.dataset.slack; found = true; }
-        else sib = sib.previousElementSibling;
-      }
-      container = container.parentElement;
-    }
+  Object.entries(parentOf).forEach(([child, parent]) => {
+    if (!childrenOf[parent]) childrenOf[parent] = [];
+    childrenOf[parent].push(child);
   });
-
-  // For each card, find parent via nearest ancestor -reports/-branches section
-  document.querySelectorAll('.card[data-slack]').forEach(card => {
-    const slack = card.dataset.slack;
-    let el = card.parentElement;
-    while (el && el.id !== 'chart-root') {
-      const id = el.id || '';
-      if (id.match(/-(reports|branches)$/) && ownerOf[id] && ownerOf[id] !== slack) {
-        parentOf[slack] = ownerOf[id]; break;
-      }
-      el = el.parentElement;
-    }
-  });
-
-  // Build childrenOf from parentOf
-  document.querySelectorAll('.card[data-slack]').forEach(card => {
-    const p = parentOf[card.dataset.slack];
-    if (p) { if (!childrenOf[p]) childrenOf[p] = []; childrenOf[p].push(card.dataset.slack); }
-  });
-
   return { parentOf, childrenOf };
 }
+
 
 function getChain(slack) {
   const { parentOf, childrenOf } = _orgMap;
