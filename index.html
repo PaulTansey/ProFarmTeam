@@ -527,6 +527,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   <!-- ── LEVON BRANCHES: Commercial | Paul | Scott ── -->
   <div id="levon-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
     <div id="levon-hbar" style="position:absolute;top:0;height:3px;background:#1a1a1a;width:0;pointer-events:none;"></div>
+    <div id="csuite-band" style="position:absolute;top:0;left:-40px;right:-40px;height:140px;background:rgba(26,71,42,0.06);border:1.5px solid rgba(26,71,42,0.15);border-radius:16px;pointer-events:none;z-index:0;"></div>
 
 
     <!-- PAUL column -->
@@ -3196,17 +3197,23 @@ window.addEventListener('load', () => {
   updateHeadcounts();
   _orgMap = buildOrgMap();
   setTimeout(() => {
-    // Start at 40% zoom, centered horizontally
-    scale = 0.4;
-    const container = document.getElementById('chart');
-    const wrapper = document.getElementById('zoom-wrapper');
-    panX = Math.max(0, (container.offsetWidth - wrapper.offsetWidth * scale) / 2);
-    panY = 40;
-    applyTransform();
-    updateZoomLabel();
-    updateAllHBars();
+    // fitToView first, then we know scale
+    fitToView();
+    // After fit, jump to show Paul+Scott clearly
+    const paulCard = document.querySelector('[data-slack="ptansey"]');
+    if (paulCard) {
+      const r = paulCard.getBoundingClientRect();
+      const container = document.getElementById('chart');
+      // Pan so Paul's card is near left-center of viewport
+      const targetX = container.offsetWidth * 0.15;
+      const targetY = container.offsetHeight * 0.2;
+      panX += targetX - (r.left + r.width / 2);
+      panY += targetY - (r.top + r.height / 2);
+      applyTransform();
+      updateZoomLabel();
+    }
     raiseSectionTitles();
-  }, 200);
+  }, 250);
     raiseSectionTitles();
 });
 
