@@ -85,14 +85,15 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   pointer-events: none; line-height: 1; padding: 0 3px;
 }
 .zoom-controls {
-  display: flex; flex-direction: row; gap: 8px; z-index: 200; align-items: center;
+  display: flex; flex-direction: row; gap: 14px; z-index: 200; align-items: center;
 }
 .zoom-btn {
-  width: 38px; height: 38px; border-radius: 50%;
-  font-size: 11px; font-weight: 700; color: #ffffff;
-  background: #1a1a1a; border: 1px solid #1a1a1a;
+  width: 64px; height: 64px; border-radius: 50%;
+  font-size: 22px; font-weight: 700; color: #ffffff;
+  background: #1a1a1a; border: 2px solid #1a1a1a;
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   transition: background 0.15s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
 }
 .zoom-btn:hover { background: #333; }
 /* zoom percentage input with dropdown */
@@ -100,9 +101,9 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   position: relative; display: flex; align-items: center;
 }
 .zoom-pct-input {
-  width: 60px; height: 32px; border: 1px solid #ccc; border-radius: 5px;
-  text-align: center; font-size: 13px; font-family: monospace; color: #333;
-  background: #fff; padding: 0 20px 0 4px; cursor: text; box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  width: 90px; height: 54px; border: 2px solid #ccc; border-radius: 8px;
+  text-align: center; font-size: 20px; font-family: monospace; color: #333;
+  background: #fff; padding: 0 28px 0 6px; cursor: text; box-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
 .zoom-pct-input:focus { outline: 2px solid #4a90e2; border-color: transparent; }
 .zoom-dropdown-btn {
@@ -1288,148 +1289,6 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
       </div><!-- /branch-row-rd -->
       </div><!-- /branches-outer-rd -->
     </div><!-- /super-rd -->
-    <div class="super-col" id="scott-super">
-      <div class="branch-stem"></div>
-      <div class="card c-fin" data-slack="scott.n">
-              <div class="card-inner">
-                <div class="dept-badge">Finance</div>
-                <div class="card-name">Scott Nirenberski</div>
-                <div class="card-title">Chief Financial Officer</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Remote</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 2/9/2026</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@scott" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AGRN4K9NX','https://profarm-team.slack.com/messages/@scott'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div>
-      <div class="connector-v" style="height:20px;"></div>
-
-      <div id="super-fin" class="super-col">
-        <div class="connector-v" style="height:20px;"></div>
-        <div class="fin-label" id="lbl-fin">
-          <button class="toggle-btn" id="btn-fin">▲</button>
-          Finance &amp; Accounting
-          <div class="label-sub">8 people</div>
-        </div>
-        <div id="fin-content" style="display:flex;flex-direction:column;align-items:center;width:max-content;">
-          <div class="connector-v" style="height:20px;"></div>
-          <div class="branch-stem"></div>
-          <div class="card c-fin" data-slack="nancy.h">
-              <div class="card-inner">
-                <div class="dept-badge">Finance</div>
-                <div class="card-name">Nancy Hines</div>
-                <div class="card-title">Accounting Manager</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Remote</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 10/28/2024</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@nhines" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07UY0J6CAV','https://profarm-team.slack.com/messages/@nhines'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div>
-          
-        <div class="connector-v" style="height:20px;"></div>
-        <div id="nancy-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
-          <div id="h-bar-nancy" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
-          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="andrew.z">
-              <div class="card-inner">
-                <div class="dept-badge">Finance</div>
-                <div class="card-name">Andrew Zetterberg</div>
-                <div class="card-title">Sr. General Ledger Accountant</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 10/14/2024</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@azetterberg" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U081LQQM0BD','https://profarm-team.slack.com/messages/@azetterberg'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div></div>
-          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="danielle">
-              <div class="card-inner">
-                <div class="dept-badge">Finance</div>
-                <div class="card-name">Danielle Domasky</div>
-                <div class="card-title">Accounts Payable Supervisor</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 3/20/2017</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@ddomasky" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U081E1RGPTQ','https://profarm-team.slack.com/messages/@ddomasky'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-fin" data-slack="eleanor">
-              <div class="card-inner">
-                <div class="dept-badge">Finance</div>
-                <div class="card-name">Eleanor Nears</div>
-                <div class="card-title">Accounting Specialist</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 11/27/2023</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@enears" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U081J7311C6','https://profarm-team.slack.com/messages/@enears'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div><div class="connector-v" style="height:12px;"></div><div class="card c-fin" data-slack="paola">
-              <div class="card-inner">
-                <div class="dept-badge">Finance</div>
-                <div class="card-name">Paola Ramirez</div>
-                <div class="card-title">AP Specialist</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 4/1/2024</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@paola" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AUJS0FKNU','https://profarm-team.slack.com/messages/@paola'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div><div class="connector-v" style="height:12px;"></div><div class="card c-fin" data-slack="shelley.a">
-              <div class="card-inner">
-                <div class="dept-badge">Finance</div>
-                <div class="card-name">Shelley-Ann Joseph</div>
-                <div class="card-title">Accounts Payable Clerk</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 10/27/2021</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@shelley-ann" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AT94Q045V','https://profarm-team.slack.com/messages/@shelley-ann'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div></div></div>
-          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="minh">
-              <div class="card-inner">
-                <div class="dept-badge">Finance</div>
-                <div class="card-name">Minh Duong</div>
-                <div class="card-title">Finance &amp; Accounting Analyst</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 11/18/2022</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@mduong" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08NN0P2K7E','https://profarm-team.slack.com/messages/@mduong'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div></div>
-        </div>
-        
-          <div class="connector-v" style="height:20px;"></div>
-          <div style="display:flex;flex-direction:column;align-items:center;">
-            <div style="font-size:10px;font-weight:700;color:#2e7d32;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:8px;">EU Finance</div>
-            <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="mitra">
-              <div class="card-inner">
-                <div class="dept-badge">EU</div>
-                <div class="card-name">Mitra Fakhr</div>
-                <div class="card-title">Assistant Controller</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@mitra.fakhr" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0836ULMX5H','https://profarm-team.slack.com/messages/@mitra.fakhr'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div></div>
-            <div class="connector-v" style="height:8px;"></div>
-            <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="anastassia">
-              <div class="card-inner">
-                <div class="dept-badge">EU</div>
-                <div class="card-name">Anastassia Nilina</div>
-                <div class="card-title">Assistant Controller</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Estonia</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@anilina" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08ED50TDEH','https://profarm-team.slack.com/messages/@anilina'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div></div>
-          </div></div>
-      </div>
-    </div><!-- /scott-super -->
     <div id="super-ops" class="super-col">
       <div id="section-title-ops" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Operations</div>
       <div class="connector-v" style="height:20px;"></div>
@@ -2169,6 +2028,150 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
     </div>
     </div><!-- /paul-branches -->
     </div><!-- /paul-super -->
+
+    <div class="super-col" id="scott-super">
+      <div class="branch-stem"></div>
+      <div class="card c-fin" data-slack="scott.n">
+              <div class="card-inner">
+                <div class="dept-badge">Finance</div>
+                <div class="card-name">Scott Nirenberski</div>
+                <div class="card-title">Chief Financial Officer</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Remote</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 2/9/2026</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@scott" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AGRN4K9NX','https://profarm-team.slack.com/messages/@scott'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div>
+      <div class="connector-v" style="height:20px;"></div>
+
+      <div id="super-fin" class="super-col">
+        <div class="connector-v" style="height:20px;"></div>
+        <div class="fin-label" id="lbl-fin">
+          <button class="toggle-btn" id="btn-fin">▲</button>
+          Finance &amp; Accounting
+          <div class="label-sub">8 people</div>
+        </div>
+        <div id="fin-content" style="display:flex;flex-direction:column;align-items:center;width:max-content;">
+          <div class="connector-v" style="height:20px;"></div>
+          <div class="branch-stem"></div>
+          <div class="card c-fin" data-slack="nancy.h">
+              <div class="card-inner">
+                <div class="dept-badge">Finance</div>
+                <div class="card-name">Nancy Hines</div>
+                <div class="card-title">Accounting Manager</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Remote</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 10/28/2024</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@nhines" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07UY0J6CAV','https://profarm-team.slack.com/messages/@nhines'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div>
+          
+        <div class="connector-v" style="height:20px;"></div>
+        <div id="nancy-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
+          <div id="h-bar-nancy" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="andrew.z">
+              <div class="card-inner">
+                <div class="dept-badge">Finance</div>
+                <div class="card-name">Andrew Zetterberg</div>
+                <div class="card-title">Sr. General Ledger Accountant</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 10/14/2024</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@azetterberg" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U081LQQM0BD','https://profarm-team.slack.com/messages/@azetterberg'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="danielle">
+              <div class="card-inner">
+                <div class="dept-badge">Finance</div>
+                <div class="card-name">Danielle Domasky</div>
+                <div class="card-title">Accounts Payable Supervisor</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 3/20/2017</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@ddomasky" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U081E1RGPTQ','https://profarm-team.slack.com/messages/@ddomasky'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-fin" data-slack="eleanor">
+              <div class="card-inner">
+                <div class="dept-badge">Finance</div>
+                <div class="card-name">Eleanor Nears</div>
+                <div class="card-title">Accounting Specialist</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 11/27/2023</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@enears" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U081J7311C6','https://profarm-team.slack.com/messages/@enears'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div><div class="connector-v" style="height:12px;"></div><div class="card c-fin" data-slack="paola">
+              <div class="card-inner">
+                <div class="dept-badge">Finance</div>
+                <div class="card-name">Paola Ramirez</div>
+                <div class="card-title">AP Specialist</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 4/1/2024</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@paola" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AUJS0FKNU','https://profarm-team.slack.com/messages/@paola'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div><div class="connector-v" style="height:12px;"></div><div class="card c-fin" data-slack="shelley.a">
+              <div class="card-inner">
+                <div class="dept-badge">Finance</div>
+                <div class="card-name">Shelley-Ann Joseph</div>
+                <div class="card-title">Accounts Payable Clerk</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 10/27/2021</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@shelley-ann" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AT94Q045V','https://profarm-team.slack.com/messages/@shelley-ann'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="minh">
+              <div class="card-inner">
+                <div class="dept-badge">Finance</div>
+                <div class="card-name">Minh Duong</div>
+                <div class="card-title">Finance &amp; Accounting Analyst</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 11/18/2022</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@mduong" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08NN0P2K7E','https://profarm-team.slack.com/messages/@mduong'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div>
+        </div>
+        
+          <div class="connector-v" style="height:20px;"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div style="font-size:10px;font-weight:700;color:#2e7d32;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:8px;">EU Finance</div>
+            <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="mitra">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                <div class="card-name">Mitra Fakhr</div>
+                <div class="card-title">Assistant Controller</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@mitra.fakhr" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0836ULMX5H','https://profarm-team.slack.com/messages/@mitra.fakhr'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div>
+            <div class="connector-v" style="height:8px;"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-fin" data-slack="anastassia">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                <div class="card-name">Anastassia Nilina</div>
+                <div class="card-title">Assistant Controller</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Estonia</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@anilina" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08ED50TDEH','https://profarm-team.slack.com/messages/@anilina'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div>
+          </div></div>
+      </div>
+    </div><!-- /scott-super -->
+
 
     <!-- SCOTT / FINANCE column -->
 
