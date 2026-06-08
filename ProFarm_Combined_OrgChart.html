@@ -57,7 +57,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 .bottom-bar {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 200;
-  background: rgba(255,255,255,0.96); border-radius: 20px; padding: 12px 20px;
+  background: rgba(255,255,255,0.96); border-radius: 24px; padding: 16px 24px;
   box-shadow: 0 6px 24px rgba(0,0,0,0.2); border: 1px solid #e0e0e0;
 }
 .nav-btns {
@@ -90,12 +90,12 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   display: flex; flex-direction: row; gap: 10px; z-index: 200; align-items: center;
 }
 .zoom-btn {
-  width: 52px; height: 52px; border-radius: 12px;
-  font-size: 18px; font-weight: 800; color: #ffffff;
+  width: 80px; height: 80px; border-radius: 16px;
+  font-size: 26px; font-weight: 900; color: #ffffff;
   background: #1a1a1a; border: none;
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   transition: background 0.15s;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
   letter-spacing: -0.5px;
 }
 .zoom-btn:hover { background: #333; }
@@ -104,9 +104,9 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   position: relative; display: flex; align-items: center;
 }
 .zoom-pct-input {
-  width: 80px; height: 44px; border: 2px solid #ccc; border-radius: 8px;
-  text-align: center; font-size: 18px; font-family: monospace; color: #333;
-  background: #fff; padding: 0 24px 0 6px; cursor: text; box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  width: 100px; height: 80px; border: 2px solid #ccc; border-radius: 12px;
+  text-align: center; font-size: 24px; font-family: monospace; color: #333;
+  background: #fff; padding: 0 28px 0 6px; cursor: text; box-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
 .zoom-pct-input:focus { outline: 2px solid #4a90e2; border-color: transparent; }
 .zoom-dropdown-btn {
@@ -3195,8 +3195,18 @@ window.addEventListener('load', () => {
   updateAllHBars();
   updateHeadcounts();
   _orgMap = buildOrgMap();
-  setTimeout(fitToView, 200);
+  setTimeout(() => {
+    // Fit to chart WIDTH (not height) and show top — so Paul & Scott tier is clearly visible
+    const w = document.getElementById('zoom-wrapper');
+    const c = document.getElementById('chart');
+    const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
+    scale = Math.min(widthFit, 0.20);
+    panX = (c.clientWidth - w.offsetWidth * scale) / 2;
+    panY = 40;
+    applyTransform();
+    updateZoomLabel();
     raiseSectionTitles();
+  }, 200);
 });
 
 // ── RAISE SECTION TITLES TO LEVON LEVEL ──────────────────────────────────
