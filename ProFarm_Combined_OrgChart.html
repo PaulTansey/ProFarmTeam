@@ -3219,9 +3219,10 @@ window.addEventListener('load', () => {
     const w = document.getElementById('zoom-wrapper');
     const c = document.getElementById('chart');
     const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
-    scale = Math.min(widthFit, 0.20);
+    // Ensure at least 18% zoom so C-suite cards are visible; chart is very wide
+    scale = Math.max(Math.min(widthFit, 0.22), 0.18);
     panX = (c.clientWidth - w.offsetWidth * scale) / 2;
-    panY = 40;
+    panY = 60;
     applyTransform();
     updateZoomLabel();
   }, 200);
