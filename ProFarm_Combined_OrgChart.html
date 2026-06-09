@@ -74,25 +74,21 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 /* ── ZOOM PANEL (separate, bottom-right) ── */
 .zoom-panel {
   position: fixed; bottom: 24px; right: 28px; z-index: 300;
-  display: flex; flex-direction: row; align-items: center; gap: clamp(10px, 1.2vw, 20px);
-  background: rgba(20,20,20,0.92); border-radius: clamp(16px, 1.6vw, 28px);
-  padding: clamp(12px, 1.2vw, 22px) clamp(16px, 1.6vw, 28px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.96); border-radius: 20px; padding: 10px 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18); border: 1px solid #e0e0e0;
 }
 .zoom-controls {
-  display: flex; flex-direction: row; gap: clamp(10px, 1.2vw, 20px); align-items: center;
+  display: flex; flex-direction: row; gap: 5px; align-items: center;
 }
 .zoom-btn {
-  width: clamp(64px, 6vw, 120px); height: clamp(64px, 6vw, 120px);
-  border-radius: clamp(12px, 1.2vw, 20px);
-  font-size: clamp(26px, 2.8vw, 52px); font-weight: 900; color: #1a1a1a;
-  background: #ffffff; border: none;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: background 0.12s, transform 0.1s;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.93); border: 1px solid #d0d0d0; border-radius: 20px;
+  padding: 4px 12px; font-size: 13px; font-weight: 700; color: #333;
+  cursor: pointer; white-space: nowrap; transition: background 0.15s, border-color 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); line-height: 1.4;
 }
-.zoom-btn:hover { background: #e8e8e8; transform: scale(1.07); }
-.zoom-btn:active { transform: scale(0.96); }
+.zoom-btn:hover { background: #e8eeff; border-color: #aaa; }
+.zoom-btn:active { background: #d0d8ff; }
 
 /* EU / EMEA team */
 .c-eu  { border-top: 4px solid #00695c; }
@@ -112,11 +108,11 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   position: relative; display: flex; align-items: center;
 }
 .zoom-pct-input {
-  width: clamp(80px, 6vw, 110px); height: clamp(64px, 6vw, 120px);
-  border: 2px solid rgba(255,255,255,0.25); border-radius: clamp(10px, 1vw, 18px);
-  text-align: center; font-size: clamp(18px, 2vw, 36px); font-family: monospace;
-  color: #ffffff; background: rgba(255,255,255,0.12);
-  padding: 0 22px 0 6px; cursor: text;
+  width: 58px; height: 26px;
+  border: 1px solid #d0d0d0; border-radius: 20px;
+  text-align: center; font-size: 11px; font-family: monospace; font-weight: 600;
+  color: #333; background: rgba(255,255,255,0.93);
+  padding: 0 18px 0 6px; cursor: text; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .zoom-pct-input:focus { outline: 2px solid #4a90e2; border-color: transparent; }
 .zoom-dropdown-btn {
