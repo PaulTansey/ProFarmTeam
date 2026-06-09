@@ -2054,13 +2054,9 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
               </div>
             </div>
 
-    </div><!-- /scott-super -->
-
-
-          <!-- Finance column: third column directly under Levon -->
-      <div class="super-col" id="fin-direct">
-        <div class="branch-stem"></div>
-        <div id="super-fin" class="super-col">
+    
+      <div class="connector-v" style="height:20px;"></div>
+      <div id="super-fin" class="super-col">
                 <div id="section-title-fin" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Finance</div>
                 <div class="connector-v" style="height:20px;"></div>
                 <div class="fin-label" id="lbl-fin">
@@ -2186,7 +2182,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
                     </div></div>
                   </div></div>
               </div><!-- /super-fin -->
-      </div><!-- /fin-direct -->
+    </div><!-- /scott-super -->
 
 
     <!-- SCOTT / FINANCE column -->
@@ -3219,22 +3215,10 @@ window.addEventListener('load', () => {
     const w = document.getElementById('zoom-wrapper');
     const c = document.getElementById('chart');
     const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
-    // Chart is very wide (Paul's section ~8000px). Fit-to-width results in ~9% zoom where
-    // Scott's C-suite card is invisible. Instead, zoom to 25% and position view so
-    // Finance + Scott are in the viewport, proving Scott is at C-suite level.
-    scale = 0.25;
-    // Scott is now between Paul and Finance — pan to show Scott's card clearly
-    const scottEl = document.querySelector('[data-slack="scott.n"]');
-    const cRect = c.getBoundingClientRect();
-    if (scottEl) {
-      const scottRect = scottEl.getBoundingClientRect();
-      const scottChartLeft = scottRect.left - cRect.left;
-      // Place Scott's card at ~35% from left so Finance is visible to the right
-      panX = c.clientWidth * 0.35 - scottChartLeft * scale;
-    } else {
-      panX = (c.clientWidth - w.offsetWidth * scale) / 2;
-    }
-    panY = 60;
+    const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
+    scale = Math.min(widthFit, 0.20);
+    panX = (c.clientWidth - w.offsetWidth * scale) / 2;
+    panY = 40;
     applyTransform();
     updateZoomLabel();
   }, 200);
