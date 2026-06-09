@@ -532,7 +532,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 
   <!-- ── LEVON BRANCHES: Commercial | Paul | Scott ── -->
   <div id="levon-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
-    <div id="levon-hbar" style="position:absolute;top:0;height:3px;background:#1a1a1a;width:0;pointer-events:none;"></div>
+    <div id="levon-hbar" style="position:absolute;top:0;height:6px;background:#1a1a1a;width:0;pointer-events:none;"></div>
 
 
     <!-- PAUL column -->
@@ -3219,9 +3219,20 @@ window.addEventListener('load', () => {
     const w = document.getElementById('zoom-wrapper');
     const c = document.getElementById('chart');
     const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
-    // Ensure at least 18% zoom so C-suite cards are visible; chart is very wide
-    scale = Math.max(Math.min(widthFit, 0.22), 0.18);
-    panX = (c.clientWidth - w.offsetWidth * scale) / 2;
+    // Chart is very wide (Paul's section ~8000px). Fit-to-width results in ~9% zoom where
+    // Scott's C-suite card is invisible. Instead, zoom to 25% and position view so
+    // Finance + Scott are in the viewport, proving Scott is at C-suite level.
+    scale = 0.25;
+    const finDirect = document.getElementById('fin-direct');
+    const cRect = c.getBoundingClientRect();
+    if (finDirect) {
+      const finRect = finDirect.getBoundingClientRect();
+      const finChartLeft = finRect.left - cRect.left;
+      // Place Finance at ~30% from left edge so Scott is visible on the right
+      panX = c.clientWidth * 0.30 - finChartLeft * scale;
+    } else {
+      panX = (c.clientWidth - w.offsetWidth * scale) / 2;
+    }
     panY = 60;
     applyTransform();
     updateZoomLabel();
