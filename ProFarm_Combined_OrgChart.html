@@ -3218,10 +3218,19 @@ window.addEventListener('load', () => {
     const w = document.getElementById('zoom-wrapper');
     const c = document.getElementById('chart');
     const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
-    const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
-    scale = Math.min(widthFit, 0.20);
-    panX = (c.clientWidth - w.offsetWidth * scale) / 2;
-    panY = 40;
+    // Start at 25% zoom positioned to show Scott's C-suite card alongside Operations
+    scale = 0.25;
+    const scottSuperEl = document.getElementById('scott-super');
+    if (scottSuperEl) {
+      const cRect = c.getBoundingClientRect();
+      const sRect = scottSuperEl.getBoundingClientRect();
+      const scottChartX = sRect.left - cRect.left; // chart-space x of Scott column
+      // Place Scott's card at 65% from left so Operations is visible to the left
+      panX = c.clientWidth * 0.65 - scottChartX * scale;
+    } else {
+      panX = (c.clientWidth - w.offsetWidth * scale) / 2;
+    }
+    panY = 60;
     applyTransform();
     updateZoomLabel();
   }, 200);
