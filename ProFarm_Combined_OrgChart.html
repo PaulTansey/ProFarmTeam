@@ -309,6 +309,9 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 }
 .rd-sub { font-size: 11px; font-weight: 400; opacity: 0.8; margin-top: 2px; }
 .super-col { display: flex; flex-direction: column; align-items: center; }
+/* Pull Paul's and Scott's C-suite cards together so they read as adjacent peers under Levon */
+#paul-super { align-items: flex-end; }
+#scott-super { align-items: flex-start; }
 
 /* ── DIVISION BACKGROUND PANELS ── */
 #super-commercial, #super-rd, #super-ops, #super-hr, #super-fin {
@@ -514,7 +517,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 <div class="chart-root" id="chart-root">
 
   <!-- ── CEO ── -->
-  <div style="display:flex;flex-direction:column;align-items:center;">
+  <div id="levon-wrap" style="display:flex;flex-direction:column;align-items:center;">
     <div class="card c-ceo" data-slack="levon">
       <div class="card-inner">
         <div class="card-name">Levon Sarkissian</div>
@@ -2292,8 +2295,35 @@ function updateHBarRd() {
   bar.style.width = Math.max(0, lL - fL) + 'px';
 }
 
+// Center Levon over the Paul/Scott C-suite pair and draw a short connecting bar between them,
+// instead of the full-width bar spanning their (very differently sized) subtrees.
+// Uses offsetLeft/offsetWidth (layout geometry), so it's unaffected by the pan/zoom transform.
+function positionCSuite() {
+  const paulStem  = document.querySelector('#paul-super > .branch-stem');
+  const scottStem = document.querySelector('#scott-super > .branch-stem');
+  const branches  = document.getElementById('levon-branches');
+  const bar       = document.getElementById('levon-hbar');
+  const wrap      = document.getElementById('levon-wrap');
+  if (!paulStem || !scottStem || !branches || !bar || !wrap) return;
+
+  // Centers of the two stems, in levon-branches' local coordinate space
+  // (branch-stem's offsetParent is levon-branches, since .super-col is unpositioned)
+  const pCenter = paulStem.offsetLeft + paulStem.offsetWidth / 2;
+  const sCenter = scottStem.offsetLeft + scottStem.offsetWidth / 2;
+  bar.style.left  = Math.min(pCenter, sCenter) + 'px';
+  bar.style.width = Math.abs(sCenter - pCenter) + 'px';
+
+  // Re-center Levon's wrapper over the midpoint of the two stems.
+  // levon-wrap and levon-branches are sibling children of .chart-root (unpositioned),
+  // so they share the same offsetParent — convert both into that shared space.
+  wrap.style.transform = '';
+  const mid = (pCenter + sCenter) / 2;
+  const wrapCenter = wrap.offsetLeft + wrap.offsetWidth / 2;
+  wrap.style.transform = `translateX(${(mid + branches.offsetLeft) - wrapCenter}px)`;
+}
+
     function updateHBarLevon() {
-    updateHBar(document.getElementById('levon-branches'), document.getElementById('levon-hbar'));
+    positionCSuite();
     updateHBar(document.getElementById('nancy-reports'),  document.getElementById('h-bar-nancy'));
   }
 function updateHBarOps() {
@@ -3218,15 +3248,19 @@ window.addEventListener('load', () => {
     const w = document.getElementById('zoom-wrapper');
     const c = document.getElementById('chart');
     const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
-    // Start at 25% zoom positioned to show Scott's C-suite card alongside Operations
+    // Start at 25% zoom centered on the Levon / Paul / Scott C-suite cluster.
+    // Use offsetLeft/offsetWidth (layout geometry) so this is correct regardless
+    // of any transform already applied to #zoom-wrapper.
     scale = 0.25;
-    const scottSuperEl = document.getElementById('scott-super');
-    if (scottSuperEl) {
-      const cRect = c.getBoundingClientRect();
-      const sRect = scottSuperEl.getBoundingClientRect();
-      const scottChartX = sRect.left - cRect.left; // chart-space x of Scott column
-      // Place Scott's card at 65% from left so Operations is visible to the left
-      panX = c.clientWidth * 0.65 - scottChartX * scale;
+    const branches  = document.getElementById('levon-branches');
+    const paulCard  = document.querySelector('#paul-super > .card');
+    const scottCard = document.querySelector('#scott-super > .card');
+    if (branches && paulCard && scottCard) {
+      const pLocal = branches.offsetLeft + paulCard.offsetLeft + paulCard.offsetWidth / 2;
+      const sLocal = branches.offsetLeft + scottCard.offsetLeft + scottCard.offsetWidth / 2;
+      const midChartX = (pLocal + sLocal) / 2;
+      // Place the C-suite cluster at 60% from left so the wide Paul org is visible to the left
+      panX = c.clientWidth * 0.6 - midChartX * scale;
     } else {
       panX = (c.clientWidth - w.offsetWidth * scale) / 2;
     }
