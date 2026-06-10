@@ -527,7 +527,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         </a>
       </div>
     </div>
-    <div class="connector-v" style="height:20px;"></div>
+    <div class="connector-v" style="height:20px;width:8px;"></div>
   </div>
 
   <!-- ── LEVON BRANCHES: Commercial | Paul | Scott ── -->
@@ -3214,19 +3214,19 @@ window.addEventListener('load', () => {
     // Finance is under Scott — hide the floating section title
     const finTitle = document.getElementById('section-title-fin');
     if (finTitle) finTitle.style.display = 'none';
-    // Then apply initial view: fit chart WIDTH so Paul & Scott tier is visible across full width
+    // Then apply initial view: center on Levon's C-suite row (Paul + Scott)
     const w = document.getElementById('zoom-wrapper');
     const c = document.getElementById('chart');
-    const widthFit = (c.clientWidth / w.offsetWidth) * 0.88;
-    // Start at 25% zoom positioned to show Scott's C-suite card alongside Operations
+    // Start at 25% zoom, centered on the Levon h-bar span (Paul's card <-> Scott's card)
+    // so Paul and Scott both appear as peers directly under Levon, regardless of how
+    // much wider Paul's subtree is than Scott's.
     scale = 0.25;
-    const scottSuperEl = document.getElementById('scott-super');
-    if (scottSuperEl) {
+    const levonHbarEl = document.getElementById('levon-hbar');
+    if (levonHbarEl) {
       const cRect = c.getBoundingClientRect();
-      const sRect = scottSuperEl.getBoundingClientRect();
-      const scottChartX = sRect.left - cRect.left; // chart-space x of Scott column
-      // Place Scott's card at 65% from left so Operations is visible to the left
-      panX = c.clientWidth * 0.65 - scottChartX * scale;
+      const hRect = levonHbarEl.getBoundingClientRect();
+      const hbarCenterX = (hRect.left + hRect.right) / 2 - cRect.left; // chart-space center, scale=1
+      panX = c.clientWidth / 2 - hbarCenterX * scale;
     } else {
       panX = (c.clientWidth - w.offsetWidth * scale) / 2;
     }
