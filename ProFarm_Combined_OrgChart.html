@@ -3203,7 +3203,138 @@ function updateHeadcounts() {
   if (allBadge) allBadge.textContent = document.querySelectorAll('.card').length;
 }
 
+// ── PROFILE PHOTOS ────────────────────────────────────────────────────────
+const PHOTO_DIR = 'Rippling%20profile%20pics/';
+const PHOTOS = {
+  'Levon Sarkissian': 'Levon_Sarkissian.png',
+  'Paul Tansey': 'Paul_Tansey.png',
+  'Ruben Ramos': 'RUBEN_E_RAMOS.png',
+  'Keith Pitts': 'Keith_Pitts.png',
+  'Tim Knight': 'Tim_Knight.png',
+  'Wyly Brown': 'WYLY_BROWN_III.png',
+  'Taylor Hoover': 'TAYLOR_HOOVER.png',
+  'John Driver': 'John_Driver.png',
+  'Brad Paschen': 'Brad_Paschen.png',
+  'Jake Wiley': 'Jake_Wiley.png',
+  'David Youngquist': 'David_Youngquist.png',
+  'Jon Collison': 'Jon_Collison.png',
+  'John Torbert': 'JOHN_TORBERT.png',
+  'Jon Bender': 'Jon_Bender.png',
+  'Nevada Smith': 'NEVADA_SMITH.png',
+  'Nancy Nomellini': 'Nancy_Nomellini.png',
+  'Caleb Winne': 'CALEB_WINNE.png',
+  'Seth Little': 'Seth_Little.png',
+  "Melissa O'Neal": "Melissa_O'Neal.png",
+  'Robert Blundell': 'Rob_BLUNDELL.png',
+  'Amanda Koppel': 'AMANDA_KOPPEL.png',
+  'Andre Trepanier': 'André_Trepanier.png',
+  'Cole Pearson': 'Cole_Pearson.png',
+  'Anna Chernyavskiy': 'Anna_Chernyavskiy.png',
+  'Liz Henry': 'Liz_Henry.png',
+  'Dale Hill': 'DALE_HILL.png',
+  'Rachel Schieberl': 'Rachel_Schieberl.png',
+  'Gabriela Sinclair': 'GABRIELA_SINCLAIR.png',
+  'Ratnakar Asolkar': 'RATNAKAR_ASOLKAR.png',
+  'Makela Norwood': 'MAKELA_NORWOOD.png',
+  'Vanessa Ngo': 'VANESSA_NGO.png',
+  'Bob Christensen': 'Bob_Christensen.png',
+  'Kevin Erpelding': 'Kevin_Erpelding.png',
+  'Jacob Blodgett': 'JACOB_BLODGETT.png',
+  'Brian Campbell': 'BRIAN_CAMPBELL.png',
+  'Maggie Rodriguez': 'MAGGIE_Rodriguez.png',
+  'Conor Mylroie': 'CONOR_MYLROIE.png',
+  'Eva Beyen': 'EVA_BEYEN.png',
+  'Krista Coleman': 'KRISTA_COLEMAN.png',
+  'Lorena Williams Berry': 'Lorena_WILLIAMS_BERRY.png',
+  'Lacey Gimple': 'Lacey_Gimple.png',
+  'Nicholas Rico': 'Nicholas_Rico.png',
+  'Tamara Nicholson': 'Tamara_Nicholson.png',
+  'Nathan Baker': 'NATHAN_BAKER.png',
+  'Daisie Chiuu': 'DAISIE_CHIUU.png',
+  'Stellar Hope': 'STELLAR_HOPE.png',
+  'Tiffany Darling': 'TIFFANY_DARLING.png',
+  'Amanjit Baath': 'Amanjit_Baath.png',
+  'Symphony Yang': 'SYMPHONY_YANG.png',
+  'Abigail Kizner': 'ABIGAIL_KIZNER.png',
+  'Breanna Colonese-DiBello': 'Breanna_Colonese-DiBello.png',
+  'Evan Morris': 'Evan_Morris.png',
+  'Madeline Hart': 'Madeline_Hart.png',
+  'Rafael Mejia Jr.': 'RAFAEL_MEJIA_JR.png',
+  'Haley Fulton': 'Haley_Fulton.png',
+  'Naiki Singh': 'NAIKI_SINGH.png',
+  'Luis Leiva Conklin': 'Luis_Leiva_Conklin.png',
+  'Kevin Griffin': 'Kevin_Griffin.png',
+  'Mercedes Flores': 'MERCEDES_FLORES.png',
+  'Anthony Brever': 'Anthony_Brever.png',
+  'Adriana Magana': 'ADRIANA_MAGANA.png',
+  'Monica Craig': 'Monica_Craig.png',
+  'Shelley Stroh': 'Shelley_Stroh.png',
+  'Carol Steagall-Lakey': 'CAROL_STEAGALL-LAKEY.png',
+  'Sabra Depaulo': 'SABRA_DEPAULO.png',
+  'Lou Beltran': 'Lou_Beltran.png',
+  'Douglas Deland': 'DOUGLAS_DELAND.png',
+  'Michelle Leonard': 'MICHELLE_LEONARD.png',
+  'Marbella Chavez': 'Marbella_Chavez.png',
+  'Dominik Ausland': 'Dominik_Ausland.png',
+  'Rob Wagner': 'Rob_Wagner.png',
+  'Christopher Cronen': 'Christopher_Cronen.png',
+  'John Starbuck': 'John_Starbuck.png',
+  'David Covey': 'DAVID_COVEY.png',
+  'Peter Meaney': 'Peter_Meaney.png',
+  'Sherry Emmons': 'Sherry_Emmons.png',
+  'Katie Morris': 'Katie_Morris.png',
+  'Wade Bartholomew': 'WADE_BARTHOLOMEW.png',
+  'Andy Manning': 'Andy_MANNING.png',
+  'Brittany Latsch': 'Brittany_Latsch.png',
+  'Joshua Darling': 'Joshua_Darling.png',
+  'Jack Babcock': 'Jack_Babcock.png',
+  'Jeremy Sierra': 'Jeremy_SIERRA.png',
+  'Michael Santolini': 'Michael_Santolini.png',
+  'Aveonna Bobbitt': 'Aveonna_Bobbitt.png',
+  'Marina Moore': 'Marina_Moore.png',
+  'Scott Nirenberski': 'Scott_Nirenberski.png',
+  'Nancy Hines': 'Nancy_Hines.png',
+  'Andrew Zetterberg': 'Andrew_Zetterberg.png',
+  'Danielle Domasky': 'Danielle_Domasky.png',
+  'Eleanor Nears': 'ELEANOR_NEARS.png',
+  'Paola Ramirez': 'Paola_Ramirez.png',
+  'Shelley-Ann Joseph': 'Shelley-ann_Joseph.png',
+  'Minh Duong': 'MINH_DUONG.png'
+};
+
+function addAvatars() {
+  document.querySelectorAll('.card-inner').forEach(inner => {
+    const nameEl = inner.querySelector('.card-name');
+    const titleEl = inner.querySelector('.card-title');
+    if (!nameEl || nameEl.closest('.card-header')) return;
+    const name = nameEl.textContent.trim();
+    const header = document.createElement('div');
+    header.className = 'card-header';
+    const avatar = document.createElement('div');
+    avatar.className = 'avatar';
+    const photo = PHOTOS[name];
+    if (photo) {
+      const img = document.createElement('img');
+      img.src = PHOTO_DIR + encodeURIComponent(photo);
+      img.alt = name;
+      img.loading = 'lazy';
+      img.onerror = () => { avatar.innerHTML = ''; avatar.textContent = getInitials(name); };
+      avatar.appendChild(img);
+    } else {
+      avatar.textContent = getInitials(name);
+    }
+    const wrap = document.createElement('div');
+    wrap.className = 'card-name-wrap';
+    header.appendChild(avatar);
+    header.appendChild(wrap);
+    inner.insertBefore(header, nameEl);
+    wrap.appendChild(nameEl);
+    if (titleEl) wrap.appendChild(titleEl);
+  });
+}
+
 window.addEventListener('load', () => {
+  addAvatars();
   updateSpines();
   updateAllHBars();
   updateHeadcounts();
