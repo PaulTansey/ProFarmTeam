@@ -514,7 +514,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 <div class="chart-root" id="chart-root">
 
   <!-- ── CEO ── -->
-  <div style="display:flex;flex-direction:column;align-items:center;">
+  <div id="levon-wrap" style="display:flex;flex-direction:column;align-items:center;">
     <div class="card c-ceo" data-slack="levon">
       <div class="card-inner">
         <div class="card-name">Levon Sarkissian</div>
@@ -550,7 +550,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         </a>
       </div>
     </div>
-      <div class="connector-v" style="height:20px;"></div>
+      <div class="connector-v" style="height:60px;"></div>
       <!-- paul-branches: R&D + Ops + HR -->
       <div id="paul-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
         <div id="paul-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
@@ -2041,9 +2041,8 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
     </div><!-- /paul-super (2) -->
 <div class="super-col" id="scott-super">
       <div class="branch-stem"></div>
-      <div class="card c-fin" data-slack="scott.n">
+      <div class="card c-cfo" data-slack="scott.n">
               <div class="card-inner">
-                <div class="dept-badge">Finance</div>
                 <div class="card-name">Scott Nirenberski</div>
                 <div class="card-title">Chief Financial Officer</div>
                 <div class="card-meta">
@@ -3299,7 +3298,8 @@ const PHOTOS = {
   'Eleanor Nears': 'ELEANOR_NEARS.png',
   'Paola Ramirez': 'Paola_Ramirez.png',
   'Shelley-Ann Joseph': 'Shelley-ann_Joseph.png',
-  'Minh Duong': 'MINH_DUONG.png'
+  'Minh Duong': 'MINH_DUONG.png',
+  'J.R. Abele': 'J.R._Abele.jpg'
 };
 
 function addAvatars() {
@@ -3342,9 +3342,6 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     // raiseSectionTitles MUST run at scale=1 so getBoundingClientRect → element-space coords match
     raiseSectionTitles();
-    // Finance is under Scott — hide the floating section title
-    const finTitle = document.getElementById('section-title-fin');
-    if (finTitle) finTitle.style.display = 'none';
     // Then apply initial view: center on Levon's C-suite row (Paul + Scott)
     const w = document.getElementById('zoom-wrapper');
     const c = document.getElementById('chart');
@@ -3367,14 +3364,32 @@ window.addEventListener('load', () => {
   }, 200);
 });
 
-// ── RAISE SECTION TITLES TO LEVON LEVEL ──────────────────────────────────
+// ── SECTION TITLES + C-SUITE ROW ──
+// Titles stay raised at Levon's original level (as before). Levon, Paul and
+// Scott's row is then raised further so it sits ABOVE that title row.
 function raiseSectionTitles() {
   const levon = document.querySelector('[data-slack="levon"]');
-  if (!levon) return;
+  const paul = document.querySelector('[data-slack="ptansey"]');
+  const levonWrap = document.getElementById('levon-wrap');
+  const levonBranches = document.getElementById('levon-branches');
+  if (!levon || !paul || !levonWrap || !levonBranches) return;
+
+  // Reset any prior transforms before measuring
+  levonWrap.style.transform = '';
+  levonBranches.style.transform = '';
+
   const levonRect = levon.getBoundingClientRect();
+  const paulRect = paul.getBoundingClientRect();
   const levonMidY = levonRect.top + levonRect.height / 2;
 
-  // Finance title is NOT raised — Finance is under Scott (Levon>Scott>Finance)
+  // How far to raise Levon/Paul/Scott so Paul & Scott (currently a row below
+  // Levon) end up above the title row, which stays at Levon's old level.
+  const R = (paulRect.top - levonRect.top) + 40;
+
+  // Finance title stays hidden — Finance is under Scott (Levon>Scott>Finance)
+  const finTitle = document.getElementById('section-title-fin');
+  if (finTitle) finTitle.style.display = 'none';
+
   ['section-title-commercial', 'section-title-rd', 'section-title-ops'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -3382,14 +3397,20 @@ function raiseSectionTitles() {
     const elRect = el.getBoundingClientRect();
     const elMidY = elRect.top + elRect.height / 2;
     const delta = levonMidY - elMidY;
-    el.style.transform = `translateY(${delta}px)`;
+    // delta alone would put the title at Levon's old level; add R back so
+    // it lands there even after the ancestor shift below moves it up by R.
+    el.style.transform = `translateY(${delta + R}px)`;
     el.style.position = 'relative';
     el.style.zIndex = '20';
     el.style.pointerEvents = 'none';
     el.style.height = '0';
     el.style.overflow = 'visible';
-    el.style.marginBottom = '0';
+    el.style.marginBottom = '100px';
   });
+
+  // Raise Levon + the Paul/Scott row above the (now-floating) title row
+  levonWrap.style.transform = `translateY(${-R}px)`;
+  levonBranches.style.transform = `translateY(${-R}px)`;
 }
 
 </script>
