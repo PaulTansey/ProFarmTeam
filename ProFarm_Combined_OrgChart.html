@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProFarm – Org Chart</title>
+<title>ProFarm Team Structure</title>
 <style>
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,14 +57,14 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 .bottom-bar {
   position: fixed; bottom: 24px; left: 28px;
   display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 200;
-  background: rgba(255,255,255,0.96); border-radius: 20px; padding: 10px 18px;
+  background: #ffffff; border-radius: 20px; padding: 10px 18px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.18); border: 1px solid #e0e0e0;
 }
 .nav-btns {
   display: flex; flex-direction: row; gap: 5px; align-items: center; flex-wrap: nowrap;
 }
 .nav-btn {
-  background: rgba(255,255,255,0.93); border: 1px solid #d0d0d0; border-radius: 20px;
+  background: #ffffff; border: 1px solid #d0d0d0; border-radius: 20px;
   padding: 4px 10px; font-size: 10.5px; font-weight: 600; color: #333;
   cursor: pointer; white-space: nowrap; transition: background 0.15s, border-color 0.15s;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -75,14 +75,14 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 .zoom-panel {
   position: fixed; bottom: 24px; right: 28px; z-index: 300;
   display: flex; flex-direction: column; align-items: center; gap: 8px;
-  background: rgba(255,255,255,0.96); border-radius: 20px; padding: 10px 18px;
+  background: #ffffff; border-radius: 20px; padding: 10px 18px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.18); border: 1px solid #e0e0e0;
 }
 .zoom-controls {
   display: flex; flex-direction: row; gap: 5px; align-items: center;
 }
 .zoom-btn {
-  background: rgba(255,255,255,0.93); border: 1px solid #d0d0d0; border-radius: 20px;
+  background: #ffffff; border: 1px solid #d0d0d0; border-radius: 20px;
   padding: 4px 12px; font-size: 13px; font-weight: 700; color: #333;
   cursor: pointer; white-space: nowrap; transition: background 0.15s, border-color 0.15s;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1); line-height: 1.4;
@@ -111,7 +111,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
   width: 58px; height: 26px;
   border: 1px solid #d0d0d0; border-radius: 20px;
   text-align: center; font-size: 11px; font-family: monospace; font-weight: 600;
-  color: #333; background: rgba(255,255,255,0.93);
+  color: #333; background: #ffffff;
   padding: 0 18px 0 6px; cursor: text; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .zoom-pct-input:focus { outline: 2px solid #4a90e2; border-color: transparent; }
@@ -497,6 +497,7 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 <header>
   <div class="logo-area">
     <div class="logo">Pro<span>Farm</span></div>
+    <h1>Team Structure</h1>
     <span id="last-updated">Updated June 7, 2026</span>
   </div>
   <div class="header-controls">
@@ -561,33 +562,12 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
           <div class="branch-stem"></div>
           <div class="commercial-label" id="lbl-commercial" style="cursor:pointer;user-select:none;">
             Commercial (22) <span id="commercial-arrow" style="display:inline-block;font-size:11px;transition:transform 0.2s;margin-left:4px;">▾</span>
-            <div class="commercial-sub">5 Divisions</div>
           </div>
           <div id="branches-outer" style="display:flex;flex-direction:column;align-items:center;width:100%;">
             <div class="connector-v" style="height:20px;"></div>
             <div class="branch-row" id="branch-row">
               <div id="h-bar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
-    <!-- ── LATAM & EMEA ── -->
-          <div class="branch single" id="branch-latam">
-            <div class="branch-stem"></div>
-            <div class="card c-latam" data-slack="ruben">
-              <div class="card-inner">
-                <span class="dept-badge badge-latam">LATAM &amp; EMEA</span>
-                <div class="card-name">Ruben Ramos</div>
-                <div class="card-title">International Portfolio &amp; Technical Manager, LATAM, EMEA &amp; ROW</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Orlando, FL</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 9/12/2016</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@ruben" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08555SQ620','https://profarm-team.slack.com/messages/@ruben'); return false;">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>
-                  Message
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── INDUSTRY AFFAIRS ── -->
+    <!-- ── INDUSTRY AFFAIRS ── -->
           <div class="branch single" id="branch-industry">
             <div class="branch-stem"></div>
             <div class="card c-ind" data-slack="keith">
@@ -945,9 +925,21 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
                 <a class="slack-btn" href="https://profarm-team.slack.com/messages/@andre" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07JZS4HT7A','https://profarm-team.slack.com/messages/@andre'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
               </div>
             </div>
+            <div class="connector-v" style="height:14px;"></div><div class="branch-stem"></div><div class="card c-latam" data-slack="ruben">
+                  <div class="card-inner">
+                    <span class="dept-badge badge-latam">LATAM &amp; EMEA</span>
+                    <div class="card-name">Ruben Ramos</div>
+                    <div class="card-title">International Portfolio &amp; Technical Manager, LATAM, EMEA &amp; ROW</div>
+                    <div class="card-meta">
+                      <div class="card-detail"><span class="icon">📍</span><span class="val">Orlando, FL</span></div>
+                      <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 9/12/2016</span></div>
+                    </div>
+                    <a class="slack-btn" href="https://profarm-team.slack.com/messages/@ruben" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08555SQ620','https://profarm-team.slack.com/messages/@ruben'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+                  </div>
+                </div>
           </div>
 
-    
+
             </div><!-- /branch-row -->
           </div><!-- /branches-outer -->
         </div><!-- /super-commercial -->
@@ -957,7 +949,6 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
       <div class="rd-label" id="lbl-rd">
         rD&amp;D + Regulatory (19)
         <span id="rd-arrow" style="display:inline-block;font-size:11px;transition:transform 0.2s;margin-left:4px;">▾</span>
-        <div class="rd-sub">5 Divisions</div>
       </div>
       <div id="branches-outer-rd" style="display:flex;flex-direction:column;align-items:center;width:100%;">
         <div class="connector-v" style="height:20px;"></div>
@@ -2929,7 +2920,7 @@ const REPORTING_TO = {
   'scott.n':      'levon',
 
   // Paul direct reports (commercial branches + ops + p&c)
-  'ruben':        'ptansey',
+  'ruben':        'andre',
   'keith':        'ptansey',
   'denis':        'ptansey',
   'tim':          'ptansey',
