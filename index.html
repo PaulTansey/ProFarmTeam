@@ -3175,7 +3175,14 @@ function updateHeadcounts() {
     const m = (btn.getAttribute('onclick') || '').match(/jumpTo\('([^']+)'\)/);
     if (!m) return;
     const sec = document.getElementById(m[1]);
-    if (sec) badge.textContent = sec.querySelectorAll('.card').length;
+    if (!sec) return;
+    let n = sec.querySelectorAll('.card').length;
+    // "R&D" badge should exclude Regulatory's cards, which have their own badge
+    if (m[1] === 'super-rd') {
+      const reg = document.getElementById('col-reg');
+      if (reg) n -= reg.querySelectorAll('.card').length;
+    }
+    badge.textContent = n;
   });
   // big section-header counts: "Label (N)"
   const labelCounts = {
