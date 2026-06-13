@@ -524,12 +524,12 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 
   <!-- ── LEVON BRANCHES: Paul | Levon (+Commercial) | Scott ── -->
   <div id="levon-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
-    <div id="levon-hbar" style="position:absolute;top:0;height:6px;background:#1a1a1a;width:0;pointer-events:none;"></div>
+    <div id="paul-levon-bar" style="position:absolute;height:6px;background:#1a1a1a;width:0;pointer-events:none;"></div>
+    <div id="levon-scott-bar" style="position:absolute;height:6px;background:#1a1a1a;width:0;pointer-events:none;"></div>
 
 
     <!-- PAUL column -->
     <div class="super-col" id="paul-super">
-      <div class="branch-stem"></div>
       <div class="card c-gm" data-slack="ptansey">
       <div class="card-inner">
         <div class="card-name">Paul Tansey</div>
@@ -1572,9 +1572,11 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 
     <!-- SUPPORT wrapper: P&C + EU/EMEA -->
     <div id="support-wrapper" style="display:flex;flex-direction:column;align-items:center;">
-      <div style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;">
+      <div class="branch-stem"></div>
+      <div id="support-row" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
+        <div id="support-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
     <div id="super-hr" class="super-col">
-      <div class="connector-v" style="height:20px;"></div>
+      <div class="branch-stem"></div>
       <div class="hr-label" id="lbl-hr">
         <button class="toggle-btn" id="btn-hr">▲</button>
         People &amp; Culture
@@ -1609,7 +1611,6 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
       
     <div class="super-col" id="super-eu">
       <div class="branch-stem"></div>
-      <div class="connector-v" style="height:20px;"></div>
       <div class="eu-label" id="lbl-eu">
         <button class="toggle-btn" id="btn-eu">&#9650;</button>
         EU / EMEA
@@ -1630,13 +1631,12 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
             </div></div>
       </div>
     </div>
-    </div><!-- /paul-branches -->
-    </div><!-- /paul-branches -->
+    </div><!-- /support-row -->
+    </div><!-- /support-wrapper -->
     </div><!-- /paul-super -->
     </div><!-- /paul-super (2) -->
     <!-- LEVON column (middle) -->
     <div class="super-col" id="levon-super">
-      <div class="branch-stem"></div>
     <div class="card c-ceo" data-slack="levon">
       <div class="card-inner">
         <div class="card-name">Levon Sarkissian</div>
@@ -2038,7 +2038,6 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
         </div><!-- /super-commercial -->
     </div><!-- /levon-super -->
 <div class="super-col" id="scott-super">
-      <div class="branch-stem"></div>
       <div class="card c-cfo" data-slack="scott.n">
               <div class="card-inner">
                 <div class="card-name">Scott Nirenberski</div>
@@ -2297,8 +2296,30 @@ function updateHBarRd() {
 }
 
     function updateHBarLevon() {
-    updateHBar(document.getElementById('levon-branches'), document.getElementById('levon-hbar'));
+    updateLevonConnectors();
     updateHBar(document.getElementById('nancy-reports'),  document.getElementById('h-bar-nancy'));
+  }
+
+  // Paul/Scott connect to the vertical middle of Levon's card (not its top).
+  // Each connector spans only the gap between the adjacent cards, positioned
+  // at Levon's card's mid-height, so it doesn't overlap any card.
+  function updateLevonConnectors() {
+    const paulCard  = document.querySelector('[data-slack="ptansey"]');
+    const levonCard = document.querySelector('[data-slack="levon"]');
+    const scottCard = document.querySelector('[data-slack="scott.n"]');
+    const leftBar  = document.getElementById('paul-levon-bar');
+    const rightBar = document.getElementById('levon-scott-bar');
+    if (!paulCard || !levonCard || !scottCard || !leftBar || !rightBar) return;
+
+    const midY = levonCard.offsetTop + levonCard.offsetHeight / 2 - 3; // -3 centers the 6px bar
+
+    leftBar.style.top   = midY + 'px';
+    leftBar.style.left  = (paulCard.offsetLeft + paulCard.offsetWidth) + 'px';
+    leftBar.style.width = Math.max(0, levonCard.offsetLeft - (paulCard.offsetLeft + paulCard.offsetWidth)) + 'px';
+
+    rightBar.style.top   = midY + 'px';
+    rightBar.style.left  = (levonCard.offsetLeft + levonCard.offsetWidth) + 'px';
+    rightBar.style.width = Math.max(0, scottCard.offsetLeft - (levonCard.offsetLeft + levonCard.offsetWidth)) + 'px';
   }
 function updateHBarOps() {
     updateHBar(document.getElementById('ops-branches'),   document.getElementById('h-bar-ops'));
@@ -2314,6 +2335,7 @@ function updateHBarOps() {
   updateHBar(document.getElementById('tim-sub-row'),   document.getElementById('tim-hbar'));
   updateHBar(document.getElementById('nevada-sub-row'),document.getElementById('nevada-hbar'));
   updateHBar(document.getElementById('paul-branches'), document.getElementById('paul-hbar'));
+  updateHBar(document.getElementById('support-row'), document.getElementById('support-hbar'));
   updateHBarRd();
   updateHBarOps();
   updateHBarLevon();
