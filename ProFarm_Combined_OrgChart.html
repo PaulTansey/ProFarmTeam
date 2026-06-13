@@ -90,6 +90,22 @@ header h1 { font-size: 15px; font-weight: 500; color: #64748b; }
 .zoom-btn:hover { background: #e8eeff; border-color: #aaa; }
 .zoom-btn:active { background: #d0d8ff; }
 
+/* ── MOBILE / NARROW SCREENS ── */
+@media (max-width: 768px) {
+  header { padding: 10px 14px; gap: 10px; }
+  .header-controls { gap: 6px; }
+  #search {
+    width: 38vw; min-width: 90px; max-width: 240px;
+    padding: 7px 10px; font-size: 12px;
+  }
+  .bottom-bar {
+    left: 10px; right: 10px; max-width: none;
+    padding: 8px 10px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .nav-btns { flex-wrap: nowrap; }
+  .zoom-panel { right: 10px; bottom: 10px; padding: 6px 10px; }
+}
+
 /* EU / EMEA team */
 .c-eu  { border-top: 4px solid #00695c; }
 .eu-label { background: #00695c; color: #fff; border-radius: 8px; padding: 14px 28px;
@@ -2876,6 +2892,66 @@ chart.addEventListener('wheel', e => {
   panX = mx - cx * scale; panY = my - cy * scale;
   applyTransform(); updateZoomLabel();
 }, { passive: false });
+
+// ── TOUCH PAN / PINCH-ZOOM (mobile & tablet) ───────────────────────────────
+let touchMode = null;       // 'pan' | 'pinch'
+let touchStartPanX, touchStartPanY, touchStartX, touchStartY;
+let pinchStartDist, pinchStartScale, pinchStartPanX, pinchStartPanY, pinchMidX, pinchMidY;
+
+function touchDist(t0, t1) {
+  return Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY);
+}
+function touchMid(t0, t1, rect) {
+  return {
+    x: (t0.clientX + t1.clientX) / 2 - rect.left,
+    y: (t0.clientY + t1.clientY) / 2 - rect.top
+  };
+}
+
+chart.addEventListener('touchstart', e => {
+  if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.card-goto-toggle')) return;
+  if (e.touches.length === 1) {
+    touchMode = 'pan';
+    touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
+    touchStartPanX = panX; touchStartPanY = panY;
+  } else if (e.touches.length === 2) {
+    e.preventDefault();
+    touchMode = 'pinch';
+    const rect = chart.getBoundingClientRect();
+    pinchStartDist = touchDist(e.touches[0], e.touches[1]);
+    pinchStartScale = scale;
+    pinchStartPanX = panX; pinchStartPanY = panY;
+    const mid = touchMid(e.touches[0], e.touches[1], rect);
+    pinchMidX = mid.x; pinchMidY = mid.y;
+  }
+}, { passive: false });
+
+chart.addEventListener('touchmove', e => {
+  if (touchMode === 'pan' && e.touches.length === 1) {
+    e.preventDefault();
+    panX = touchStartPanX + (e.touches[0].clientX - touchStartX);
+    panY = touchStartPanY + (e.touches[0].clientY - touchStartY);
+    applyTransform();
+  } else if (touchMode === 'pinch' && e.touches.length === 2) {
+    e.preventDefault();
+    const dist = touchDist(e.touches[0], e.touches[1]);
+    const cx = (pinchMidX - pinchStartPanX) / pinchStartScale;
+    const cy = (pinchMidY - pinchStartPanY) / pinchStartScale;
+    scale = Math.min(2, Math.max(0.15, pinchStartScale * (dist / pinchStartDist)));
+    panX = pinchMidX - cx * scale; panY = pinchMidY - cy * scale;
+    applyTransform(); updateZoomLabel();
+  }
+}, { passive: false });
+
+chart.addEventListener('touchend', e => {
+  if (e.touches.length === 0) touchMode = null;
+  else if (e.touches.length === 1) {
+    // transitioned from pinch back to single-finger pan
+    touchMode = 'pan';
+    touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
+    touchStartPanX = panX; touchStartPanY = panY;
+  }
+});
 
 // ── INIT ──────────────────────────────────────────────────────────────────
 
