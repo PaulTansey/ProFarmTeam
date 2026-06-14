@@ -514,7 +514,10 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 
   /* last updated stamp in header */
   .logo-area { display: flex; align-items: baseline; gap: 10px; }
-  #last-updated { font-size: 11px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+  #last-updated {
+    font-size: 11px; color: rgba(255,255,255,0.65); white-space: nowrap;
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  }
 </style>
 </head>
 <body>
@@ -529,8 +532,8 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 <header>
   <div class="logo-area">
     <img class="logo-icon" src="Rippling%20profile%20pics/profarmgroup_logo_wordmark.png" alt="ProFarm">
-    <span id="last-updated">Updated June 7, 2026</span>
   </div>
+  <span id="last-updated">Updated June 7, 2026</span>
   <div class="header-controls">
     <input type="text" id="search" placeholder="Search people, or ask: who do I go to for…?" autocomplete="off">
 
