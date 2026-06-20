@@ -2794,9 +2794,30 @@ async function aiQuery(query) {
   return (await resp.json()).content[0].text;
 }
 
+const SEARCH_ALIASES = {
+  'ceo': 'chief executive officer',
+  'cfo': 'chief financial officer',
+  'cto': 'chief technology officer',
+  'vp':  'vice president',
+  'gm':  'general manager',
+  'hr':  'human resources',
+  'qc':  'quality control',
+  'qa':  'quality assurance',
+  'r&d': 'research',
+  'sc':  'supply chain',
+  'ap':  'accounts payable',
+  'ar':  'accounts receivable',
+  'p&c': 'people culture',
+};
+function expandQuery(q) {
+  const lq = q.toLowerCase().trim();
+  return SEARCH_ALIASES[lq] || q;
+}
+
 let searchDebounce = null;
-async function runSearch(q) {
-  if (!q) { closeResults(); return; }
+async function runSearch(rawQ) {
+  if (!rawQ) { closeResults(); return; }
+  const q = expandQuery(rawQ);
   if (isQuestion(q)) {
     const smart = smartSearch(q);
     if (smart.length) showResults(smart, { label: 'Smart', cls: 'smart' }, null);
