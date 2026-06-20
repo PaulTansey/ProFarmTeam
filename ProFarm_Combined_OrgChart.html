@@ -2581,6 +2581,7 @@ const GOTO_TEXT = {
   'jon.collison': 'Territory sales management and his assigned territory questions.',
   'john.torbert': 'Territory sales management and Southeast region questions.',
   'jon.bender':  'Territory sales management and Carolinas region questions.',
+  'wendy':       'As our outside counsel, we want to make sure we properly value her time. If you need something legally reviewed and have not historically been in contact with Wendy, please feel free to reach out to Paul and Levon first and we will get you all set up.',
   'nancy.n': 'Marketing communications, content, and campaign questions.',
   'caleb':   'Marketing support, digital and field marketing questions.',
   'jr':      'Field development, technical product demonstrations, and agronomic field support.',
@@ -2663,14 +2664,18 @@ const GOTO_TEXT = {
   'jack':      'Shift operator work and production questions.',
   'jeremy':    'Operator responsibilities and production line support.',
 };
+const GOTO_LABEL = {
+  'wendy': 'When should I reach out to Wendy?',
+};
 (function injectGoto() {
   document.querySelectorAll('.card').forEach(card => {
     const slack = card.dataset.slack || '';
     const text  = GOTO_TEXT[slack];
     if (!text) return;
+    const label = GOTO_LABEL[slack] || 'What do I go to them for?';
     const section = document.createElement('div');
     section.className = 'card-goto';
-    section.innerHTML = '<div class="card-goto-toggle"><span class="card-goto-label">What do I go to them for?</span><span class="card-goto-arrow">▾</span></div><div class="card-goto-body">' + text + '</div>';
+    section.innerHTML = '<div class="card-goto-toggle"><span class="card-goto-label">' + label + '</span><span class="card-goto-arrow">▾</span></div><div class="card-goto-body">' + text + '</div>';
     card.appendChild(section);
     section.querySelector('.card-goto-toggle').addEventListener('click', function(e) {
       e.stopPropagation(); section.classList.toggle('open');
