@@ -362,7 +362,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 #search:focus { border-color: #93c5fd; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
 
 /* ── AI RESULTS PANEL ── */
-.ai-results-panel {
+.search-results-panel {
   position: fixed; top: 58px; left: 50%; transform: translateX(-50%);
   width: min(680px, 92vw); z-index: 150;
   background: white; border: 1px solid #e2e8f0; border-radius: 12px;
@@ -370,65 +370,36 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
   padding: 12px 20px 14px; display: flex; flex-direction: column; gap: 10px;
   max-height: 360px; overflow-y: auto;
 }
-.ai-results-header {
+.search-results-header {
   display: flex; align-items: center; justify-content: space-between;
   font-size: 11.5px; font-weight: 600; color: #64748b; letter-spacing: 0.3px;
 }
-.ai-results-close {
+.search-results-close {
   background: none; border: none; cursor: pointer; font-size: 16px;
   color: #94a3b8; padding: 0 4px; line-height: 1;
 }
-.ai-results-close:hover { color: #475569; }
-.ai-result-list { display: flex; flex-direction: column; gap: 8px; }
-.ai-result-item {
+.search-results-close:hover { color: #475569; }
+.search-result-list { display: flex; flex-direction: column; gap: 8px; }
+.search-result-item {
   display: flex; align-items: flex-start; gap: 10px;
   padding: 8px 10px; border-radius: 8px; border: 1px solid #f1f5f9;
   cursor: pointer; transition: background 0.15s, border-color 0.15s;
 }
-.ai-result-item:hover { background: #f8fafc; border-color: #e2e8f0; }
-.ai-result-item.top-match { border-color: #bfdbfe; background: #eff6ff; }
-.ai-result-avatar {
+.search-result-item:hover { background: #f8fafc; border-color: #e2e8f0; }
+.search-result-item.top-match { border-color: #bfdbfe; background: #eff6ff; }
+.search-result-avatar {
   width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   font-size: 12px; font-weight: 700; color: white; background: #64748b;
 }
-.ai-result-info { flex: 1; min-width: 0; }
-.ai-result-name { font-size: 12.5px; font-weight: 700; color: #1e293b; }
-.ai-result-title { font-size: 11px; color: #64748b; margin-top: 1px; }
-.ai-result-why {
+.search-result-info { flex: 1; min-width: 0; }
+.search-result-name { font-size: 12.5px; font-weight: 700; color: #1e293b; }
+.search-result-title { font-size: 11px; color: #64748b; margin-top: 1px; }
+.search-result-why {
   font-size: 11px; color: #475569; margin-top: 4px; line-height: 1.45;
   border-top: 1px solid #f0f0f0; padding-top: 4px;
 }
-.ai-badge {
-  font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 10px;
-  background: #dbeafe; color: #1d4ed8; flex-shrink: 0; margin-top: 2px;
-}
-.ai-badge.smart { background: #f0fdf4; color: #16a34a; }
-.ai-thinking {
-  display: flex; align-items: center; gap: 8px; color: #64748b; font-size: 12px; padding: 6px 0;
-}
-.ai-thinking-dots span {
-  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
-  background: #94a3b8; animation: bounce 1.2s infinite;
-}
-.ai-thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
-.ai-thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes bounce {
-  0%,80%,100% { transform: translateY(0); opacity: 0.4; }
-  40% { transform: translateY(-5px); opacity: 1; }
-}
-.ai-answer-text {
-  font-size: 12px; color: #334155; line-height: 1.55;
-  background: #f8fafc; border-radius: 8px; padding: 10px 12px;
-  border-left: 3px solid #3b82f6;
-}
-/* ── AI settings gear ── */
 .search-wrap { position: relative; display: flex; align-items: center; gap: 6px; }
-.ai-setup-nudge {
-  font-size: 11.5px; color: #475569; line-height: 1.5; padding: 10px 12px;
-  background: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;
-  text-align: center;
-}
 
 
     /* ── Operations badges & cards ── */
@@ -552,14 +523,14 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
   <span id="last-updated">Updated June 20, 2026</span>
   <div class="header-controls">
     <div class="search-wrap">
-      <input type="text" id="search" placeholder="Search people, or ask: who handles…?" autocomplete="off">
+      <input type="text" id="search" placeholder="Search people, titles, or responsibilities…" autocomplete="off">
     </div>
   </div>
 </header>
 
 
 <div id="ai-backdrop" style="display:none;position:fixed;inset:0;z-index:149;" onclick="closeResults()"></div>
-<div id="ai-results-panel" class="ai-results-panel" style="display:none;"></div>
+<div id="search-results-panel" class="search-results-panel" style="display:none;"></div>
 
 <div class="chart-container" id="chart">
 <div id="zoom-wrapper">
@@ -2704,20 +2675,21 @@ function openSlackDM(appUrl, webUrl) {
   window.addEventListener('blur', function() { clearTimeout(timer); }, { once: true });
 }
 
-// ── AI SEARCH ─────────────────────────────────────────────────────────────
-const HARDCODED_API_KEY = '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';
-function getApiKey() { return localStorage.getItem('pfai_key') || HARDCODED_API_KEY; }
+// ── SEARCH ────────────────────────────────────────────────────────────────
 const STOP_WORDS = new Set(['the','and','for','with','that','this','who','what','how','can','you','are','not','but','need','help','about','want','have','when','does','should','would','could','from','our','their','someone','person']);
-const QUESTION_SIGNALS = ['who','which','?','i need','help with','dealing with','question about','looking for','go to for','find someone','what about','handles','responsible','in charge'];
-const AI_COLORS = ['#2e5fa3','#7c6b9e','#2e7d8c','#7a6040','#4a7a56','#7a4060','#3d6b8c','#8c6b3d','#4a6b7a','#6b4a7a'];
-
-function isQuestion(q) { return QUESTION_SIGNALS.some(s => q.toLowerCase().includes(s)); }
-function isNaturalLanguage(q) {
-  const words = q.trim().split(/\s+/);
-  return words.length >= 3 || isQuestion(q);
-}
+const RESULT_COLORS = ['#2e5fa3','#7c6b9e','#2e7d8c','#7a6040','#4a7a56','#7a4060','#3d6b8c','#8c6b3d','#4a6b7a','#6b4a7a'];
+const SEARCH_ALIASES = {
+  'ceo': 'chief executive officer', 'cfo': 'chief financial officer',
+  'cto': 'chief technology officer', 'vp': 'vice president',
+  'gm': 'general manager', 'hr': 'human resources',
+  'qc': 'quality control', 'qa': 'quality assurance',
+  'r&d': 'research', 'sc': 'supply chain',
+  'ap': 'accounts payable', 'ar': 'accounts receivable', 'p&c': 'people culture',
+};
+function expandQuery(q) { const lq = q.toLowerCase().trim(); return SEARCH_ALIASES[lq] || q; }
 function tokenize(text) { return text.toLowerCase().replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(w => w.length > 2 && !STOP_WORDS.has(w)); }
-
+function getInitials(name) { const p = name.split(' ').filter(Boolean); return ((p[0]?.[0]||'')+(p[p.length-1]?.[0]||'')).toUpperCase(); }
+function getResultColor(name) { let h = 0; for (let i=0;i<name.length;i++) h=(h*31+name.charCodeAt(i))%RESULT_COLORS.length; return RESULT_COLORS[h]; }
 
 function smartSearch(query) {
   const keywords = tokenize(query);
@@ -2726,176 +2698,65 @@ function smartSearch(query) {
   document.querySelectorAll('.card').forEach(card => {
     const slack = card.dataset.slack || '';
     const goto  = GOTO_TEXT[slack] || '';
-    const nameEl  = card.querySelector('.card-name');
-    const titleEl = card.querySelector('.card-title');
-    const name    = nameEl  ? nameEl.textContent.toLowerCase()  : '';
-    const title   = titleEl ? titleEl.textContent.toLowerCase() : '';
+    const nameEl = card.querySelector('.card-name'), titleEl = card.querySelector('.card-title');
+    const name = nameEl ? nameEl.textContent.toLowerCase() : '';
+    const title = titleEl ? titleEl.textContent.toLowerCase() : '';
     let score = 0;
     keywords.forEach(kw => {
       score += (goto.toLowerCase().match(new RegExp(kw,'g')) || []).length;
       if (name.includes(kw))  score += 3;
       if (title.includes(kw)) score += 2;
     });
-    if (score > 0) scores.push({ card, slack, score, name: nameEl ? nameEl.textContent : '', title: titleEl ? titleEl.textContent : '', goto });
+    if (score > 0) scores.push({ card, score, name: nameEl ? nameEl.textContent : '', title: titleEl ? titleEl.textContent : '', goto });
   });
   return scores.sort((a,b) => b.score - a.score).slice(0, 4);
 }
 
-function getInitials(name) {
-  const p = name.split(' ').filter(Boolean);
-  return ((p[0]?.[0]||'')+(p[p.length-1]?.[0]||'')).toUpperCase();
-}
-function getAIColor(name) {
-  let h = 0; for (let i=0;i<name.length;i++) h = (h*31+name.charCodeAt(i))%AI_COLORS.length;
-  return AI_COLORS[h];
-}
-
 function closeResults() {
-  document.getElementById('ai-results-panel').style.display = 'none';
+  document.getElementById('search-results-panel').style.display = 'none';
   const bd = document.getElementById('ai-backdrop'); if (bd) bd.style.display = 'none';
   document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
 }
 
-function showResults(results, badge, aiText) {
-  const panel = document.getElementById('ai-results-panel');
-  panel.innerHTML = '';
-  panel.style.display = 'flex';
+function showResults(results) {
+  const panel = document.getElementById('search-results-panel');
+  panel.innerHTML = ''; panel.style.display = 'flex';
   const bd = document.getElementById('ai-backdrop'); if (bd) bd.style.display = 'block';
   const hdr = document.createElement('div');
-  hdr.className = 'ai-results-header';
-  hdr.innerHTML = '<span>' + (aiText ? '✨ AI Answer' : '🔍 Best Matches') + '</span><button class="ai-results-close" onclick="closeResults()">×</button>';
+  hdr.className = 'search-results-header';
+  hdr.innerHTML = '<span>🔍 Best Matches</span><button class="search-results-close" onclick="closeResults()">×</button>';
   panel.appendChild(hdr);
-  if (aiText) {
-    const ans = document.createElement('div');
-    ans.className = 'ai-answer-text'; ans.textContent = aiText;
-    panel.appendChild(ans);
-  }
-  const list = document.createElement('div'); list.className = 'ai-result-list';
+  const list = document.createElement('div'); list.className = 'search-result-list';
   results.forEach((r, i) => {
     const div = document.createElement('div');
-    div.className = 'ai-result-item' + (i===0 ? ' top-match' : '');
-    const whyText = !aiText && r.goto ? (r.goto.length > 120 ? r.goto.slice(0,117)+'…' : r.goto) : '';
-    div.innerHTML = '<div class="ai-result-avatar" style="background:' + getAIColor(r.name) + '">' + getInitials(r.name) + '</div>' +
-      '<div class="ai-result-info"><div class="ai-result-name">' + r.name + '</div><div class="ai-result-title">' + r.title + '</div>' +
-      (whyText ? '<div class="ai-result-why">' + whyText + '</div>' : '') + '</div>' +
-      (badge ? '<span class="ai-badge ' + badge.cls + '">' + badge.label + '</span>' : '');
+    div.className = 'search-result-item' + (i===0 ? ' top-match' : '');
+    const whyText = r.goto ? (r.goto.length > 120 ? r.goto.slice(0,117)+'…' : r.goto) : '';
+    div.innerHTML = '<div class="search-result-avatar" style="background:' + getResultColor(r.name) + '">' + getInitials(r.name) + '</div>' +
+      '<div class="search-result-info"><div class="search-result-name">' + r.name + '</div><div class="search-result-title">' + r.title + '</div>' +
+      (whyText ? '<div class="search-result-why">' + whyText + '</div>' : '') + '</div>';
     div.addEventListener('click', () => {
       closeResults();
       document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
-      r.card.classList.add('highlight');
-      scrollToCard(r.card);
+      r.card.classList.add('highlight'); scrollToCard(r.card);
     });
     list.appendChild(div);
   });
   panel.appendChild(list);
 }
 
-async function aiQuery(query) {
-  const apiKey = getApiKey();
-  if (!apiKey) return null;
-  const context = Object.entries(GOTO_TEXT).map(([slack, text]) => {
-    const card = document.querySelector('[data-slack="' + slack + '"]');
-    const name = card && card.querySelector('.card-name') ? card.querySelector('.card-name').textContent.trim() : slack;
-    const title = card && card.querySelector('.card-title') ? card.querySelector('.card-title').textContent.trim() : '';
-    return name + ' (' + title + '): ' + text;
-  }).join('\n');
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json', 'anthropic-dangerous-allow-browser': 'true' },
-    body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 400,
-      messages: [{ role: 'user', content: 'You help someone navigate their org chart. Based on these people and responsibilities, answer: "' + query + '"\n\n' + context + '\n\nName 1-3 people and briefly why.' }]
-    })
-  });
-  if (!resp.ok) throw new Error('HTTP ' + resp.status);
-  return (await resp.json()).content[0].text;
-}
-
-const SEARCH_ALIASES = {
-  'ceo': 'chief executive officer',
-  'cfo': 'chief financial officer',
-  'cto': 'chief technology officer',
-  'vp':  'vice president',
-  'gm':  'general manager',
-  'hr':  'human resources',
-  'qc':  'quality control',
-  'qa':  'quality assurance',
-  'r&d': 'research',
-  'sc':  'supply chain',
-  'ap':  'accounts payable',
-  'ar':  'accounts receivable',
-  'p&c': 'people culture',
-};
-function expandQuery(q) {
-  const lq = q.toLowerCase().trim();
-  return SEARCH_ALIASES[lq] || q;
-}
-
 let searchDebounce = null;
-async function runSearch(rawQ) {
+function runSearch(rawQ) {
   if (!rawQ) { closeResults(); return; }
   const q = expandQuery(rawQ);
   const lq = q.toLowerCase();
-
-  // Always highlight matching cards
   document.querySelectorAll('.card').forEach(c => {
     const name  = (c.querySelector('.card-name')  || {}).textContent || '';
     const title = (c.querySelector('.card-title') || {}).textContent || '';
     c.classList.toggle('highlight', name.toLowerCase().includes(lq) || title.toLowerCase().includes(lq));
   });
-
-  const smart = smartSearch(q);
-  const useAI = isNaturalLanguage(q);
-  const apiKey = getApiKey();
-
-  if (useAI) {
-    if (!apiKey) {
-      // Show smart results + a setup nudge
-      const panel = document.getElementById('ai-results-panel');
-      panel.innerHTML = '';
-      panel.style.display = 'flex';
-      const hdr = document.createElement('div');
-      hdr.className = 'ai-results-header';
-      hdr.innerHTML = '<span>🔍 Best Matches</span><button class="ai-results-close" onclick="closeResults()">×</button>';
-      panel.appendChild(hdr);
-      if (smart.length) {
-        const list = document.createElement('div'); list.className = 'ai-result-list';
-        smart.forEach((r, i) => {
-          const div = document.createElement('div');
-          div.className = 'ai-result-item' + (i===0 ? ' top-match' : '');
-          const whyText = r.goto ? (r.goto.length > 120 ? r.goto.slice(0,117)+'…' : r.goto) : '';
-          div.innerHTML = '<div class="ai-result-avatar" style="background:' + getAIColor(r.name) + '">' + getInitials(r.name) + '</div>' +
-            '<div class="ai-result-info"><div class="ai-result-name">' + r.name + '</div><div class="ai-result-title">' + r.title + '</div>' +
-            (whyText ? '<div class="ai-result-why">' + whyText + '</div>' : '') + '</div>';
-          div.addEventListener('click', () => { closeResults(); r.card.classList.add('highlight'); scrollToCard(r.card); });
-          list.appendChild(div);
-        });
-        panel.appendChild(list);
-      }
-      const nudge = document.createElement('div');
-      nudge.className = 'ai-setup-nudge';
-      nudge.innerHTML = '✨ <strong>AI search available</strong> — click the ⚙️ gear to add your Anthropic API key for smarter answers.';
-      panel.appendChild(nudge);
-    } else {
-      // Show smart results immediately, then replace with AI answer
-      if (smart.length) showResults(smart, { label: 'Smart', cls: 'smart' }, null);
-      const panel = document.getElementById('ai-results-panel');
-      panel.style.display = 'flex';
-      const thinking = document.createElement('div');
-      thinking.className = 'ai-thinking'; thinking.id = 'ai-thinking';
-      thinking.innerHTML = '<span>Asking Claude…</span><span class="ai-thinking-dots"><span></span><span></span><span></span></span>';
-      panel.appendChild(thinking);
-      try {
-        const aiText = await aiQuery(q);
-        const tEl = document.getElementById('ai-thinking'); if (tEl) tEl.remove();
-        if (aiText) showResults(smart, { label: 'Smart', cls: 'smart' }, aiText);
-      } catch(e) {
-        const tEl = document.getElementById('ai-thinking'); if (tEl) tEl.textContent = '⚠️ ' + e.message;
-      }
-    }
-  } else {
-    if (smart.length && q.length >= 2) showResults(smart, null, null);
-    else closeResults();
-  }
+  const results = smartSearch(q);
+  if (results.length && q.length >= 2) showResults(results);
+  else closeResults();
 }
 
 function scrollToCard(card) {
@@ -2910,7 +2771,7 @@ document.getElementById('search').addEventListener('input', function() {
   clearTimeout(searchDebounce);
   const q = this.value.trim();
   if (!q) { closeResults(); return; }
-  searchDebounce = setTimeout(() => runSearch(q), isNaturalLanguage(q) ? 500 : 200);
+  searchDebounce = setTimeout(() => runSearch(q), 200);
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeResults(); return; }
