@@ -425,12 +425,13 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 /* ── AI settings gear ── */
 .search-wrap { position: relative; display: flex; align-items: center; gap: 6px; }
 .ai-gear-btn {
-  background: none; border: none; cursor: pointer; font-size: 17px;
-  color: rgba(255,255,255,0.7); padding: 2px 4px; line-height: 1;
-  transition: color 0.15s; flex-shrink: 0;
+  background: none; border: 1.5px solid rgba(255,255,255,0.7); border-radius: 6px;
+  cursor: pointer; font-size: 17px;
+  color: rgba(255,255,255,0.7); padding: 2px 6px; line-height: 1;
+  transition: color 0.15s, border-color 0.15s; flex-shrink: 0;
 }
-.ai-gear-btn:hover { color: #fff; }
-.ai-gear-btn.has-key { color: #86efac; }
+.ai-gear-btn:hover { color: #fff; border-color: #fff; }
+.ai-gear-btn.has-key { color: #86efac; border-color: #86efac; }
 .ai-key-popover {
   display: none; position: absolute; top: calc(100% + 10px); right: 0;
   background: white; border: 1px solid #e2e8f0; border-radius: 12px;
@@ -590,7 +591,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
       <button class="ai-gear-btn" id="ai-gear-btn" title="AI search settings" onclick="toggleKeyPopover(event)">⚙️</button>
       <div class="ai-key-popover" id="ai-key-popover">
         <h4>✨ AI-Powered Search</h4>
-        <p>Enter your Anthropic API key to enable natural-language search. Your key is stored only in this browser and never sent anywhere except Anthropic's API.</p>
+        <p>AI-powered search is enabled for everyone — no key needed! You can optionally enter your own Anthropic API key below to use your personal account instead.</p>
         <input type="password" class="ai-key-input" id="ai-key-input" placeholder="sk-ant-…">
         <div class="ai-key-actions">
           <button class="ai-key-save" onclick="saveApiKey()">Save key</button>
