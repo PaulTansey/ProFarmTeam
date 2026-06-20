@@ -331,13 +331,14 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 .rd-sub { font-size: 13px; font-weight: 400; opacity: 0.8; margin-top: 2px; }
 .super-col { display: flex; flex-direction: column; align-items: center; }
 
-/* ── PAUL'S SUB-SECTION ORDER (left → right): R&D, Operations, P&C/EU ── */
+/* ── PAUL'S SUB-SECTION ORDER (left → right): R&D, Regulatory, Operations, P&C/EU ── */
 #super-rd         { order: 1; }
-#super-ops        { order: 2; }
+#super-reg        { order: 2; }
+#super-ops        { order: 3; }
 #support-wrapper  { order: 4; }
 
 /* ── DIVISION BACKGROUND PANELS ── */
-#super-commercial, #super-rd, #super-ops, #super-hr, #super-fin {
+#super-commercial, #super-rd, #super-reg, #super-ops, #super-hr, #super-fin {
   background: #ffffff;
   border-radius: 28px;
   padding: 0 36px 36px;
@@ -576,10 +577,10 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
       <div id="paul-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
         <div id="paul-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
     <div id="super-rd" class="super-col">
-      <div id="section-title-rd" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">R&amp;D + Regulatory</div>
+      <div id="section-title-rd" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">R&amp;D</div>
       <div class="branch-stem"></div>
       <div class="rd-label" id="lbl-rd">
-        R&amp;D + Regulatory <span class="lbl-count" id="count-rd">(19)</span>
+        R&amp;D <span class="lbl-count" id="count-rd">(17)</span>
         <span id="rd-arrow" style="display:inline-block;font-size:11px;transition:transform 0.2s;margin-left:4px;">▾</span>
       </div>
       <div id="branches-outer-rd" style="display:flex;flex-direction:column;align-items:center;width:100%;">
@@ -774,10 +775,70 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
         </div>
         </div>
       </div>
-      <!-- COLUMN: Regulatory -->
+
+    
+        
+        
+      
+      <div class="rd-column" id="col-eu-rd">
+        <div class="branch-stem"></div>
+        <div class="div-label">EU R&amp;D</div>
+        <div class="ldr-stem"></div>
+        <div class="card c-rd" data-slack="nashmin">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                <div class="card-name">Nashmin Ebrahimi</div>
+                <div class="card-title">Group Leader</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@nashmin.ebrahimi" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07KZAYGS7P','https://profarm-team.slack.com/messages/@nashmin.ebrahimi'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div>
+        <div class="connector-v" style="height:20px;"></div><div style="display:flex;flex-direction:column;align-items:center;position:relative;" id="nashmin-reports"><div id="h-bar-nashmin" style="display:none;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-rd" data-slack="madan">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                <div class="card-name">Madan Kafle</div>
+                <div class="card-title">Associate Research Scientist</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@madan.kafle" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U082PBH6C2E','https://profarm-team.slack.com/messages/@madan.kafle'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div style="height:12px;"></div><div class="card c-rd" data-slack="iman">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                <div class="card-name">Iman Karmoun</div>
+                <div class="card-title">Research Assistant</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@ikarmoun" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U082201U335','https://profarm-team.slack.com/messages/@ikarmoun'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div style="height:12px;"></div><div class="card c-rd" data-slack="raziyeh">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                <div class="card-name">Sonia Khajvand</div>
+                <div class="card-title">Greenhouse Manager</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@sonia.khajvand" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U081VDHMHU2','https://profarm-team.slack.com/messages/@sonia.khajvand'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div></div>
+      </div>
+      </div><!-- /branch-row-rd -->
+      </div><!-- /branches-outer-rd -->
+    </div><!-- /super-rd -->
+    <div id="super-reg" class="super-col">
+      <div id="section-title-reg" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Regulatory</div>
+      <div class="branch-stem"></div>
+      <div class="rd-label" id="lbl-reg">
+        Regulatory <span class="lbl-count" id="count-reg">(6)</span>
+      </div>
+      <div class="connector-v" style="height:20px;"></div>
       <div class="rd-column" id="col-reg">
         <div class="branch-stem"></div>
-        <div class="div-label">Regulatory</div>
         <div class="ldr-stem"></div>
         <div class="card c-rd " data-slack="maggie" style="position:relative; margin-bottom:0;">
           <div class="card-inner">
@@ -837,10 +898,10 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
             <div class="card-meta">
               <div class="card-detail"><span class="icon">📍</span><span class="val">Ringoes, NJ</span></div>
             </div>
-            <a class="slack-btn" href="https://profarm-team.slack.com/messages/@krista" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08KQD5K9BJ','https://profarm-team.slack.com/messages/@krista'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+            <a class="slack-btn" href="https://profarm-team.slack.com/messages/@krista" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08KQD5K9BJ','https://profarm-team.slack.com/messages/@krista'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.828 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
           </div>
         </div>
-        
+
         <div class="card c-rd " data-slack="lorena" style="position:relative;">
           <div class="card-inner">
             <div class="card-name">Lorena Williams Berry</div>
@@ -854,61 +915,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
         </div>
         </div>
       </div>
-
-    
-        
-        
-      
-      <div class="rd-column" id="col-eu-rd">
-        <div class="branch-stem"></div>
-        <div class="div-label">EU R&amp;D</div>
-        <div class="ldr-stem"></div>
-        <div class="card c-rd" data-slack="nashmin">
-              <div class="card-inner">
-                <div class="dept-badge">EU</div>
-                <div class="card-name">Nashmin Ebrahimi</div>
-                <div class="card-title">Group Leader</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@nashmin.ebrahimi" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07KZAYGS7P','https://profarm-team.slack.com/messages/@nashmin.ebrahimi'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div>
-        <div class="connector-v" style="height:20px;"></div><div style="display:flex;flex-direction:column;align-items:center;position:relative;" id="nashmin-reports"><div id="h-bar-nashmin" style="display:none;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-rd" data-slack="madan">
-              <div class="card-inner">
-                <div class="dept-badge">EU</div>
-                <div class="card-name">Madan Kafle</div>
-                <div class="card-title">Associate Research Scientist</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@madan.kafle" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U082PBH6C2E','https://profarm-team.slack.com/messages/@madan.kafle'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div style="height:12px;"></div><div class="card c-rd" data-slack="iman">
-              <div class="card-inner">
-                <div class="dept-badge">EU</div>
-                <div class="card-name">Iman Karmoun</div>
-                <div class="card-title">Research Assistant</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@ikarmoun" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U082201U335','https://profarm-team.slack.com/messages/@ikarmoun'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div style="height:12px;"></div><div class="card c-rd" data-slack="raziyeh">
-              <div class="card-inner">
-                <div class="dept-badge">EU</div>
-                <div class="card-name">Sonia Khajvand</div>
-                <div class="card-title">Greenhouse Manager</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Finland</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@sonia.khajvand" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U081VDHMHU2','https://profarm-team.slack.com/messages/@sonia.khajvand'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div></div></div>
-      </div>
-      </div><!-- /branch-row-rd -->
-      </div><!-- /branches-outer-rd -->
-    </div><!-- /super-rd -->
+    </div><!-- /super-reg -->
     <div id="super-ops" class="super-col">
       <div id="section-title-ops" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Operations</div>
       <div class="connector-v" style="height:20px;"></div>
@@ -1741,7 +1748,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
               <div class="card-inner">
                 <span class="dept-badge badge-sales">Sales Team (US Foliar)</span>
                 <div class="card-name">Tim Knight</div>
-                <div class="card-title">Sr. Director of Sales, North &amp; Central America</div>
+                <div class="card-title">Head of Sales NA</div>
                 <div class="card-meta">
                   <div class="card-detail"><span class="icon">📍</span><span class="val">Raleigh, NC</span></div>
                   <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 2/24/2020</span></div>
@@ -2258,7 +2265,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
       <span class="nav-badge">14</span>
     </div>
     <div class="nav-btn-wrap">
-      <button class="nav-btn" onclick="jumpTo('col-reg')">Regulatory</button>
+      <button class="nav-btn" onclick="jumpTo('super-reg')">Regulatory</button>
       <span class="nav-badge">5</span>
     </div>
     <div class="nav-btn-wrap">
@@ -3288,17 +3295,13 @@ function updateHeadcounts() {
     if (!m) return;
     const sec = document.getElementById(m[1]);
     if (!sec) return;
-    let n = sec.querySelectorAll('.card').length;
-    // "R&D" badge should exclude Regulatory's cards, which have their own badge
-    if (m[1] === 'super-rd') {
-      const reg = document.getElementById('col-reg');
-      if (reg) n -= reg.querySelectorAll('.card').length;
-    }
+    const n = sec.querySelectorAll('.card').length;
     badge.textContent = n;
   });
   // big section-header counts: "Label (N)"
   const labelCounts = {
     'count-rd':         'super-rd',
+    'count-reg':        'super-reg',
     'count-commercial': 'super-commercial',
   };
   Object.entries(labelCounts).forEach(([spanId, containerId]) => {
@@ -3518,7 +3521,7 @@ function raiseSectionTitles() {
   const finTitle = document.getElementById('section-title-fin');
   if (finTitle) finTitle.style.display = 'none';
 
-  ['section-title-commercial', 'section-title-rd', 'section-title-ops'].forEach(id => {
+  ['section-title-commercial', 'section-title-rd', 'section-title-reg', 'section-title-ops'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     el.style.transform = ''; // reset first
