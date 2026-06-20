@@ -417,6 +417,47 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
   background: #f8fafc; border-radius: 8px; padding: 10px 12px;
   border-left: 3px solid #3b82f6;
 }
+/* ── AI settings gear ── */
+.search-wrap { position: relative; display: flex; align-items: center; gap: 6px; }
+.ai-gear-btn {
+  background: none; border: none; cursor: pointer; font-size: 17px;
+  color: rgba(255,255,255,0.7); padding: 2px 4px; line-height: 1;
+  transition: color 0.15s; flex-shrink: 0;
+}
+.ai-gear-btn:hover { color: #fff; }
+.ai-gear-btn.has-key { color: #86efac; }
+.ai-key-popover {
+  display: none; position: absolute; top: calc(100% + 10px); right: 0;
+  background: white; border: 1px solid #e2e8f0; border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.16); padding: 16px 18px;
+  min-width: 320px; z-index: 400; flex-direction: column; gap: 10px;
+}
+.ai-key-popover.open { display: flex; }
+.ai-key-popover h4 { margin: 0; font-size: 13px; font-weight: 700; color: #1e293b; }
+.ai-key-popover p { margin: 0; font-size: 11.5px; color: #64748b; line-height: 1.5; }
+.ai-key-input {
+  padding: 7px 10px; border: 1px solid #e2e8f0; border-radius: 8px;
+  font-size: 12px; font-family: monospace; color: #1e293b; outline: none;
+  width: 100%; box-sizing: border-box;
+}
+.ai-key-input:focus { border-color: #93c5fd; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+.ai-key-actions { display: flex; gap: 8px; }
+.ai-key-save {
+  flex: 1; padding: 7px; background: #2563eb; color: white; border: none;
+  border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.ai-key-save:hover { background: #1d4ed8; }
+.ai-key-clear {
+  padding: 7px 12px; background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0;
+  border-radius: 8px; font-size: 12px; cursor: pointer;
+}
+.ai-key-clear:hover { background: #e2e8f0; }
+.ai-key-status { font-size: 11px; color: #16a34a; font-weight: 600; }
+.ai-setup-nudge {
+  font-size: 11.5px; color: #475569; line-height: 1.5; padding: 10px 12px;
+  background: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;
+  text-align: center;
+}
 
 
     /* ── Operations badges & cards ── */
@@ -539,8 +580,21 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
   </div>
   <span id="last-updated">Updated June 20, 2026</span>
   <div class="header-controls">
-    <input type="text" id="search" placeholder="Search people, or ask: who do I go to for…?" autocomplete="off">
-
+    <div class="search-wrap">
+      <input type="text" id="search" placeholder="Search people, or ask: who handles…?" autocomplete="off">
+      <button class="ai-gear-btn" id="ai-gear-btn" title="AI search settings" onclick="toggleKeyPopover(event)">⚙️</button>
+      <div class="ai-key-popover" id="ai-key-popover">
+        <h4>✨ AI-Powered Search</h4>
+        <p>Enter your Anthropic API key to enable natural-language search. Your key is stored only in this browser and never sent anywhere except Anthropic's API.</p>
+        <input type="password" class="ai-key-input" id="ai-key-input" placeholder="sk-ant-…">
+        <div class="ai-key-actions">
+          <button class="ai-key-save" onclick="saveApiKey()">Save key</button>
+          <button class="ai-key-clear" onclick="clearApiKey()">Remove</button>
+        </div>
+        <div class="ai-key-status" id="ai-key-status"></div>
+        <p>Get a key at <a href="https://console.anthropic.com" target="_blank" style="color:#2563eb;">console.anthropic.com</a></p>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -2692,12 +2746,53 @@ function openSlackDM(appUrl, webUrl) {
 }
 
 // ── AI SEARCH ─────────────────────────────────────────────────────────────
-const STOP_WORDS = new Set(['the','and','for','with','that','this','who','what','how','can','you','are','not','but','need','help','about','want','have','when','does','should','would','could','from']);
-const QUESTION_SIGNALS = ['who','which','?','i need','help with','dealing with','question about','looking for','go to for','find someone','what about'];
+const STOP_WORDS = new Set(['the','and','for','with','that','this','who','what','how','can','you','are','not','but','need','help','about','want','have','when','does','should','would','could','from','our','their','someone','person']);
+const QUESTION_SIGNALS = ['who','which','?','i need','help with','dealing with','question about','looking for','go to for','find someone','what about','handles','responsible','in charge'];
 const AI_COLORS = ['#2e5fa3','#7c6b9e','#2e7d8c','#7a6040','#4a7a56','#7a4060','#3d6b8c','#8c6b3d','#4a6b7a','#6b4a7a'];
 
 function isQuestion(q) { return QUESTION_SIGNALS.some(s => q.toLowerCase().includes(s)); }
+function isNaturalLanguage(q) {
+  const words = q.trim().split(/\s+/);
+  return words.length >= 3 || isQuestion(q);
+}
 function tokenize(text) { return text.toLowerCase().replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(w => w.length > 2 && !STOP_WORDS.has(w)); }
+
+// ── API KEY MANAGEMENT ─────────────────────────────────────────────────────
+function updateGearState() {
+  const btn = document.getElementById('ai-gear-btn');
+  if (!btn) return;
+  btn.classList.toggle('has-key', !!localStorage.getItem('pfai_key'));
+}
+function toggleKeyPopover(e) {
+  e.stopPropagation();
+  const pop = document.getElementById('ai-key-popover');
+  const isOpen = pop.classList.toggle('open');
+  if (isOpen) {
+    const k = localStorage.getItem('pfai_key');
+    document.getElementById('ai-key-input').value = k ? '••••••••••••' + k.slice(-4) : '';
+    document.getElementById('ai-key-status').textContent = k ? '✓ Key saved' : '';
+  }
+}
+function saveApiKey() {
+  const val = document.getElementById('ai-key-input').value.trim();
+  if (!val || val.startsWith('•')) return;
+  localStorage.setItem('pfai_key', val);
+  document.getElementById('ai-key-status').textContent = '✓ Key saved!';
+  updateGearState();
+  setTimeout(() => document.getElementById('ai-key-popover').classList.remove('open'), 1200);
+}
+function clearApiKey() {
+  localStorage.removeItem('pfai_key');
+  document.getElementById('ai-key-input').value = '';
+  document.getElementById('ai-key-status').textContent = 'Key removed.';
+  updateGearState();
+}
+document.addEventListener('click', e => {
+  const pop = document.getElementById('ai-key-popover');
+  if (pop && pop.classList.contains('open') && !pop.contains(e.target) && e.target.id !== 'ai-gear-btn') {
+    pop.classList.remove('open');
+  }
+});
 
 function smartSearch(query) {
   const keywords = tokenize(query);
@@ -2763,11 +2858,7 @@ function showResults(results, badge, aiText) {
       closeResults();
       document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
       r.card.classList.add('highlight');
-      const w = document.getElementById('zoom-wrapper'), c = document.getElementById('chart');
-      const cr = r.card.getBoundingClientRect(), wr = w.getBoundingClientRect();
-      panX = c.clientWidth/2  - ((cr.left + cr.width/2  - wr.left)/scale)*scale;
-      panY = c.clientHeight/2 - ((cr.top  + cr.height/2 - wr.top) /scale)*scale;
-      applyTransform();
+      scrollToCard(r.card);
     });
     list.appendChild(div);
   });
@@ -2818,16 +2909,56 @@ let searchDebounce = null;
 async function runSearch(rawQ) {
   if (!rawQ) { closeResults(); return; }
   const q = expandQuery(rawQ);
-  if (isQuestion(q)) {
-    const smart = smartSearch(q);
-    if (smart.length) showResults(smart, { label: 'Smart', cls: 'smart' }, null);
-    const apiKey = localStorage.getItem('pfai_key');
-    if (apiKey) {
+  const lq = q.toLowerCase();
+
+  // Always highlight matching cards
+  document.querySelectorAll('.card').forEach(c => {
+    const name  = (c.querySelector('.card-name')  || {}).textContent || '';
+    const title = (c.querySelector('.card-title') || {}).textContent || '';
+    c.classList.toggle('highlight', name.toLowerCase().includes(lq) || title.toLowerCase().includes(lq));
+  });
+
+  const smart = smartSearch(q);
+  const useAI = isNaturalLanguage(q);
+  const apiKey = localStorage.getItem('pfai_key');
+
+  if (useAI) {
+    if (!apiKey) {
+      // Show smart results + a setup nudge
       const panel = document.getElementById('ai-results-panel');
+      panel.innerHTML = '';
+      panel.style.display = 'flex';
+      const hdr = document.createElement('div');
+      hdr.className = 'ai-results-header';
+      hdr.innerHTML = '<span>🔍 Best Matches</span><button class="ai-results-close" onclick="closeResults()">×</button>';
+      panel.appendChild(hdr);
+      if (smart.length) {
+        const list = document.createElement('div'); list.className = 'ai-result-list';
+        smart.forEach((r, i) => {
+          const div = document.createElement('div');
+          div.className = 'ai-result-item' + (i===0 ? ' top-match' : '');
+          const whyText = r.goto ? (r.goto.length > 120 ? r.goto.slice(0,117)+'…' : r.goto) : '';
+          div.innerHTML = '<div class="ai-result-avatar" style="background:' + getAIColor(r.name) + '">' + getInitials(r.name) + '</div>' +
+            '<div class="ai-result-info"><div class="ai-result-name">' + r.name + '</div><div class="ai-result-title">' + r.title + '</div>' +
+            (whyText ? '<div class="ai-result-why">' + whyText + '</div>' : '') + '</div>';
+          div.addEventListener('click', () => { closeResults(); r.card.classList.add('highlight'); scrollToCard(r.card); });
+          list.appendChild(div);
+        });
+        panel.appendChild(list);
+      }
+      const nudge = document.createElement('div');
+      nudge.className = 'ai-setup-nudge';
+      nudge.innerHTML = '✨ <strong>AI search available</strong> — click the ⚙️ gear to add your Anthropic API key for smarter answers.';
+      panel.appendChild(nudge);
+    } else {
+      // Show smart results immediately, then replace with AI answer
+      if (smart.length) showResults(smart, { label: 'Smart', cls: 'smart' }, null);
+      const panel = document.getElementById('ai-results-panel');
+      panel.style.display = 'flex';
       const thinking = document.createElement('div');
       thinking.className = 'ai-thinking'; thinking.id = 'ai-thinking';
       thinking.innerHTML = '<span>Asking Claude…</span><span class="ai-thinking-dots"><span></span><span></span><span></span></span>';
-      panel.style.display = 'flex'; panel.appendChild(thinking);
+      panel.appendChild(thinking);
       try {
         const aiText = await aiQuery(q);
         const tEl = document.getElementById('ai-thinking'); if (tEl) tEl.remove();
@@ -2837,23 +2968,24 @@ async function runSearch(rawQ) {
       }
     }
   } else {
-    const lq = q.toLowerCase();
-    document.querySelectorAll('.card').forEach(c => {
-      const name  = (c.querySelector('.card-name')  || {}).textContent || '';
-      const title = (c.querySelector('.card-title') || {}).textContent || '';
-      c.classList.toggle('highlight', name.toLowerCase().includes(lq) || title.toLowerCase().includes(lq));
-    });
-    const smart = smartSearch(q);
     if (smart.length && q.length >= 2) showResults(smart, null, null);
-    else if (!smart.length) closeResults();
+    else closeResults();
   }
+}
+
+function scrollToCard(card) {
+  const w = document.getElementById('zoom-wrapper'), c = document.getElementById('chart');
+  const cr = card.getBoundingClientRect(), wr = w.getBoundingClientRect();
+  panX = c.clientWidth/2  - ((cr.left + cr.width/2  - wr.left)/scale)*scale;
+  panY = c.clientHeight/2 - ((cr.top  + cr.height/2 - wr.top) /scale)*scale;
+  applyTransform();
 }
 
 document.getElementById('search').addEventListener('input', function() {
   clearTimeout(searchDebounce);
   const q = this.value.trim();
   if (!q) { closeResults(); return; }
-  searchDebounce = setTimeout(() => runSearch(q), isQuestion(q) ? 400 : 200);
+  searchDebounce = setTimeout(() => runSearch(q), isNaturalLanguage(q) ? 500 : 200);
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeResults(); return; }
@@ -3516,6 +3648,7 @@ window.addEventListener('load', () => {
     // (Finance), so the old "center on the Levon h-bar at 25%" approach left
     // Paul's and Scott's cards off-screen. Just fit the whole chart instead.
     fitToView();
+    updateGearState();
   }, 200);
 });
 
