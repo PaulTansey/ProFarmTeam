@@ -334,11 +334,14 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 /* ── PAUL'S SUB-SECTION ORDER (left → right): R&D, Regulatory, Operations, P&C/EU ── */
 #super-rd         { order: 1; }
 #super-reg        { order: 2; }
-#super-ops        { order: 3; }
-#support-wrapper  { order: 4; }
+#super-fac        { order: 3; }
+#super-ops-qual   { order: 4; }
+#super-sc         { order: 5; }
+#super-mfg        { order: 6; }
+#support-wrapper  { order: 7; }
 
 /* ── DIVISION BACKGROUND PANELS ── */
-#super-commercial, #super-rd, #super-reg, #super-ops, #super-hr, #super-fin {
+#super-commercial, #super-rd, #super-reg, #super-fac, #super-ops-qual, #super-sc, #super-mfg, #super-hr, #super-fin {
   background: #ffffff;
   border-radius: 28px;
   padding: 0 36px 36px;
@@ -650,18 +653,6 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
           </div>
         </div>
           <div class="report-stem"></div>
-        <div class="card c-rd " data-slack="gabriela" style="position:relative;">
-          <div class="card-inner">
-            <div class="card-name">Gabriela Sinclair</div>
-            <div class="card-title">Plant Science Physiologist</div>
-            <div class="dept-badge">Microbiology</div>
-            <div class="card-meta">
-              <div class="card-detail"><span class="icon">📍</span><span class="val">Sacramento, CA</span></div>
-            </div>
-            <a class="slack-btn" href="https://profarm-team.slack.com/messages/@gabriela" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08243QAE2D','https://profarm-team.slack.com/messages/@gabriela'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-          </div>
-        </div>
-          <div class="report-stem"></div>
         <div class="card c-rd " data-slack="rachel" style="position:relative;">
           <div class="card-inner">
             <div class="card-name">Rachel Schieberl</div>
@@ -916,20 +907,8 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
         </div>
       </div>
     </div><!-- /super-reg -->
-    <div id="super-ops" class="super-col">
-      <div id="section-title-ops" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Operations</div>
-      <div class="connector-v" style="height:20px;"></div>
-      <div class="ops-label" id="lbl-ops">
-        <button class="toggle-btn" id="btn-ops">▲</button>
-        Operations
-        <div class="label-sub">49 people</div>
-      </div>
-      <div id="ops-content">
-        <div class="connector-v" style="height:20px;"></div>
-        
-    <div id="ops-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:50px;position:relative;">
-      <div id="h-bar-ops" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
-      
+    <div id="super-fac" class="super-col">
+      <div id="section-title-fac" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Facilities</div>
       <div class="ops-dept-col" id="ops-col-fac" style="min-width:200px;">
         <div class="ops-dept-label" style="background:#0097a7;">Facilities (2)</div>
         <div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-fac" data-slack="lacey.g">
@@ -958,7 +937,9 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
             </div></div>
           
       </div>
-      
+    </div><!-- /super-fac -->
+    <div id="super-ops-qual" class="super-col">
+      <div id="section-title-ops-qual" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Quality</div>
       <div class="ops-dept-col" id="ops-col-qual" style="min-width:220px;">
         <div class="ops-dept-label" style="background:#7b1fa2;">Quality (13)</div>
         <div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-qual" data-slack="tamara.n">
@@ -1062,18 +1043,6 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                 <a class="slack-btn" href="https://profarm-team.slack.com/messages/@abigail" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0ASG9VBHLG','https://profarm-team.slack.com/messages/@abigail'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
               </div>
             </div>
-<div style="height:12px;"></div><div class="card c-qual" data-slack="breanna">
-              <div class="card-inner">
-                <div class="dept-badge">Quality</div>
-                <div class="card-name">Breanna Colonese-DiBello</div>
-                <div class="card-title">Intern</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 1/8/2024</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@breanna" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AT94S7R9D','https://profarm-team.slack.com/messages/@breanna'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div>
 <div style="height:12px;"></div><div class="card c-qual" data-slack="evan.m">
               <div class="card-inner">
                 <div class="dept-badge">Quality</div>
@@ -1160,12 +1129,26 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                 <a class="slack-btn" href="https://profarm-team.slack.com/messages/@cpeavey" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08DVMS93PD','https://profarm-team.slack.com/messages/@cpeavey'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
               </div>
             </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="breanna">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                <div class="card-name">Breanna Colonese-DiBello</div>
+                <div class="card-title">Intern</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 1/8/2024</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@breanna" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AT94S7R9D','https://profarm-team.slack.com/messages/@breanna'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div></div>
         </div>
 
 
 
       </div>
-
+    </div><!-- /super-ops-qual -->
+    <div id="super-sc" class="super-col">
+      <div id="section-title-sc" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Supply Chain</div>
       <div class="ops-dept-col" id="ops-col-sc" style="min-width:220px;">
         <div class="ops-dept-label" style="background:#1565c0;">Supply Chain (10)</div>
         <div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-sc" data-slack="luis.l">
@@ -1315,7 +1298,9 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
             </div></div>
         </div>
       </div>
-      
+    </div><!-- /super-sc -->
+    <div id="super-mfg" class="super-col">
+      <div id="section-title-mfg" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Manufacturing</div>
       <div class="ops-dept-col" id="ops-col-mfg" style="min-width:220px;">
         <div class="ops-dept-label" style="background:#e65100;">Manufacturing (21)</div>
         <div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-mfg" data-slack="douglas">
@@ -1589,9 +1574,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
             </div></div>
         </div>
       </div>
-    </div>
-      </div>
-    </div>
+    </div><!-- /super-mfg -->
 
     <!-- SUPPORT wrapper: P&C + EU/EMEA -->
     <div id="support-wrapper" style="display:flex;flex-direction:column;align-items:center;">
@@ -1617,7 +1600,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                 </div>
                 <a class="slack-btn" href="https://profarm-team.slack.com/messages/@abobbitt" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U09J5KPA3UZ','https://profarm-team.slack.com/messages/@abobbitt'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
               </div>
-            </div><div class="connector-v" style="height:12px;"></div><div class="card c-hr" data-slack="marina">
+            </div><div style="height:12px;"></div><div class="card c-hr" data-slack="marina">
               <div class="card-inner">
                 <div class="dept-badge">People &amp; Culture</div>
                 <div class="card-name">Marina Moore</div>
@@ -1629,6 +1612,23 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                 <a class="slack-btn" href="https://profarm-team.slack.com/messages/@mmoore" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07H852PYGN','https://profarm-team.slack.com/messages/@mmoore'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
               </div>
             </div></div>
+        <div style="height:16px;"></div><div class="card c-hr" data-slack="wendy">
+              <div class="card-inner">
+                <div class="dept-badge">Legal</div>
+                <div class="card-name">Wendy Neal</div>
+                <div class="card-title">General Counsel</div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@wendy" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0ALQ6HC20H','https://profarm-team.slack.com/messages/@wendy'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div>
+        <div style="margin-top:20px;background:#f8f9fa;border:1.5px dashed #bbb;border-radius:14px;padding:14px 18px;max-width:280px;text-align:center;">
+          <div style="font-size:13px;font-weight:700;color:#444;margin-bottom:8px;">🖥️ IT Support</div>
+          <div style="font-size:11.5px;color:#555;line-height:1.9;">
+            <div><strong>New Laptops:</strong><br><a href="mailto:newlaptop@profarm.com" style="color:#1565c0;">newlaptop@profarm.com</a></div>
+            <div style="font-size:11px;color:#888;margin-bottom:4px;">(Managed by Sparksta)</div>
+            <div><strong>General IT Support:</strong><br><a href="mailto:support@meriplex.com" style="color:#1565c0;">support@meriplex.com</a></div>
+            <div style="font-size:11px;color:#888;">(Managed by Meriplex)</div>
+          </div>
+        </div>
       </div>
     </div>
       
@@ -1897,13 +1897,14 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                         </div>
                       </div>
                       <div class="pair-h-arm"></div><div class="pair-dot"></div><div class="pair-h-arm"></div>
-                      <div class="card c-sales">
+                      <div class="card c-sales" data-slack="jon.bender">
                         <div class="card-inner">
                           <div class="card-name">Jon Bender</div>
-                          <div class="card-title">Territory Sales Manager, Southeast US</div>
+                          <div class="card-title">Territory Sales Manager, Carolinas</div>
                           <div class="card-meta">
                             <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 6/1/2026</span></div>
                           </div>
+                          <a class="slack-btn" href="https://profarm-team.slack.com/messages/@jon.bender" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0B67KCKVK7','https://profarm-team.slack.com/messages/@jon.bender'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
                         </div>
                       </div>
                     </div>
@@ -2269,19 +2270,19 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
       <span class="nav-badge">5</span>
     </div>
     <div class="nav-btn-wrap">
-      <button class="nav-btn" onclick="jumpTo('ops-col-fac')">Facilities</button>
+      <button class="nav-btn" onclick="jumpTo('super-fac')">Facilities</button>
       <span class="nav-badge">2</span>
     </div>
     <div class="nav-btn-wrap">
-      <button class="nav-btn" onclick="jumpTo('ops-col-qual')">Quality</button>
+      <button class="nav-btn" onclick="jumpTo('super-ops-qual')">Quality</button>
       <span class="nav-badge">14</span>
     </div>
     <div class="nav-btn-wrap">
-      <button class="nav-btn" onclick="jumpTo('ops-col-mfg')">Manufacturing</button>
+      <button class="nav-btn" onclick="jumpTo('super-mfg')">Manufacturing</button>
       <span class="nav-badge">20</span>
     </div>
     <div class="nav-btn-wrap">
-      <button class="nav-btn" onclick="jumpTo('ops-col-sc')">Supply Chain</button>
+      <button class="nav-btn" onclick="jumpTo('super-sc')">Supply Chain</button>
       <span class="nav-badge">11</span>
     </div>
     <div class="nav-btn-wrap">
@@ -2494,16 +2495,7 @@ if (_hrLbl && _hrContent) {
   });
 }
 
-// Operations label toggle
-const _opsLbl = document.getElementById('lbl-ops');
-const _opsContent = document.getElementById('ops-content');
-if (_opsLbl && _opsContent) {
-  _opsLbl.addEventListener('click', () => {
-    const nowHidden = _opsContent.style.display === 'none';
-    _opsContent.style.display = nowHidden ? '' : 'none';
-    setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
-  });
-}
+// Operations toggle removed (now 4 separate sections)
 
 // R&D team toggles (data-target)
 document.querySelectorAll('.toggle-btn[data-target]').forEach(btn => {
@@ -2522,7 +2514,6 @@ function expandAll() {
   if (_commOuter) { _commOuter.style.display = ''; _commArrow.style.transform = ''; }
   if (_rdOuter)   { _rdOuter.style.display   = ''; _rdArrow.style.transform   = ''; }
   if (_euContent2){ _euContent2.style.display = ''; }
-  if (_opsContent){ _opsContent.style.display = ''; }
   if (_finContent){ _finContent.style.display = ''; }
   if (_hrContent) { _hrContent.style.display  = ''; }
   ['team-tim','team-nevada'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
@@ -2538,7 +2529,6 @@ function collapseAll() {
   if (_commOuter) { _commOuter.style.display = 'none'; _commArrow.style.transform = 'rotate(-90deg)'; }
   if (_rdOuter)   { _rdOuter.style.display   = 'none'; _rdArrow.style.transform   = 'rotate(-90deg)'; }
   if (_euContent2){ _euContent2.style.display = 'none'; }
-  if (_opsContent){ _opsContent.style.display = 'none'; }
   if (_finContent){ _finContent.style.display = 'none'; }
   if (_hrContent) { _hrContent.style.display  = 'none'; }
   ['team-tim','team-nevada'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
@@ -2583,6 +2573,7 @@ const GOTO_TEXT = {
   'david.youngquist': 'Territory sales management and Western region questions.',
   'jon.collison': 'Territory sales management and his assigned territory questions.',
   'john.torbert': 'Territory sales management and Southeast region questions.',
+  'jon.bender':  'Territory sales management and Carolinas region questions.',
   'nancy.n': 'Marketing communications, content, and campaign questions.',
   'caleb':   'Marketing support, digital and field marketing questions.',
   'jr':      'Field development, technical product demonstrations, and agronomic field support.',
@@ -2595,7 +2586,6 @@ const GOTO_TEXT = {
   'liz':     'Microbiology and pathology research direction, microbial strain science, group leadership, and pathology-related product questions.',
   'dale':    'Research scientist support for microbiology and pathology studies, microbial experiments, and analytical data.',
   'rachel':  'Lab-level microbiology research support, assistant scientist questions, and experimental protocol assistance.',
-  'gabriela':'Plant physiology research, physiological response studies, plant science data, and agronomic insights.',
   'ratnakar':'Chemistry research leadership, natural product formulation, compound characterization, and senior scientific guidance.',
   'makela':  'MBI-306 (RinoTec) sample extraction and analysis across PFMM, Alberta, and Davis sites; Isolation and purification of marker compounds (MBI-122 & MBI-110/125); Lab supply ordering and management.',
   'vanessa': 'MBI-206/203 sample extraction and analysis for QC release and storage stability studies; Isolation and purification of marker compounds and analytical chemistry support (MBI-122, MBI-213); Lab supply coordination and weekly instrument performance checks.',
@@ -3085,6 +3075,7 @@ const REPORTING_TO = {
   'david.youngquist': 'tim',
   'jon.collison': 'tim',
   'john.torbert': 'tim',
+  'jon.bender':  'tim',
 
   // Nevada's team
   'nancy.n':      'nevada',
@@ -3109,7 +3100,6 @@ const REPORTING_TO = {
   // Liz → Microbiology
   'dale':         'liz',
   'rachel':       'liz',
-  'gabriela':     'liz',
 
   // Ratnakar → Chemistry
   'makela':       'ratnakar',
@@ -3153,6 +3143,7 @@ const REPORTING_TO = {
   'naiki':        'amanjit',
   'raji':         'amanjit',
   'cpeavey':      'amanjit',
+  'wendy':         'levon',
 
   // Supply Chain (Luis)
   'kevin.g':      'luis.l',
@@ -3311,7 +3302,6 @@ function updateHeadcounts() {
   });
   // big section-header counts: "N people" / "N person"
   const peopleCounts = {
-    'lbl-ops': 'super-ops',
     'lbl-fin': 'super-fin',
     'lbl-hr':  'super-hr',
     'lbl-eu':  'super-eu',
@@ -3354,13 +3344,12 @@ const PHOTOS = {
   "Melissa O'Neal": "Melissa_O'Neal.png",
   'Robert Blundell': 'Rob_BLUNDELL.png',
   'Amanda Koppel': 'AMANDA_KOPPEL.png',
-  'Andre Trepanier': 'André_Trepanier.png',
+  'Andre Trepanier': 'Andre Trepanier.jpeg',
   'Cole Pearson': 'Cole_Pearson.png',
   'Anna Chernyavskiy': 'Anna_Chernyavskiy.png',
   'Liz Henry': 'Liz_Henry.png',
   'Dale Hill': 'DALE_HILL.png',
   'Rachel Schieberl': 'Rachel_Schieberl.png',
-  'Gabriela Sinclair': 'GABRIELA_SINCLAIR.png',
   'Ratnakar Asolkar': 'RATNAKAR_ASOLKAR.png',
   'Makela Norwood': 'MAKELA_NORWOOD.png',
   'Vanessa Ngo': 'VANESSA_NGO.png',
@@ -3521,7 +3510,7 @@ function raiseSectionTitles() {
   const finTitle = document.getElementById('section-title-fin');
   if (finTitle) finTitle.style.display = 'none';
 
-  ['section-title-commercial', 'section-title-rd', 'section-title-reg', 'section-title-ops'].forEach(id => {
+  ['section-title-commercial', 'section-title-rd', 'section-title-reg', 'section-title-fac', 'section-title-ops-qual', 'section-title-sc', 'section-title-mfg'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     el.style.transform = ''; // reset first
