@@ -2746,6 +2746,8 @@ function openSlackDM(appUrl, webUrl) {
 }
 
 // ── AI SEARCH ─────────────────────────────────────────────────────────────
+const HARDCODED_API_KEY = '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';
+function getApiKey() { return localStorage.getItem('pfai_key') || HARDCODED_API_KEY; }
 const STOP_WORDS = new Set(['the','and','for','with','that','this','who','what','how','can','you','are','not','but','need','help','about','want','have','when','does','should','would','could','from','our','their','someone','person']);
 const QUESTION_SIGNALS = ['who','which','?','i need','help with','dealing with','question about','looking for','go to for','find someone','what about','handles','responsible','in charge'];
 const AI_COLORS = ['#2e5fa3','#7c6b9e','#2e7d8c','#7a6040','#4a7a56','#7a4060','#3d6b8c','#8c6b3d','#4a6b7a','#6b4a7a'];
@@ -2866,7 +2868,7 @@ function showResults(results, badge, aiText) {
 }
 
 async function aiQuery(query) {
-  const apiKey = localStorage.getItem('pfai_key');
+  const apiKey = getApiKey();
   if (!apiKey) return null;
   const context = Object.entries(GOTO_TEXT).map(([slack, text]) => {
     const card = document.querySelector('[data-slack="' + slack + '"]');
@@ -2920,7 +2922,7 @@ async function runSearch(rawQ) {
 
   const smart = smartSearch(q);
   const useAI = isNaturalLanguage(q);
-  const apiKey = localStorage.getItem('pfai_key');
+  const apiKey = getApiKey();
 
   if (useAI) {
     if (!apiKey) {
