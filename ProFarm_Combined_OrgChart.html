@@ -1597,13 +1597,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
             </div></div>
         </div>
       </div>
-    </div><!-- /super-mfg -->
-
-    <!-- SUPPORT wrapper: P&C + EU/EMEA -->
-    <div id="support-wrapper" style="display:flex;flex-direction:column;align-items:center;">
-      <div class="branch-stem"></div>
-      <div id="support-row" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
-        <div id="support-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+    
     <div id="super-hr" class="super-col">
       <div id="section-title-hr" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">P&amp;C</div>
       <div class="branch-stem"></div>
@@ -1733,8 +1727,11 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
         </div>
       </div>
     </div><!-- /super-partners -->
-    </div><!-- /support-row -->
-    </div><!-- /support-wrapper -->
+    
+    </div><!-- /super-mfg -->
+
+    <!-- SUPPORT wrapper: P&C + EU/EMEA -->
+    <!-- /support-wrapper -->
     </div><!-- /paul-super -->
     <!-- LEVON column (middle) -->
     <div class="super-col" id="levon-super">
@@ -2444,7 +2441,7 @@ function updateHBarOps() {
   updateHBar(document.getElementById('tim-sub-row'),   document.getElementById('tim-hbar'));
   updateHBar(document.getElementById('nevada-sub-row'),document.getElementById('nevada-hbar'));
   updateHBar(document.getElementById('paul-branches'), document.getElementById('paul-hbar'));
-  updateHBar(document.getElementById('support-row'), document.getElementById('support-hbar'));
+  // support-row merged into paul-branches
   updateHBar(document.getElementById('eu-row'), document.getElementById('eu-hbar'));
   updateHBar(document.getElementById('virge-reports'), document.getElementById('virge-hbar'));
   updateHBarRd();
