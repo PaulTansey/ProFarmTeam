@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="Rippling%20profile%20pics/profarmgroup_logo.jpeg">
+<title>ProFarm Team Structure</title>
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f4f6f9;
+  background-image:
+    radial-gradient(ellipse at center, #f4f6f9 30%, transparent 75%),
+    radial-gradient(circle, #b0bac8 1px, transparent 1px);
+  background-size: 100% 100%, 22px 22px;
+  color: #1e293b; min-height: 100vh;
+}
+header {
+  background: #120226;
+  color: #1e293b; padding: 14px 32px; display: flex; align-items: center;
+  gap: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  position: sticky; top: 0; z-index: 100;
+}
+.logo-icon { height: 42px; width: auto; display: block; }
+.logo { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; color: #ffffff; }
+.logo span { color: #ffffff; }
+header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
+.header-controls { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+#search {
+  padding: 7px 14px; border-radius: 20px; border: 1px solid #e2e8f0;
+  background: #f8fafc; color: #1e293b; font-size: 13px;
+  width: 420px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+#search::placeholder { color: #94a3b8; }
+#search:focus { border-color: #93c5fd; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+.btn {
+  padding: 6px 13px; border-radius: 16px; border: 1px solid #e2e8f0;
+  background: #f8fafc; color: #475569; font-size: 12px;
+  cursor: pointer; transition: background 0.15s, border-color 0.15s; white-space: nowrap;
+}
+.btn:hover { background: #e8edf5; border-color: #cbd5e1; }
+
+.stats-bar {
+  background: white; border-bottom: 1px solid #e0e0e0;
+  padding: 9px 32px; display: flex; gap: 28px; font-size: 12px; color: #555;
+}
+.stat { display: flex; align-items: center; gap: 5px; }
+.stat strong { color: #1e293b; font-size: 14px; }
+
+/* ── CHART AREA ── */
+.chart-container {
+  overflow: hidden; cursor: grab; user-select: none;
+  position: relative; height: calc(100vh - 110px);
+}
+.chart-container:active { cursor: grabbing; }
+#zoom-wrapper {
+  position: absolute; top: 0; left: 0;
+  transform-origin: 0 0; will-change: transform;
+  padding: 16px 60px;
+}
+/* ── BOTTOM BAR (nav shortcuts) ── */
+.bottom-bar {
+  position: fixed; bottom: 24px; left: 28px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 200;
+  background: #ffffff; border-radius: 20px; padding: 10px 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18); border: 1px solid #e0e0e0;
+}
+.nav-btns {
+  display: flex; flex-direction: row; gap: 5px; align-items: center; flex-wrap: nowrap;
+}
+.nav-btn {
+  background: #ffffff; border: 1px solid #d0d0d0; border-radius: 20px;
+  padding: 4px 10px; font-size: 10.5px; font-weight: 600; color: #333;
+  cursor: pointer; white-space: nowrap; transition: background 0.15s, border-color 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.nav-btn:hover { background: #e8eeff; border-color: #aaa; }
+
+/* ── ZOOM PANEL (separate, bottom-right) ── */
+.zoom-panel {
+  position: fixed; bottom: 24px; right: 28px; z-index: 300;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  background: #ffffff; border-radius: 20px; padding: 10px 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18); border: 1px solid #e0e0e0;
+}
+.zoom-controls {
+  display: flex; flex-direction: row; gap: 5px; align-items: center;
+}
+.zoom-btn {
+  background: #ffffff; border: 1px solid #d0d0d0; border-radius: 20px;
+  padding: 4px 12px; font-size: 13px; font-weight: 700; color: #333;
+  cursor: pointer; white-space: nowrap; transition: background 0.15s, border-color 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); line-height: 1.4;
+}
+.zoom-btn:hover { background: #e8eeff; border-color: #aaa; }
+.zoom-btn:active { background: #d0d8ff; }
+
+/* ── MOBILE / NARROW SCREENS ── */
+@media (max-width: 768px) {
+  header { padding: 10px 14px; gap: 10px; }
+  .header-controls { gap: 6px; }
+  #search {
+    width: 38vw; min-width: 90px; max-width: 240px;
+    padding: 7px 10px; font-size: 12px;
+  }
+  .bottom-bar {
+    left: 10px; right: 10px; max-width: none;
+    padding: 8px 10px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .nav-btns { flex-wrap: nowrap; }
+  .zoom-panel { right: 10px; bottom: 10px; padding: 6px 10px; }
+}
+
+/* EU / EMEA team */
+.c-eu  { border-top: 4px solid #00695c; }
+.eu-label { background: #00695c; color: #fff; border-radius: 8px; padding: 14px 28px;
+            font-weight: 700; font-size: 19px; text-align: center; white-space: nowrap; }
+.eu-label .label-sub { font-size: 14px; font-weight: 400; color: #80cbc4; margin-top: 2px; }
+.nav-btn-wrap { position: relative; display: inline-flex; }
+.nav-badge {
+  position: absolute; top: -7px; right: -7px;
+  background: #e0e0e0; color: #1a1a1a; border-radius: 50%;
+  min-width: 18px; height: 18px; font-size: 9px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; line-height: 1; padding: 0 3px;
+}
+/* zoom percentage input with dropdown */
+.zoom-pct-wrap {
+  position: relative; display: flex; align-items: center;
+}
+.zoom-pct-input {
+  width: 58px; height: 26px;
+  border: 1px solid #d0d0d0; border-radius: 20px;
+  text-align: center; font-size: 11px; font-family: monospace; font-weight: 600;
+  color: #333; background: #ffffff;
+  padding: 0 18px 0 6px; cursor: text; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.zoom-pct-input:focus { outline: 2px solid #4a90e2; border-color: transparent; }
+.zoom-dropdown-btn {
+  position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer; color: #666; font-size: 9px;
+  padding: 2px; line-height: 1; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;
+}
+.zoom-dropdown-menu {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  background: #fff; border: 1px solid #ccc; border-radius: 7px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15); z-index: 400; display: none; overflow: hidden; min-width: 90px;
+}
+.zoom-dropdown-menu.open { display: block; }
+.zoom-dropdown-item {
+  padding: 8px 20px; font-size: 13px; color: #333; cursor: pointer; text-align: center;
+}
+.zoom-dropdown-item:hover { background: #f0f4ff; }
+.zoom-dropdown-item.active { background: #e8eeff; font-weight: 700; color: #1a1a9e; }
+
+/* ── LAYOUT ── */
+.chart-root { display: flex; flex-direction: column; align-items: center; }
+.connector-v { width: 2px; background: #2d2d2d; flex-shrink: 0; }
+.commercial-label {
+  background: #334155; color: white; font-size: 18px; font-weight: 700;
+  padding: 12px 36px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  text-align: center;
+}
+.commercial-sub { font-size: 13px; font-weight: 400; opacity: 0.8; margin-top: 2px; }
+.branch-row { display: flex; flex-direction: row; align-items: flex-start; gap: 28px; position: relative; }
+.branch { display: flex; flex-direction: column; align-items: center; min-width: 500px; }
+.branch.single { min-width: 240px; }
+.branch-stem {
+  width: 2px; height: 20px; background: #2d2d2d;
+  position: relative; z-index: 5;
+}
+.branch-stem::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; left: 50%;
+  transform: translateX(-50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: white; border: 2px solid #2d2d2d;
+  z-index: 5;
+}
+
+/* small stem between head card and its sub-team */
+.card-stem { width: 2px; height: 18px; background: #2d2d2d; margin: 0 auto; }
+
+/* ── CARDS ── */
+.card {
+  background: white; border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 0 0 12px 0;
+  width: 240px;
+  border-left: 5px solid #ccc;
+  position: relative; z-index: 1;
+  transition: box-shadow 0.2s; overflow: hidden;
+}
+.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.13); }
+.card.highlight { box-shadow: 0 0 0 3px #ffca28, 0 4px 16px rgba(255,202,40,0.3) !important; }
+
+.card-inner { padding: 0 12px; }
+
+/* ── AVATAR ── */
+.card-header { display: flex; align-items: center; gap: 10px; padding: 10px 0 4px; }
+.avatar {
+  width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: white;
+  background: #94a3b8; overflow: hidden;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.card-name-wrap { flex: 1; min-width: 0; }
+.card-name { font-size: 13px; font-weight: 700; color: #1a1a2e; line-height: 1.3; margin-bottom: 2px; }
+.card-title { font-size: 11px; color: #555; line-height: 1.3; margin-bottom: 7px; font-style: italic; }
+.card-meta { display: flex; flex-direction: column; gap: 3px; border-top: 1px solid #f0f0f0; padding-top: 7px; }
+.card-detail { display: flex; gap: 5px; font-size: 10.5px; color: #444; align-items: flex-start; }
+.card-detail .icon { opacity: 0.55; flex-shrink: 0; font-size: 10px; }
+.card-detail .val { color: #222; line-height: 1.3; }
+
+/* Slack button */
+.slack-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 9px; padding: 4px 9px;
+  background: #4A154B; color: white; border-radius: 4px;
+  text-decoration: none; font-size: 10px; font-weight: 600;
+  transition: background 0.15s;
+}
+.slack-btn:hover { background: #611f69; }
+.slack-btn svg { flex-shrink: 0; }
+
+.dept-badge {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; padding: 2px 7px; border-radius: 12px;
+  margin-bottom: 5px; display: inline-block;
+}
+.shift-badge {
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.4px; padding: 1px 6px; border-radius: 10px;
+  margin-bottom: 4px; display: inline-block;
+}
+.shift-1 { background: #e3f2fd; color: #1565c0; }
+.shift-2 { background: #fff3e0; color: #e65100; }
+.shift-3 { background: #f3e5f5; color: #6a1b9a; }
+.toggle-btn {
+  position: absolute; bottom: -11px; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 20px; border-radius: 50%;
+  background: white; border: 2px solid #bbb;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; cursor: pointer; z-index: 10;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12); transition: background 0.15s;
+  user-select: none;
+}
+.toggle-btn:hover { background: #f5f5f5; }
+
+/* Color themes — neutral border for all cards */
+.c-ceo, .c-latam, .c-ind, .c-sales, .c-mkt, .c-biz { border-left-color: #e2e8f0; }
+
+/* Department badges — light grey with black text */
+.badge-latam, .badge-ind, .badge-sales, .badge-mkt, .badge-biz { background: #f1f3f5; color: #1e293b; }
+
+/* map bg tints removed — transparent state-map avoids visual confusion with connector lines */
+
+/* sub-group label (Field Dev, RAMs, TSMs) */
+.sub-label {
+  color: white; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  padding: 5px 16px; border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+  cursor: pointer; user-select: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.sub-label:hover { filter: brightness(1.1); }
+.sub-label-arrow {
+  display: inline-block; font-size: 11px;
+  transition: transform 0.2s;
+}
+.sub-label.sub-collapsed .sub-label-arrow { transform: rotate(-90deg); }
+
+/* ── PAIRED LAYOUT ── */
+.team-pairs {
+  display: flex; flex-direction: column; align-items: center; position: relative;
+}
+.team-pairs::before {
+  content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+  top: var(--spine-top, 0px); height: var(--spine-height, 0px);
+  width: 2px; background: #2d2d2d; z-index: 0;
+}
+.pair-v { width: 2px; height: 20px; background: transparent; flex-shrink: 0; }
+.pair-row {
+  display: flex; flex-direction: row; align-items: center;
+  position: relative; z-index: 1;
+}
+.pair-h-arm { width: 20px; height: 2px; background: #2d2d2d; flex-shrink: 0; }
+.pair-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: white; border: 2px solid #2d2d2d;
+  flex-shrink: 0; position: relative; z-index: 2;
+}
+.pair-solo-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+}
+
+/* ── GOTO SECTION ── */
+.card-goto { border-top: 1px solid #f0f0f0; margin-top: 8px; }
+.card-goto-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 7px 12px; font-size: 10.5px; font-weight: 600;
+  color: #64748b; cursor: pointer; user-select: none; gap: 6px;
+}
+.card-goto-toggle:hover { color: #1e293b; }
+.card-goto-label { flex: 1; }
+.card-goto-arrow { font-size: 10px; transition: transform 0.2s; flex-shrink: 0; }
+.card-goto.open .card-goto-arrow { transform: rotate(180deg); }
+.card-goto-body {
+  display: none; padding: 0 12px 10px;
+  font-size: 10.5px; color: #475569; line-height: 1.55;
+}
+.card-goto.open .card-goto-body { display: block; }
+
+
+/* ── R&D ADDITIONS ── */
+.c-rd { border-left-color: #e2e8f0; }
+.c-gm { border-left-color: #e2e8f0; }
+.rd-column { display: flex; flex-direction: column; align-items: center; width: 220px; flex-shrink: 0; }
+.team-reports { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.div-label {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
+  padding: 4px 10px; border-radius: 12px; background: #f1f3f5; color: #1e293b;
+  text-align: center; white-space: nowrap; align-self: center;
+}
+.ldr-stem { width: 2px; height: 14px; background: #2d2d2d; align-self: center; }
+/* report-stem removed: peer reports within a team-reports group now float
+   without connector lines (avoids implying false reporting chains) */
+.report-stem { display: none; }
+.team-reports .card { margin-top: 14px; }
+.rd-label {
+  font-size: 17px; font-weight: 700; background: #334155;
+  color: white; border-radius: 8px; padding: 12px 32px;
+  text-align: center; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  cursor: pointer; user-select: none;
+}
+.rd-sub { font-size: 13px; font-weight: 400; opacity: 0.8; margin-top: 2px; }
+.super-col { display: flex; flex-direction: column; align-items: center; }
+
+/* ── PAUL'S SUB-SECTION ORDER (left → right): R&D, Regulatory, Operations, P&C/EU ── */
+#super-rd         { order: 1; }
+#super-reg        { order: 2; }
+#super-fac        { order: 3; }
+#super-ops-qual   { order: 4; }
+#super-sc         { order: 5; }
+#super-mfg        { order: 6; }
+#support-wrapper  { order: 7; }
+
+/* ── DIVISION BACKGROUND PANELS ── */
+#super-commercial, #super-rd, #super-reg, #super-fac, #super-ops-qual, #super-sc, #super-mfg, #super-hr, #super-partners, #super-fin {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 0 36px 36px;
+}
+
+/* ── AI BAR ── */
+#search {
+  padding: 7px 14px; border-radius: 20px; border: 1px solid #e2e8f0;
+  background: #f8fafc; color: #1e293b; font-size: 13px;
+  width: 280px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+#search::placeholder { color: #94a3b8; }
+#search:focus { border-color: #93c5fd; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+
+/* ── AI RESULTS PANEL ── */
+.search-results-panel {
+  position: fixed; top: 58px; left: 50%; transform: translateX(-50%);
+  width: min(680px, 92vw); z-index: 150;
+  background: white; border: 1px solid #e2e8f0; border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+  padding: 12px 20px 14px; display: flex; flex-direction: column; gap: 10px;
+  max-height: 360px; overflow-y: auto;
+}
+.search-results-header {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11.5px; font-weight: 600; color: #64748b; letter-spacing: 0.3px;
+}
+.search-results-close {
+  background: none; border: none; cursor: pointer; font-size: 16px;
+  color: #94a3b8; padding: 0 4px; line-height: 1;
+}
+.search-results-close:hover { color: #475569; }
+.search-result-list { display: flex; flex-direction: column; gap: 8px; }
+.search-result-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 10px; border-radius: 8px; border: 1px solid #f1f5f9;
+  cursor: pointer; transition: background 0.15s, border-color 0.15s;
+}
+.search-result-item:hover { background: #f8fafc; border-color: #e2e8f0; }
+.search-result-item.top-match { border-color: #bfdbfe; background: #eff6ff; }
+.search-result-avatar {
+  width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: white; background: #64748b;
+}
+.search-result-info { flex: 1; min-width: 0; }
+.search-result-name { font-size: 12.5px; font-weight: 700; color: #1e293b; }
+.search-result-title { font-size: 11px; color: #64748b; margin-top: 1px; }
+.search-result-why {
+  font-size: 11px; color: #475569; margin-top: 4px; line-height: 1.45;
+  border-top: 1px solid #f0f0f0; padding-top: 4px;
+}
+.search-wrap { position: relative; display: flex; align-items: center; gap: 6px; }
+
+
+    /* ── Operations badges & cards ── */
+    .badge-fac  { background:#0097a7; color:#fff; }
+    .badge-qual { background:#7b1fa2; color:#fff; }
+    .badge-sc   { background:#1565c0; color:#fff; }
+    .badge-mfg  { background:#e65100; color:#fff; }
+    .c-fac  { border-top:4px solid #0097a7; }
+    .c-qual { border-top:4px solid #7b1fa2; }
+    .c-sc   { border-top:4px solid #1565c0; }
+    .c-mfg  { border-top:4px solid #e65100; }
+    .c-eu2  { border-top:4px solid #2e7d32; }
+
+    /* ── Ops label ── */
+    .ops-label {
+      background:#1a5276; color:#fff; border-radius:8px;
+      padding:14px 28px; font-weight:700; font-size:19px;
+      text-align:center; position:relative; cursor:default;
+      white-space:nowrap;
+    }
+    .ops-label .label-sub { font-size:14px; font-weight:400; color:#aed6f1; margin-top:2px; }
+
+    /* #ops-content must center its children (incl. the connector-v stem)
+       like .super-col does, otherwise the stem sits flush at the left edge
+       of the branches row instead of centered above it. */
+    #ops-content { display:flex; flex-direction:column; align-items:center; }
+
+    /* ── Ops dept sub-label ── */
+    .ops-dept-col { display:flex; flex-direction:column; align-items:center; }
+    .ops-dept-label {
+      color:#fff; border-radius:6px; padding:6px 14px;
+      font-weight:700; font-size:13px; text-align:center;
+      white-space:nowrap; margin-bottom:0;
+    }
+
+  
+    /* Finance */
+    .c-fin { border-top: 4px solid #2e7d32; }
+    .fin-label {
+      background: #2e7d32; color: #fff; border-radius: 8px;
+      padding: 14px 28px; font-weight: 700; font-size: 19px;
+      text-align: center; position: relative; white-space: nowrap;
+    }
+    .fin-label .label-sub { font-size: 14px; font-weight: 400; color: #a5d6a7; margin-top: 2px; }
+
+    /* HR */
+    .c-hr { border-top: 4px solid #6a1b9a; }
+    .hr-label {
+      background: #6a1b9a; color: #fff; border-radius: 8px;
+      padding: 14px 28px; font-weight: 700; font-size: 19px;
+      text-align: center; position: relative; white-space: nowrap;
+    }
+    .hr-label .label-sub { font-size: 14px; font-weight: 400; color: #ce93d8; margin-top: 2px; }
+
+    /* CFO card */
+    .c-cfo { border-left: 5px solid #2e7d32; background: white; border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 0 0 12px 0; width: 240px; }
+
+  
+  /* ── FIND-PERSON BAR ── */
+  #find-bar {
+    position: fixed; top: 68px; left: 50%; transform: translateX(-50%);
+    z-index: 500; display: none; align-items: center; gap: 8px;
+    background: #fff; border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18); padding: 8px 16px;
+    border: 1.5px solid #e0e0e0;
+  }
+  #find-bar .find-icon { font-size: 15px; color: #888; }
+  #find-input {
+    border: none; outline: none; font-size: 14px; width: 200px;
+    font-family: inherit; color: #222;
+  }
+  #find-count { font-size: 12px; color: #aaa; min-width: 48px; white-space: nowrap; }
+  #find-clear {
+    cursor: pointer; color: #bbb; font-size: 18px; line-height: 1;
+    background: none; border: none; padding: 0 0 0 2px;
+  }
+  #find-clear:hover { color: #555; }
+
+  /* find highlight states */
+  .card.find-match {
+    outline: 3px solid #ff6b35 !important; outline-offset: 2px;
+    position: relative; z-index: 5;
+  }
+  .card.find-dim { opacity: 0.13 !important; transition: opacity 0.15s; }
+
+  /* chain highlight states */
+  .card.chain-self {
+    box-shadow: 0 0 0 4px #1565c0, 0 4px 20px rgba(21,101,192,0.4) !important;
+    position: relative; z-index: 10;
+  }
+  .card.chain-ancestor {
+    box-shadow: 0 0 0 3px #64b5f6, 0 2px 12px rgba(100,181,246,0.35) !important;
+  }
+  .card.chain-descendant {
+    box-shadow: 0 0 0 3px #43a047, 0 2px 12px rgba(67,160,71,0.35) !important;
+  }
+  .card.chain-dim { opacity: 0.2 !important; transition: opacity 0.15s; }
+
+  /* last updated stamp in header */
+  .logo-area { display: flex; align-items: baseline; gap: 10px; }
+  #last-updated {
+    font-size: 11px; color: rgba(255,255,255,0.65); white-space: nowrap;
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  }
+</style>
+</head>
+<body>
+<div style="background:#f59e0b;color:#fff;text-align:center;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:0.5px;position:sticky;top:0;z-index:9999;">
+  DRAFT — Workforce Planning Mock · Titles Only · Not for Distribution
+</div>
+
+<div id="find-bar">
+  <span class="find-icon">⌕</span>
+  <input type="text" id="find-input" placeholder="Find person…" autocomplete="off" spellcheck="false">
+  <span id="find-count"></span>
+  <button id="find-clear" onclick="clearFind()" title="Close">×</button>
+</div>
+
+<header>
+  <div class="logo-area">
+    <img class="logo-icon" src="Rippling%20profile%20pics/profarmgroup_logo_wordmark_purple.png" alt="ProFarm">
+  </div>
+  <span id="last-updated">Workforce Plan Draft</span>
+  <div class="header-controls">
+    <div class="search-wrap">
+      <input type="text" id="search" placeholder="Search people, titles, or responsibilities…" autocomplete="off">
+    </div>
+  </div>
+</header>
+
+
+<div id="ai-backdrop" style="display:none;position:fixed;inset:0;z-index:149;" onclick="closeResults()"></div>
+<div id="search-results-panel" class="search-results-panel" style="display:none;"></div>
+
+<div class="chart-container" id="chart">
+<div id="zoom-wrapper">
+<div class="chart-root" id="chart-root">
+
+  <!-- ── CEO ── -->
+
+  <!-- ── LEVON BRANCHES: Paul | Levon (+Commercial) | Scott ── -->
+  <div id="levon-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
+    <div id="paul-levon-bar" style="position:absolute;height:6px;background:#1a1a1a;width:0;pointer-events:none;"></div>
+    <div id="levon-scott-bar" style="position:absolute;height:6px;background:#1a1a1a;width:0;pointer-events:none;"></div>
+
+
+    <!-- PAUL column -->
+    <div class="super-col" id="paul-super">
+      <div class="card c-gm" data-slack="ptansey">
+      <div class="card-inner">
+        
+        <div class="card-title">General Manager, ProFarm North America</div>
+        
+        
+      </div>
+    </div>
+      <div class="connector-v" style="height:60px;"></div>
+      <!-- paul-branches: R&D + Ops + HR -->
+      <div id="paul-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
+        <div id="paul-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+    <!-- /super-rd -->
+    <!-- /super-reg -->
+    <!-- /super-fac -->
+    <div id="super-ops-qual" class="super-col">
+      <div id="section-title-ops-qual" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Quality</div>
+      <div class="ops-dept-col" id="ops-col-qual" style="min-width:220px;">
+        <div class="ops-dept-label" style="background:#7b1fa2;">Quality (13)</div>
+        <div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-qual" data-slack="tamara.n">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Sr. Director of Quality</div>
+                
+                
+              </div>
+            </div>
+        
+        <div class="connector-v" style="height:20px;"></div>
+        <div id="tamara-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:30px;position:relative;">
+          <div id="h-bar-tamara" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="nathan.b">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Supervisor, QC &amp; Manufacturing Support</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-qual" data-slack="ineah.c">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Assistant Scientist, Quality Control and Processing</div>
+                
+                
+              </div>
+            </div></div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="daisie">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Sr. Manager – Quality Assurance &amp; Compliance</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-qual" data-slack="stellar">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Quality Assurance Assistant</div>
+                
+                
+              </div>
+            </div></div>
+<div style="height:12px;"></div><div class="card c-qual" data-slack="tiffany.d">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">QA Assistant</div>
+                
+                
+              </div>
+            </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="amanjit">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Sr. Manager, Quality Control</div>
+                
+                
+              </div>
+            </div>
+        <div class="connector-v" style="height:20px;"></div>
+        <div id="amanjit-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
+          <div id="h-bar-amanjit" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="symphony">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">QC Supervisor</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-qual" data-slack="abigail">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Intern</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-qual" data-slack="evan.m">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Intern</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-qual" data-slack="madeline">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Quality Control Technician</div>
+                
+                
+              </div>
+            </div></div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="rafael.m">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Associate Scientist, Quality Control</div>
+                
+                
+              </div>
+            </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="cpeavey">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Assistant Scientist, Quality Control</div>
+                
+                
+              </div>
+            </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="breanna">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Associate Scientist, Quality Control</div>
+                
+                
+              </div>
+            </div></div>
+        </div></div>
+        
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="haley.f">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Manager – Quality Development</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-qual" data-slack="naiki">
+              <div class="card-inner">
+                <div class="dept-badge">Quality</div>
+                
+                <div class="card-title">Scientist – Quality Development</div>
+                
+                
+              </div>
+            </div></div>
+        </div>
+        
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-qual" data-slack="raji">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                
+                <div class="card-title">Associate Scientist</div>
+                
+                
+              </div>
+            </div></div>
+
+        </div>
+
+
+
+      </div>
+    </div><!-- /super-ops-qual -->
+    <div id="super-sc" class="super-col">
+      <div id="section-title-sc" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Supply Chain</div>
+      <div class="ops-dept-col" id="ops-col-sc" style="min-width:220px;">
+        <div class="ops-dept-label" style="background:#1565c0;">Supply Chain (10)</div>
+        <div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-sc" data-slack="luis.l">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Sr. Director, Supply Chain</div>
+                
+                
+              </div>
+            </div>
+        
+        <div class="connector-v" style="height:20px;"></div>
+        <div id="luis-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
+          <div id="h-bar-luis" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-sc" data-slack="kevin.g">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Sr. Manager, Planning &amp; Inventory</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-sc" data-slack="mercedes">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Sr. Cost Analyst &amp; Supply Chain Planner</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-sc" data-slack="anthony">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Supply Chain Planning, Logistics &amp; Inventory Analyst</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-sc" data-slack="adriana">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Sr. Supply Chain Assistant</div>
+                
+                
+              </div>
+            </div></div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-sc" data-slack="monica">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Purchasing &amp; Customer Support Manager</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-sc" data-slack="shelley">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Customer Support Purchasing Lead</div>
+                
+                
+              </div>
+            </div></div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-sc" data-slack="carol">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Logistics Manager</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-sc" data-slack="sabra">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Sr. Logistics Lead</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-sc" data-slack="lou">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Customer Support &amp; Purchasing Assistant</div>
+                
+                
+              </div>
+            </div></div></div>
+          
+        
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-sc" data-slack="tatiana">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                
+                <div class="card-title">Logistic Coordinator EU</div>
+                
+                
+              </div>
+            </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-sc" data-slack="alexandr">
+              <div class="card-inner">
+                <div class="dept-badge">EU</div>
+                
+                <div class="card-title">Production Manager EU</div>
+                
+                
+              </div>
+            </div></div>
+        </div>
+      </div>
+    </div><!-- /super-sc -->
+    <div id="super-mfg" class="super-col">
+      <div id="section-title-mfg" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Manufacturing</div>
+      <div class="ops-dept-col" id="ops-col-mfg" style="min-width:220px;">
+        <div class="ops-dept-label" style="background:#e65100;">Manufacturing (21)</div>
+        <div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-mfg" data-slack="douglas">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Production Director</div>
+                
+                
+              </div>
+            </div>
+        
+        <div class="connector-v" style="height:20px;"></div>
+        <div id="douglas-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:25px;position:relative;">
+          <div id="h-bar-douglas" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="michelle.l">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Supply Chain Specialist</div>
+                
+                
+              </div>
+            </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="marbella">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Administrative Assistant</div>
+                
+                
+              </div>
+            </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="dominik">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Maintenance Manager</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-mfg" data-slack="rob.w">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Maintenance Specialist</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-mfg" data-slack="chris.c">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Mechanic 3</div><div class="shift-badge shift-2">2nd Shift</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-mfg" data-slack="john.s">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Mechanic 4</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-mfg" data-slack="david.c">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Mechanic 2</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div>
+            </div></div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="peter">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Production Manager</div>
+                
+                
+              </div>
+            </div>
+        <div class="connector-v" style="height:20px;"></div>
+        <div id="peter-reports" style="display:flex;flex-direction:row;align-items:flex-start;gap:20px;position:relative;">
+          <div id="h-bar-peter" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="sherry">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Shift Supervisor</div><div class="shift-badge shift-3">3rd Shift</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-mfg" data-slack="katie">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Lead Operator</div><div class="shift-badge shift-3">3rd Shift</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-mfg" data-slack="joseph">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">C Operator</div><div class="shift-badge shift-3">3rd Shift</div>
+                
+                
+              </div>
+            </div></div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="wade">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Sr. Plant Supervisor</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div>
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-mfg" data-slack="andy">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Lead Operator</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div>
+            </div>
+<div style="height:12px;"></div><div class="card c-mfg" data-slack="brittany">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">C Operator</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div>
+            </div>
+</div></div>
+                    <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="doug.f"><div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">2nd Shift Supervisor</div><div class="shift-badge shift-2">2nd Shift</div>
+                
+                
+              </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-mfg" data-slack="jack"><div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">C Operator</div><div class="shift-badge shift-2">2nd Shift</div>
+                
+                
+              </div></div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-mfg" data-slack="jeremy"><div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">B Operator</div><div class="shift-badge shift-2">2nd Shift</div>
+                
+                
+              </div></div></div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="greg.nelson"><div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Packaging Supervisor</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-mfg" data-slack="chance"><div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Lead Packaging Operator</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div></div><div style="height:12px;"></div><div class="card c-mfg" data-slack="eric.mc"><div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Packaging Operator</div><div class="shift-badge shift-1">1st Shift</div>
+                
+                
+              </div></div></div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="joshua"><div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Production Supervisor</div>
+                
+                
+              </div></div></div>
+        </div>
+        </div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-sc" data-slack="michael.s">
+              <div class="card-inner">
+                <div class="dept-badge">Supply Chain</div>
+                
+                <div class="card-title">Lead, Tech Transfer &amp; Development</div>
+                
+                
+              </div>
+            </div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="nancy.mc">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Bioprocess Engineer</div>
+                
+                
+              </div>
+            </div></div>
+        
+          <div style="display:flex;flex-direction:column;align-items:center;"><div class="branch-stem"></div><div class="card c-mfg" data-slack="christin.p">
+              <div class="card-inner">
+                <div class="dept-badge">Manufacturing</div>
+                
+                <div class="card-title">Environmental Health &amp; Safety Specialist</div>
+                
+                
+              </div>
+            </div></div>
+        </div>
+          
+        
+          
+        
+          
+        </div>
+      </div>
+    
+    
+      
+    
+
+    <!-- /super-partners -->
+    
+    </div><!-- /super-mfg -->
+
+    <!-- SUPPORT wrapper: P&C + EU/EMEA -->
+    <!-- /support-wrapper -->
+    </div><!-- /paul-super -->
+    <!-- LEVON column (middle) -->
+    <!-- /levon-super -->
+<!-- /scott-super -->
+
+
+    <!-- SCOTT / FINANCE column -->
+
+  </div><!-- /levon-branches -->
+
+</div></div></div><!-- /chart-root /zoom-wrapper /chart-container -->
+
+<!-- Zoom panel: fixed bottom-right, separate from nav shortcuts -->
+<div class="zoom-panel">
+  <div class="zoom-controls">
+    <button class="zoom-btn" onclick="zoom(-0.15)" title="Zoom out">−</button>
+    <div class="zoom-pct-wrap" id="zoom-pct-wrap">
+      <input type="text" class="zoom-pct-input" id="zoom-pct-input" value="100%"
+        onblur="applyZoomInput()" onkeydown="if(event.key==='Enter'){this.blur();}">
+      <button class="zoom-dropdown-btn" onclick="toggleZoomDropdown(event)" tabindex="-1">▲</button>
+      <div class="zoom-dropdown-menu" id="zoom-dropdown-menu">
+        <div class="zoom-dropdown-item" onclick="setZoomPct(25)">25%</div>
+        <div class="zoom-dropdown-item" onclick="setZoomPct(50)">50%</div>
+        <div class="zoom-dropdown-item" onclick="setZoomPct(75)">75%</div>
+        <div class="zoom-dropdown-item" onclick="setZoomPct(90)">90%</div>
+        <div class="zoom-dropdown-item active" id="zoom-dd-100" onclick="setZoomPct(100)">100%</div>
+        <div class="zoom-dropdown-item" onclick="setZoomPct(125)">125%</div>
+        <div class="zoom-dropdown-item" onclick="setZoomPct(150)">150%</div>
+        <div class="zoom-dropdown-item" onclick="setZoomPct(200)">200%</div>
+      </div>
+    </div>
+    <button class="zoom-btn" onclick="zoom(0.15)" title="Zoom in">+</button>
+    <button class="zoom-btn" onclick="fitToView()" title="Fit to view">⊡</button>
+  </div>
+</div>
+
+<div class="bottom-bar">
+  <div class="nav-btns">
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-commercial')">Commercial</button>
+      <span class="nav-badge">22</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-rd')">R&amp;D</button>
+      <span class="nav-badge">14</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-reg')">Regulatory</button>
+      <span class="nav-badge">5</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-fac')">Facilities</button>
+      <span class="nav-badge">2</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-ops-qual')">Quality</button>
+      <span class="nav-badge">14</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-mfg')">Manufacturing</button>
+      <span class="nav-badge">20</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-sc')">Supply Chain</button>
+      <span class="nav-badge">11</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-eu')">EU/EMEA</button>
+      <span class="nav-badge">2</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-hr')">P&amp;C</button>
+      <span class="nav-badge">2</span>
+    </div>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="jumpTo('super-fin')">Finance</button>
+      <span class="nav-badge">8</span>
+    </div>
+  </div>
+  <div class="nav-btns">
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="expandAll()">Expand All</button>
+      <span class="nav-badge">114</span>
+    </div>
+    <button class="nav-btn" onclick="collapseAll()">Collapse All</button>
+    <button class="nav-btn" onclick="fitToView()">Fit View</button>
+    <button class="nav-btn" onclick="resetZoom()">Reset</button>
+  </div>
+</div>
+
+<script>
+const SLACK_WORKSPACE = 'profarm-team';
+
+// ── H-BAR SIZING ──────────────────────────────────────────────────────────
+function updateHBar(rowEl, barEl) {
+  if (!rowEl || !barEl) return;
+  const cols = Array.from(rowEl.children).filter(c => c !== barEl);
+  if (cols.length < 2) return;
+  // Sort by visual (left-to-right) position, not DOM order — some columns
+  // are reordered visually via CSS `order`.
+  cols.sort((a, b) => a.offsetLeft - b.offsetLeft);
+  const first = cols[0], last = cols[cols.length - 1];
+  const x1 = first.offsetLeft + first.offsetWidth / 2;
+  const x2 = last.offsetLeft  + last.offsetWidth  / 2;
+  barEl.style.left  = x1 + 'px';
+  barEl.style.width = Math.max(0, x2 - x1) + 'px';
+}
+function updateHBarRd() {
+  const row = document.getElementById('branch-row-rd');
+  const bar = document.getElementById('h-bar-rd');
+  if (!row || !bar) return;
+  const cols = Array.from(row.querySelectorAll('.rd-column'));
+  if (cols.length < 2) return;
+  const rowL = row.getBoundingClientRect().left;
+  const fL = cols[0].getBoundingClientRect().left - rowL + cols[0].offsetWidth / 2;
+  const lL = cols[cols.length-1].getBoundingClientRect().left - rowL + cols[cols.length-1].offsetWidth / 2;
+  bar.style.left  = fL + 'px';
+  bar.style.width = Math.max(0, lL - fL) + 'px';
+}
+
+    function updateHBarLevon() {
+    updateLevonConnectors();
+    updateHBar(document.getElementById('nancy-reports'),  document.getElementById('h-bar-nancy'));
+  }
+
+  // Paul/Scott connect to the vertical middle of Levon's card (not its top).
+  // Each connector spans only the gap between the adjacent cards, positioned
+  // at Levon's card's mid-height, so it doesn't overlap any card.
+  function updateLevonConnectors() {
+    const paulCard  = document.querySelector('[data-slack="ptansey"]');
+    const levonCard = document.querySelector('[data-slack="levon"]');
+    const scottCard = document.querySelector('[data-slack="scott.n"]');
+    const leftBar  = document.getElementById('paul-levon-bar');
+    const rightBar = document.getElementById('levon-scott-bar');
+    if (!paulCard || !levonCard || !scottCard || !leftBar || !rightBar) return;
+
+    const midY = levonCard.offsetTop + levonCard.offsetHeight / 2 - 3; // -3 centers the 6px bar
+
+    leftBar.style.top   = midY + 'px';
+    leftBar.style.left  = (paulCard.offsetLeft + paulCard.offsetWidth) + 'px';
+    leftBar.style.width = Math.max(0, levonCard.offsetLeft - (paulCard.offsetLeft + paulCard.offsetWidth)) + 'px';
+
+    rightBar.style.top   = midY + 'px';
+    rightBar.style.left  = (levonCard.offsetLeft + levonCard.offsetWidth) + 'px';
+    rightBar.style.width = Math.max(0, scottCard.offsetLeft - (levonCard.offsetLeft + levonCard.offsetWidth)) + 'px';
+  }
+function updateHBarOps() {
+    updateHBar(document.getElementById('ops-branches'),   document.getElementById('h-bar-ops'));
+    updateHBar(document.getElementById('tamara-reports'), document.getElementById('h-bar-tamara'));
+    updateHBar(document.getElementById('amanjit-reports'),document.getElementById('h-bar-amanjit'));
+    updateHBar(document.getElementById('luis-reports'),   document.getElementById('h-bar-luis'));
+    updateHBar(document.getElementById('douglas-reports'),document.getElementById('h-bar-douglas'));
+    updateHBar(document.getElementById('peter-reports'),  document.getElementById('h-bar-peter'));
+  }
+
+  function updateAllHBars() {
+  updateHBar(document.getElementById('branch-row'),    document.getElementById('h-bar'));
+  updateHBar(document.getElementById('tim-sub-row'),   document.getElementById('tim-hbar'));
+  updateHBar(document.getElementById('nevada-sub-row'),document.getElementById('nevada-hbar'));
+  updateHBar(document.getElementById('paul-branches'), document.getElementById('paul-hbar'));
+  // support-row merged into paul-branches
+  updateHBar(document.getElementById('eu-row'), document.getElementById('eu-hbar'));
+  updateHBar(document.getElementById('virge-reports'), document.getElementById('virge-hbar'));
+  updateHBarRd();
+  updateHBarOps();
+  updateHBarLevon();
+}
+
+// ── SPINE ─────────────────────────────────────────────────────────────────
+function getRelativeOffsetTop(el, ancestor) {
+  let top = 0;
+  while (el && el !== ancestor) { top += el.offsetTop; el = el.offsetParent; }
+  return top;
+}
+function updateSpines() {
+  document.querySelectorAll('.team-pairs').forEach(pairs => {
+    const dots = Array.from(pairs.querySelectorAll('.pair-dot'));
+    if (!dots.length) return;
+    const first = dots[0], last = dots[dots.length - 1];
+    const fc = getRelativeOffsetTop(first, pairs) + first.offsetHeight / 2;
+    const lc = getRelativeOffsetTop(last,  pairs) + last.offsetHeight  / 2;
+    pairs.style.setProperty('--spine-top',    fc + 'px');
+    pairs.style.setProperty('--spine-height', Math.max(0, lc - fc) + 'px');
+  });
+}
+
+// ── TOGGLES ───────────────────────────────────────────────────────────────
+function setupToggle(btnId, teamId) {
+  const btn = document.getElementById(btnId);
+  const team = document.getElementById(teamId);
+  if (!btn || !team) return;
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const hidden = team.style.display === 'none';
+    team.style.display = hidden ? '' : 'none';
+    btn.textContent = hidden ? '−' : '+';
+    setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
+  });
+}
+setupToggle('toggle-tim', 'team-tim');
+setupToggle('toggle-nevada', 'team-nevada');
+
+const SUB_GROUPS = [
+  { lbl:'lbl-ram', grp:'grp-ram' }, { lbl:'lbl-tsm', grp:'grp-tsm' },
+  { lbl:'lbl-direct', grp:'grp-direct' }, { lbl:'lbl-fielddev', grp:'grp-fielddev' },
+];
+SUB_GROUPS.forEach(({ lbl, grp }) => {
+  const label = document.getElementById(lbl);
+  const content = document.getElementById(grp);
+  if (!label || !content) return;
+  label.addEventListener('click', () => {
+    const nowCollapsed = label.classList.toggle('sub-collapsed');
+    content.style.display = nowCollapsed ? 'none' : '';
+    setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
+  });
+});
+
+// Commercial label toggle
+const _commLbl = document.getElementById('lbl-commercial');
+const _commArrow = document.getElementById('commercial-arrow');
+const _commOuter = document.getElementById('branches-outer');
+if (_commLbl && _commOuter) {
+  _commLbl.addEventListener('click', () => {
+    const nowHidden = _commOuter.style.display === 'none';
+    _commOuter.style.display = nowHidden ? '' : 'none';
+    _commArrow.style.transform = nowHidden ? '' : 'rotate(-90deg)';
+    setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
+  });
+}
+
+// R&D label toggle
+const _rdLbl = document.getElementById('lbl-rd');
+const _rdArrow = document.getElementById('rd-arrow');
+const _rdOuter = document.getElementById('branches-outer-rd');
+if (_rdLbl && _rdOuter) {
+  _rdLbl.addEventListener('click', () => {
+    const nowHidden = _rdOuter.style.display === 'none';
+    _rdOuter.style.display = nowHidden ? '' : 'none';
+    _rdArrow.style.transform = nowHidden ? '' : 'rotate(-90deg)';
+    setTimeout(updateHBarRd, 20);
+  });
+}
+
+
+// Finance label toggle
+const _finLbl = document.getElementById('lbl-fin');
+
+const _euLbl = document.getElementById('lbl-eu');
+const _euContent = document.getElementById('eu-content');
+if (_euLbl && _euContent) {
+  _euLbl.addEventListener('click', () => {
+    const nowHidden = _euContent.style.display === 'none';
+    _euContent.style.display = nowHidden ? '' : 'none';
+    setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
+  });
+}
+const _euContent2 = document.getElementById('eu-content');
+const _finContent = document.getElementById('fin-content');
+if (_finLbl && _finContent) {
+  _finLbl.addEventListener('click', () => {
+    const nowHidden = _finContent.style.display === 'none';
+    _finContent.style.display = nowHidden ? '' : 'none';
+    setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
+  });
+}
+
+// HR label toggle
+const _hrLbl = document.getElementById('lbl-hr');
+const _hrContent = document.getElementById('hr-content');
+if (_hrLbl && _hrContent) {
+  _hrLbl.addEventListener('click', () => {
+    const nowHidden = _hrContent.style.display === 'none';
+    _hrContent.style.display = nowHidden ? '' : 'none';
+    setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
+  });
+}
+
+// Operations toggle removed (now 4 separate sections)
+
+// R&D team toggles (data-target)
+document.querySelectorAll('.toggle-btn[data-target]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const target = document.getElementById(btn.dataset.target);
+    if (!target) return;
+    const hidden = target.style.display === 'none';
+    target.style.display = hidden ? '' : 'none';
+    btn.textContent = hidden ? '−' : '+';
+    setTimeout(updateHBarRd, 20);
+  });
+});
+
+function expandAll() {
+  if (_commOuter) { _commOuter.style.display = ''; _commArrow.style.transform = ''; }
+  if (_rdOuter)   { _rdOuter.style.display   = ''; _rdArrow.style.transform   = ''; }
+  if (_euContent2){ _euContent2.style.display = ''; }
+  if (_finContent){ _finContent.style.display = ''; }
+  if (_hrContent) { _hrContent.style.display  = ''; }
+  ['team-tim','team-nevada'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
+  SUB_GROUPS.forEach(({ lbl, grp }) => {
+    const l = document.getElementById(lbl); const c = document.getElementById(grp);
+    if (l) l.classList.remove('sub-collapsed'); if (c) c.style.display = '';
+  });
+  document.querySelectorAll('.team-reports').forEach(t => { t.style.display = ''; });
+  document.querySelectorAll('.toggle-btn').forEach(b => { b.textContent = '−'; });
+  setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
+}
+function collapseAll() {
+  if (_commOuter) { _commOuter.style.display = 'none'; _commArrow.style.transform = 'rotate(-90deg)'; }
+  if (_rdOuter)   { _rdOuter.style.display   = 'none'; _rdArrow.style.transform   = 'rotate(-90deg)'; }
+  if (_euContent2){ _euContent2.style.display = 'none'; }
+  if (_finContent){ _finContent.style.display = 'none'; }
+  if (_hrContent) { _hrContent.style.display  = 'none'; }
+  ['team-tim','team-nevada'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+  SUB_GROUPS.forEach(({ lbl, grp }) => {
+    const l = document.getElementById(lbl); const c = document.getElementById(grp);
+    if (l) l.classList.add('sub-collapsed'); if (c) c.style.display = 'none';
+  });
+  document.querySelectorAll('.team-reports').forEach(t => { t.style.display = 'none'; });
+  document.querySelectorAll('.toggle-btn').forEach(b => { b.textContent = '+'; });
+  setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
+}
+
+// ── GOTO ──────────────────────────────────────────────────────────────────
+const GOTO_TEXT = {};
+const GOTO_LABEL = {
+  'wendy': 'When should I reach out to Wendy?',
+};
+(function injectGoto() {
+  document.querySelectorAll('.card').forEach(card => {
+    const slack = card.dataset.slack || '';
+    const text  = GOTO_TEXT[slack];
+    if (!text) return;
+    const label = GOTO_LABEL[slack] || 'What do I go to them for?';
+    const section = document.createElement('div');
+    section.className = 'card-goto';
+    section.innerHTML = '<div class="card-goto-toggle"><span class="card-goto-label">' + label + '</span><span class="card-goto-arrow">▾</span></div><div class="card-goto-body">' + text + '</div>';
+    card.appendChild(section);
+    section.querySelector('.card-goto-toggle').addEventListener('click', function(e) {
+      e.stopPropagation(); section.classList.toggle('open');
+    });
+  });
+})();
+
+// ── SLACK DEEP LINK ───────────────────────────────────────────────────────
+function openSlackDM(appUrl, webUrl) {
+  window.location.href = appUrl;
+  var timer = setTimeout(function() { window.open(webUrl, '_blank'); }, 1200);
+  window.addEventListener('blur', function() { clearTimeout(timer); }, { once: true });
+}
+
+// ── SEARCH ────────────────────────────────────────────────────────────────
+const STOP_WORDS = new Set(['the','and','for','with','that','this','who','what','how','can','you','are','not','but','need','help','about','want','have','when','does','should','would','could','from','our','their','someone','person']);
+const RESULT_COLORS = ['#2e5fa3','#7c6b9e','#2e7d8c','#7a6040','#4a7a56','#7a4060','#3d6b8c','#8c6b3d','#4a6b7a','#6b4a7a'];
+const SEARCH_ALIASES = {
+  'ceo': 'chief executive officer', 'cfo': 'chief financial officer',
+  'cto': 'chief technology officer', 'vp': 'vice president',
+  'gm': 'general manager', 'hr': 'human resources',
+  'qc': 'quality control', 'qa': 'quality assurance',
+  'r&d': 'research', 'sc': 'supply chain',
+  'ap': 'accounts payable', 'ar': 'accounts receivable', 'p&c': 'people culture',
+};
+function expandQuery(q) { const lq = q.toLowerCase().trim(); return SEARCH_ALIASES[lq] || q; }
+function tokenize(text) { return text.toLowerCase().replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(w => w.length > 2 && !STOP_WORDS.has(w)); }
+function getInitials(name) { const p = name.split(' ').filter(Boolean); return ((p[0]?.[0]||'')+(p[p.length-1]?.[0]||'')).toUpperCase(); }
+function getResultColor(name) { let h = 0; for (let i=0;i<name.length;i++) h=(h*31+name.charCodeAt(i))%RESULT_COLORS.length; return RESULT_COLORS[h]; }
+
+function smartSearch(query) {
+  const keywords = tokenize(query);
+  if (!keywords.length) return [];
+  const scores = [];
+  document.querySelectorAll('.card').forEach(card => {
+    const slack = card.dataset.slack || '';
+    const goto  = GOTO_TEXT[slack] || '';
+    const nameEl = card.querySelector('.card-name'), titleEl = card.querySelector('.card-title');
+    const name = nameEl ? nameEl.textContent.toLowerCase() : '';
+    const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+    let score = 0;
+    keywords.forEach(kw => {
+      score += (goto.toLowerCase().match(new RegExp(kw,'g')) || []).length;
+      if (name.includes(kw))  score += 3;
+      if (title.includes(kw)) score += 2;
+    });
+    if (score > 0) scores.push({ card, score, name: nameEl ? nameEl.textContent : '', title: titleEl ? titleEl.textContent : '', goto });
+  });
+  return scores.sort((a,b) => b.score - a.score).slice(0, 4);
+}
+
+function closeResults() {
+  document.getElementById('search-results-panel').style.display = 'none';
+  const bd = document.getElementById('ai-backdrop'); if (bd) bd.style.display = 'none';
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
+}
+
+function showResults(results) {
+  const panel = document.getElementById('search-results-panel');
+  panel.innerHTML = ''; panel.style.display = 'flex';
+  const bd = document.getElementById('ai-backdrop'); if (bd) bd.style.display = 'block';
+  const hdr = document.createElement('div');
+  hdr.className = 'search-results-header';
+  hdr.innerHTML = '<span>🔍 Best Matches</span><button class="search-results-close" onclick="closeResults()">×</button>';
+  panel.appendChild(hdr);
+  const list = document.createElement('div'); list.className = 'search-result-list';
+  results.forEach((r, i) => {
+    const div = document.createElement('div');
+    div.className = 'search-result-item' + (i===0 ? ' top-match' : '');
+    const whyText = r.goto ? (r.goto.length > 120 ? r.goto.slice(0,117)+'…' : r.goto) : '';
+    div.innerHTML = '<div class="search-result-avatar" style="background:' + getResultColor(r.name) + '">' + getInitials(r.name) + '</div>' +
+      '<div class="search-result-info"><div class="search-result-name">' + r.name + '</div><div class="search-result-title">' + r.title + '</div>' +
+      (whyText ? '<div class="search-result-why">' + whyText + '</div>' : '') + '</div>';
+    div.addEventListener('click', () => {
+      closeResults();
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
+      r.card.classList.add('highlight'); scrollToCard(r.card);
+    });
+    list.appendChild(div);
+  });
+  panel.appendChild(list);
+}
+
+let searchDebounce = null;
+function runSearch(rawQ) {
+  if (!rawQ) { closeResults(); return; }
+  const q = expandQuery(rawQ);
+  const lq = q.toLowerCase();
+  document.querySelectorAll('.card').forEach(c => {
+    const name  = (c.querySelector('.card-name')  || {}).textContent || '';
+    const title = (c.querySelector('.card-title') || {}).textContent || '';
+    c.classList.toggle('highlight', name.toLowerCase().includes(lq) || title.toLowerCase().includes(lq));
+  });
+  const results = smartSearch(q);
+  if (results.length && q.length >= 2) showResults(results);
+  else closeResults();
+}
+
+function scrollToCard(card) {
+  const w = document.getElementById('zoom-wrapper'), c = document.getElementById('chart');
+  const cr = card.getBoundingClientRect(), wr = w.getBoundingClientRect();
+  panX = c.clientWidth/2  - ((cr.left + cr.width/2  - wr.left)/scale)*scale;
+  panY = c.clientHeight/2 - ((cr.top  + cr.height/2 - wr.top) /scale)*scale;
+  applyTransform();
+}
+
+document.getElementById('search').addEventListener('input', function() {
+  clearTimeout(searchDebounce);
+  const q = this.value.trim();
+  if (!q) { closeResults(); return; }
+  searchDebounce = setTimeout(() => runSearch(q), 200);
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeResults(); return; }
+  if (e.key === 'Enter' && document.activeElement === document.getElementById('search')) {
+    clearTimeout(searchDebounce); runSearch(document.getElementById('search').value.trim());
+  }
+});
+
+// ── PAN / ZOOM ────────────────────────────────────────────────────────────
+let scale = 1, panX = 0, panY = 20, dragging = false, startX, startY, startPanX, startPanY;
+function applyTransform() {
+  document.getElementById('zoom-wrapper').style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
+}
+function updateZoomLabel() {
+  const pct = Math.round(scale * 100);
+  const inp = document.getElementById('zoom-pct-input');
+  if (inp) inp.value = pct + '%';
+  document.querySelectorAll('.zoom-dropdown-item').forEach(el => {
+    el.classList.toggle('active', el.textContent.trim() === pct + '%');
+  });
+}
+function zoom(delta) {
+  const chart = document.getElementById('chart');
+  const vw = chart.clientWidth, vh = chart.clientHeight;
+  // keep the current viewport center fixed in content space
+  const cx = (vw/2 - panX) / scale;
+  const cy = (vh/2 - panY) / scale;
+  scale = Math.min(2, Math.max(0.15, scale + delta));
+  panX = vw/2 - cx * scale;
+  panY = vh/2 - cy * scale;
+  applyTransform(); updateZoomLabel();
+}
+function fitToView() {
+  const w = document.getElementById('zoom-wrapper');
+  const c = document.getElementById('chart');
+  scale = Math.min(c.clientWidth/w.offsetWidth, c.clientHeight/w.offsetHeight, 1) * 0.92;
+  panX = (c.clientWidth  - w.offsetWidth  * scale) / 2;
+  panY = (c.clientHeight - w.offsetHeight * scale) / 2;
+  applyTransform(); updateZoomLabel();
+}
+function resetZoom() { scale=1; panX=0; panY=20; applyTransform(); updateZoomLabel(); }
+function applyZoomInput() {
+  const inp = document.getElementById('zoom-pct-input');
+  const val = parseFloat(inp.value);
+  if (!isNaN(val) && val > 0) {
+    scale = Math.min(2, Math.max(0.15, val / 100));
+    applyTransform();
+  }
+  updateZoomLabel();
+}
+function setZoomPct(pct) {
+  scale = Math.min(2, Math.max(0.15, pct / 100));
+  applyTransform(); updateZoomLabel();
+  document.getElementById('zoom-dropdown-menu').classList.remove('open');
+}
+function toggleZoomDropdown(e) {
+  e.stopPropagation();
+  document.getElementById('zoom-dropdown-menu').classList.toggle('open');
+}
+function jumpTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const wrapper = document.getElementById('zoom-wrapper');
+  const chart   = document.getElementById('chart');
+  let ox = 0, oy = 0, node = el;
+  while (node && node !== wrapper) { ox += node.offsetLeft; oy += node.offsetTop; node = node.offsetParent; }
+  const elW = el.offsetWidth, elH = el.offsetHeight;
+  const vw = chart.clientWidth, vh = chart.clientHeight - 90; // reserve space for bottom bar
+  const pad = 48;
+  scale = Math.min((vw - pad*2) / elW, (vh - pad*2) / elH, 2);
+  scale = Math.max(0.15, scale);
+  panX = vw / 2 - (ox + elW / 2) * scale;
+  panY = vh / 2 - (oy + elH / 2) * scale;
+  applyTransform();
+  updateZoomLabel();
+}
+document.addEventListener('click', () => {
+  const m = document.getElementById('zoom-dropdown-menu');
+  if (m) m.classList.remove('open');
+});
+
+const chart = document.getElementById('chart');
+chart.addEventListener('mousedown', e => {
+  if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.card-goto-toggle')) return;
+  dragging=true; startX=e.clientX; startY=e.clientY; startPanX=panX; startPanY=panY;
+});
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  panX = startPanX + (e.clientX - startX); panY = startPanY + (e.clientY - startY);
+  applyTransform();
+});
+window.addEventListener('mouseup', () => { dragging=false; });
+chart.addEventListener('wheel', e => {
+  e.preventDefault();
+  const rect = chart.getBoundingClientRect();
+  const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+  const cx = (mx - panX) / scale, cy = (my - panY) / scale;
+  scale = Math.min(2, Math.max(0.15, scale + (e.deltaY < 0 ? 0.08 : -0.08)));
+  panX = mx - cx * scale; panY = my - cy * scale;
+  applyTransform(); updateZoomLabel();
+}, { passive: false });
+
+// ── TOUCH PAN / PINCH-ZOOM (mobile & tablet) ───────────────────────────────
+let touchMode = null;       // 'pan' | 'pinch'
+let touchStartPanX, touchStartPanY, touchStartX, touchStartY;
+let pinchStartDist, pinchStartScale, pinchStartPanX, pinchStartPanY, pinchMidX, pinchMidY;
+
+function touchDist(t0, t1) {
+  return Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY);
+}
+function touchMid(t0, t1, rect) {
+  return {
+    x: (t0.clientX + t1.clientX) / 2 - rect.left,
+    y: (t0.clientY + t1.clientY) / 2 - rect.top
+  };
+}
+
+chart.addEventListener('touchstart', e => {
+  if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.card-goto-toggle')) return;
+  if (e.touches.length === 1) {
+    touchMode = 'pan';
+    touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
+    touchStartPanX = panX; touchStartPanY = panY;
+  } else if (e.touches.length === 2) {
+    e.preventDefault();
+    touchMode = 'pinch';
+    const rect = chart.getBoundingClientRect();
+    pinchStartDist = touchDist(e.touches[0], e.touches[1]);
+    pinchStartScale = scale;
+    pinchStartPanX = panX; pinchStartPanY = panY;
+    const mid = touchMid(e.touches[0], e.touches[1], rect);
+    pinchMidX = mid.x; pinchMidY = mid.y;
+  }
+}, { passive: false });
+
+chart.addEventListener('touchmove', e => {
+  if (touchMode === 'pan' && e.touches.length === 1) {
+    e.preventDefault();
+    panX = touchStartPanX + (e.touches[0].clientX - touchStartX);
+    panY = touchStartPanY + (e.touches[0].clientY - touchStartY);
+    applyTransform();
+  } else if (touchMode === 'pinch' && e.touches.length === 2) {
+    e.preventDefault();
+    const dist = touchDist(e.touches[0], e.touches[1]);
+    const cx = (pinchMidX - pinchStartPanX) / pinchStartScale;
+    const cy = (pinchMidY - pinchStartPanY) / pinchStartScale;
+    scale = Math.min(2, Math.max(0.15, pinchStartScale * (dist / pinchStartDist)));
+    panX = pinchMidX - cx * scale; panY = pinchMidY - cy * scale;
+    applyTransform(); updateZoomLabel();
+  }
+}, { passive: false });
+
+chart.addEventListener('touchend', e => {
+  if (e.touches.length === 0) touchMode = null;
+  else if (e.touches.length === 1) {
+    // transitioned from pinch back to single-finger pan
+    touchMode = 'pan';
+    touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
+    touchStartPanX = panX; touchStartPanY = panY;
+  }
+});
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+
+// ── FIND PERSON ─────────────────────────────────────────────────────────
+let findOpen = false;
+
+function openFind() {
+  document.getElementById('find-bar').style.display = 'flex';
+  document.getElementById('find-input').focus();
+  findOpen = true;
+}
+
+function clearFind() {
+  document.getElementById('find-input').value = '';
+  document.getElementById('find-count').textContent = '';
+  document.querySelectorAll('.card').forEach(c =>
+    c.classList.remove('find-match', 'find-dim'));
+  document.getElementById('find-bar').style.display = 'none';
+  findOpen = false;
+}
+
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'f') {
+    e.preventDefault(); openFind();
+  }
+  if (e.key === 'Escape' && findOpen) clearFind();
+});
+
+document.getElementById('find-input').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  const allCards = Array.from(document.querySelectorAll('.card'));
+  if (!q) {
+    allCards.forEach(c => c.classList.remove('find-match', 'find-dim'));
+    document.getElementById('find-count').textContent = '';
+    return;
+  }
+  let n = 0;
+  allCards.forEach(card => {
+    const name  = (card.querySelector('.card-name')?.textContent  || '').toLowerCase();
+    const title = (card.querySelector('.card-title')?.textContent || '').toLowerCase();
+    const hit = name.includes(q) || title.includes(q);
+    card.classList.toggle('find-match', hit);
+    card.classList.toggle('find-dim',  !hit);
+    if (hit) n++;
+  });
+  document.getElementById('find-count').textContent = n ? `${n} found` : 'No match';
+  const first = document.querySelector('.card.find-match');
+  if (first) panToCard(first);
+});
+
+function panToCard(card) {
+  const rect = card.getBoundingClientRect();
+  const cx = rect.left + rect.width  / 2;
+  const cy = rect.top  + rect.height / 2;
+  panX += window.innerWidth  / 2 - cx;
+  panY += window.innerHeight / 2 - cy;
+  applyTransform();
+}
+
+// ── CHAIN HIGHLIGHT ─────────────────────────────────────────────────────
+
+// ── REPORTING MAP (static — drives chain highlight) ───────────────────────
+const REPORTING_TO = {
+  // Levon direct reports
+  'ptansey':      'levon',
+  'scott.n':      'levon',
+
+  // Paul direct reports (commercial branches + ops + p&c)
+  'ruben':        'andre',
+  'keith':        'ptansey',
+  'denis':        'ptansey',
+  'tim':          'ptansey',
+  'nevada':       'ptansey',
+  'andre':        'ptansey',
+  'lacey.g':      'ptansey',
+  'tamara.n':     'ptansey',
+  'luis.l':       'ptansey',
+  'douglas':      'ptansey',
+  'aveonna':      'ptansey',
+  'marina':       'ptansey',
+  'romi':         'ptansey',
+  'virge':        'ptansey',
+  'gsantarelli':  'virge',
+  'vcherniavskyy':'virge',
+
+  // Tim's team
+  'coneill':      'tim',
+  'wyly':         'tim',
+  'taylor':       'tim',
+  'john.driver':  'tim',
+  'doug.mcdowell':'tim',
+  'brad':         'tim',
+  'jake':         'tim',
+  'david.youngquist': 'tim',
+  'jon.collison': 'tim',
+  'john.torbert': 'tim',
+  'jon.bender':  'tim',
+  'jeff.downs':  'tim',
+
+  // Nevada's team
+  'nancy.n':      'nevada',
+  'caleb':        'nevada',
+  'jr':           'nevada',
+  'seth':         'nevada',
+  'melissa':      'nevada',
+  'rob.blundell': 'nevada',
+  'amanda':       'nevada',
+
+  // R&D + Regulatory dept leads → Paul (Cole is Director of R&D)
+  'cole':         'ptansey',
+  'liz':          'cole',
+  'ratnakar':     'cole',
+  'bob':          'cole',
+  'maggie':       'ptansey',
+  'nashmin':      'cole',
+
+  // Cole → Invertebrate
+  'anna':         'cole',
+
+  // Liz → Microbiology
+  'dale':         'liz',
+  'rachel':       'liz',
+
+  // Ratnakar → Chemistry
+  'makela':       'ratnakar',
+  'vanessa':      'ratnakar',
+
+  // Bob → Fermentation
+  'kevin':        'bob',
+  'jacob':        'bob',
+  'brian':        'bob',
+
+  // Maggie → Regulatory
+  'conor':        'maggie',
+  'eva':          'maggie',
+  'krista':       'maggie',
+  'lorena':       'maggie',
+  'isabel.diez':  'maggie',
+
+  // Nashmin → EU R&D
+  'madan':        'nashmin',
+  'iman':         'nashmin',
+  'raziyeh':      'nashmin',
+
+  // Facilities (Lacey)
+  'nicholas.r':   'lacey.g',
+
+  // Quality (Tamara)
+  'nathan.b':     'tamara.n',
+  'ineah.c':      'nathan.b',
+  'daisie':       'tamara.n',
+  'stellar':      'tamara.n',
+  'tiffany.d':    'daisie',
+  'amanjit':      'tamara.n',
+
+  // Amanjit → QC/Manufacturing
+  'symphony':     'amanjit',
+  'abigail':      'amanjit',
+  'breanna':      'amanjit',
+  'evan.m':       'amanjit',
+  'madeline':     'amanjit',
+  'rafael.m':     'amanjit',
+  'haley.f':      'amanjit',
+  'naiki':        'amanjit',
+  'raji':         'amanjit',
+  'cpeavey':      'amanjit',
+  'wendy':         'levon',
+
+  // Supply Chain (Luis)
+  'kevin.g':      'luis.l',
+  'mercedes':     'luis.l',
+  'anthony':      'luis.l',
+  'adriana':      'luis.l',
+  'monica':       'luis.l',
+  'shelley':      'luis.l',
+  'carol':        'luis.l',
+  'sabra':        'luis.l',
+  'lou':          'luis.l',
+  'tatiana':      'luis.l',
+  'alexandr':     'luis.l',
+
+  // Manufacturing (Douglas)
+  'michelle.l':   'douglas',
+  'marbella':     'douglas',
+  'christin.p':  'douglas',
+  'dominik':      'douglas',
+  'rob.w':        'douglas',
+  'chris.c':      'douglas',
+  'john.s':       'douglas',
+  'david.c':      'douglas',
+  'peter':        'douglas',
+
+  // Peter's team
+  'sherry':       'peter',
+  'katie':        'peter',
+  'joseph':       'peter',
+  'wade':         'peter',
+  'eric.mc':      'chance',
+  'nancy.mc':     'douglas',
+  'joshua':       'peter',
+  'doug.f':       'peter',
+  'jack':         'doug.f',
+  'jeremy':       'doug.f',
+  'chance':       'greg.nelson',
+  'michael.s':    'douglas',
+
+  // Wade's team
+  'andy':         'wade',
+  'brittany':     'wade',
+  'greg.nelson':  'peter',
+
+  // Finance (Scott)
+  'nancy.h':      'scott.n',
+  'andrew.z':     'nancy.h',
+  'danielle':     'nancy.h',
+  'eleanor':      'nancy.h',
+  'paola':        'nancy.h',
+  'shelley.a':    'nancy.h',
+  'minh':         'nancy.h',
+  'mitra':        'nancy.h',
+  'anastassia':   'nancy.h',
+};
+
+let chainActive = false;
+let _orgMap = null;
+
+function getDirectCard(el) {
+  if (!el) return null;
+  if (el.classList?.contains('card') && el.dataset.slack) return el;
+  for (const child of el.children) {
+    if (child.classList?.contains('card') && child.dataset.slack) return child;
+  }
+  return null;
+}
+
+function buildOrgMap() {
+  const parentOf   = { ...REPORTING_TO };
+  const childrenOf = {};
+  Object.entries(parentOf).forEach(([child, parent]) => {
+    if (!childrenOf[parent]) childrenOf[parent] = [];
+    childrenOf[parent].push(child);
+  });
+  return { parentOf, childrenOf };
+}
+
+
+function getChain(slack) {
+  const { parentOf, childrenOf } = _orgMap;
+  const chain = new Set([slack]);
+  // ancestors
+  let cur = slack; let i = 0;
+  while (parentOf[cur] && i++ < 20) { cur = parentOf[cur]; chain.add(cur); }
+  // all descendants (BFS)
+  const q = [slack];
+  while (q.length) {
+    const s = q.shift();
+    (childrenOf[s] || []).forEach(child => { chain.add(child); q.push(child); });
+  }
+  return chain;
+}
+
+function isAncestor(candidate, slack, parentOf) {
+  let cur = parentOf[slack]; let i = 0;
+  while (cur && i++ < 20) { if (cur === candidate) return true; cur = parentOf[cur]; }
+  return false;
+}
+
+function clearChain() {
+  document.querySelectorAll('.card').forEach(c =>
+    c.classList.remove('chain-self','chain-ancestor','chain-descendant','chain-dim'));
+  chainActive = false;
+}
+
+document.getElementById('chart').addEventListener('click', e => {
+  if (e.target.closest('button') || e.target.closest('a') ||
+      e.target.closest('.card-goto-toggle') || e.target.closest('.card-goto-body')) return;
+  const card = e.target.closest('.card');
+  if (!card) { if (chainActive) clearChain(); return; }
+  if (card.classList.contains('chain-self')) { clearChain(); return; }
+  clearChain();
+  const slack = card.dataset.slack;
+  if (!slack || !_orgMap) return;
+  const chain = getChain(slack);
+  const { parentOf } = _orgMap;
+  document.querySelectorAll('.card[data-slack]').forEach(c => {
+    const s = c.dataset.slack;
+    if (!chain.has(s)) { c.classList.add('chain-dim'); return; }
+    if (s === slack)                          c.classList.add('chain-self');
+    else if (isAncestor(s, slack, parentOf)) c.classList.add('chain-ancestor');
+    else                                      c.classList.add('chain-descendant');
+  });
+  chainActive = true;
+});
+
+// ── DYNAMIC HEADCOUNT ─────────────────────────────────────────────────────
+function updateHeadcounts() {
+  // ops-dept-labels
+  document.querySelectorAll('.ops-dept-col').forEach(col => {
+    const lbl = col.querySelector('.ops-dept-label');
+    if (!lbl) return;
+    const n = col.querySelectorAll('.card').length;
+    lbl.textContent = lbl.textContent.replace(/\s*\(\d+\)$/, '') + ` (${n})`;
+  });
+  // nav-badges (section jump buttons)
+  document.querySelectorAll('.nav-btn-wrap').forEach(wrap => {
+    const btn   = wrap.querySelector('.nav-btn');
+    const badge = wrap.querySelector('.nav-badge');
+    if (!btn || !badge) return;
+    const m = (btn.getAttribute('onclick') || '').match(/jumpTo\('([^']+)'\)/);
+    if (!m) return;
+    const sec = document.getElementById(m[1]);
+    if (!sec) return;
+    const n = sec.querySelectorAll('.card').length;
+    badge.textContent = n;
+  });
+  // big section-header counts: "Label (N)"
+  const labelCounts = {
+    'count-rd':         'super-rd',
+    'count-reg':        'super-reg',
+    'count-commercial': 'super-commercial',
+  };
+  Object.entries(labelCounts).forEach(([spanId, containerId]) => {
+    const span = document.getElementById(spanId);
+    const container = document.getElementById(containerId);
+    if (span && container) span.textContent = `(${container.querySelectorAll('.card').length})`;
+  });
+  // big section-header counts: "N people" / "N person"
+  const peopleCounts = {
+    'lbl-fin': 'super-fin',
+    'lbl-hr':  'super-hr',
+    'lbl-eu':  'super-eu',
+  };
+  Object.entries(peopleCounts).forEach(([lblId, containerId]) => {
+    const lbl = document.getElementById(lblId);
+    const container = document.getElementById(containerId);
+    const sub = lbl?.querySelector('.label-sub');
+    if (!sub || !container) return;
+    const n = container.querySelectorAll('.card').length;
+    sub.textContent = `${n} ${n === 1 ? 'person' : 'people'}`;
+  });
+  // "Expand All" total badge
+  const allBadge = document.querySelector('.nav-btn[onclick="expandAll()"] ~ .nav-badge') ||
+    [...document.querySelectorAll('.nav-btn')].find(b => b.textContent === 'Expand All')?.nextElementSibling;
+  if (allBadge) allBadge.textContent = document.querySelectorAll('.card').length;
+}
+
+// ── PROFILE PHOTOS ────────────────────────────────────────────────────────
+const PHOTO_DIR = 'Rippling%20profile%20pics/';
+const PHOTOS = {};
+
+function addAvatars() {
+  document.querySelectorAll('.card-inner').forEach(inner => {
+    const nameEl = inner.querySelector('.card-name');
+    const titleEl = inner.querySelector('.card-title');
+    if (!nameEl || nameEl.closest('.card-header')) return;
+    const name = nameEl.textContent.trim();
+    const header = document.createElement('div');
+    header.className = 'card-header';
+    const avatar = document.createElement('div');
+    avatar.className = 'avatar';
+    const photo = PHOTOS[name];
+    if (photo) {
+      const img = document.createElement('img');
+      img.src = PHOTO_DIR + encodeURIComponent(photo);
+      img.alt = name;
+      img.loading = 'lazy';
+      img.onerror = () => { avatar.innerHTML = ''; avatar.textContent = getInitials(name); };
+      avatar.appendChild(img);
+    } else {
+      avatar.textContent = getInitials(name);
+    }
+    const wrap = document.createElement('div');
+    wrap.className = 'card-name-wrap';
+    header.appendChild(avatar);
+    header.appendChild(wrap);
+    inner.insertBefore(header, nameEl);
+    wrap.appendChild(nameEl);
+    if (titleEl) wrap.appendChild(titleEl);
+  });
+}
+
+window.addEventListener('load', () => {
+  addAvatars();
+  updateSpines();
+  updateAllHBars();
+  updateHeadcounts();
+  _orgMap = buildOrgMap();
+  setTimeout(() => {
+    // Paul / Levon / Scott now sit naturally in one row as siblings, so the old
+    // title-raising + exec-row-centering hacks are no longer needed. Paul's
+    // subtree (R&D/Regulatory/Ops/P&C/EU) is now much wider than Scott's
+    // (Finance), so the old "center on the Levon h-bar at 25%" approach left
+    // Paul's and Scott's cards off-screen. Just fit the whole chart instead.
+    fitToView();
+  }, 200);
+});
+
+// ── SECTION TITLES + C-SUITE ROW ──
+// Titles stay raised at Levon's original level (as before). Levon, Paul and
+// Scott's row is then raised further so it sits ABOVE that title row.
+function raiseSectionTitles() {
+  const levon = document.querySelector('[data-slack="levon"]');
+  const paul = document.querySelector('[data-slack="ptansey"]');
+  const levonWrap = document.getElementById('levon-wrap');
+  const levonBranches = document.getElementById('levon-branches');
+  if (!levon || !paul || !levonWrap || !levonBranches) return;
+
+  // Reset any prior transforms before measuring
+  levonWrap.style.transform = '';
+  levonBranches.style.transform = '';
+
+  const levonRect = levon.getBoundingClientRect();
+  const paulRect = paul.getBoundingClientRect();
+  const levonMidY = levonRect.top + levonRect.height / 2;
+
+  // How far to raise Levon/Paul/Scott so Paul & Scott (currently a row below
+  // Levon) end up above the title row, which stays at Levon's old level.
+  const R = (paulRect.top - levonRect.top) + 40;
+
+  // Finance title stays hidden — Finance is under Scott (Levon>Scott>Finance)
+  const finTitle = document.getElementById('section-title-fin');
+  if (finTitle) finTitle.style.display = 'none';
+
+  ['section-title-commercial', 'section-title-rd', 'section-title-reg', 'section-title-fac', 'section-title-ops-qual', 'section-title-sc', 'section-title-mfg', 'section-title-hr', 'section-title-partners'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.transform = ''; // reset first
+    const elRect = el.getBoundingClientRect();
+    const elMidY = elRect.top + elRect.height / 2;
+    const delta = levonMidY - elMidY;
+    // delta alone would put the title at Levon's old level; add R back so
+    // it lands there even after the ancestor shift below moves it up by R.
+    el.style.transform = `translateY(${delta + R}px)`;
+    el.style.position = 'relative';
+    el.style.zIndex = '20';
+    el.style.pointerEvents = 'none';
+    el.style.height = '0';
+    el.style.overflow = 'visible';
+    el.style.marginBottom = '100px';
+  });
+
+  // Raise Levon + the Paul/Scott row above the (now-floating) title row
+  levonWrap.style.transform = `translateY(${-R}px)`;
+  levonBranches.style.transform = `translateY(${-R}px)`;
+}
+
+</script>
+</body>
+</html>
