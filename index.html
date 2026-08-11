@@ -547,13 +547,29 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
   <!-- ── CEO ── -->
 
   <!-- ── LEVON BRANCHES: Paul | Levon (+Commercial) | Scott ── -->
+  <!-- CEO on his own level, with Paul | Commercial | Scott beneath -->
+  <div id="ceo-wrap" style="display:flex;flex-direction:column;align-items:center;">
+    <div class="card c-ceo" data-slack="levon">
+      <div class="card-inner">
+        <div class="card-name">Levon Sarkissian</div>
+        <div class="card-title">Chief Executive Officer</div>
+        <div class="card-meta">
+          <div class="card-detail"><span class="icon">📍</span><span class="val">San Francisco, CA</span></div>
+          <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 1/28/2026</span></div>
+        </div>
+        <a class="slack-btn" href="https://profarm-team.slack.com/messages/@levon" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AGGLDHS87','https://profarm-team.slack.com/messages/@levon'); return false;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg> Message
+        </a>
+      </div>
+    </div>
+    <div class="connector-v" style="height:50px;"></div>
   <div id="levon-branches" style="display:flex;flex-direction:row;align-items:flex-start;gap:80px;position:relative;">
-    <div id="paul-levon-bar" style="position:absolute;height:6px;background:#1a1a1a;width:0;pointer-events:none;"></div>
-    <div id="levon-scott-bar" style="position:absolute;height:6px;background:#1a1a1a;width:0;pointer-events:none;"></div>
+    <div id="levon-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
 
 
     <!-- PAUL column -->
     <div class="super-col" id="paul-super">
+      <div class="branch-stem"></div>
       <div class="card c-gm" data-slack="ptansey">
       <div class="card-inner">
         <div class="card-name">Paul Tansey</div>
@@ -1728,20 +1744,8 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
     </div><!-- /paul-super -->
     <!-- LEVON column (middle) -->
     <div class="super-col" id="levon-super">
-    <div class="card c-ceo" data-slack="levon">
-      <div class="card-inner">
-        <div class="card-name">Levon Sarkissian</div>
-        <div class="card-title">Chief Executive Officer</div>
-        <div class="card-meta">
-          <div class="card-detail"><span class="icon">📍</span><span class="val">San Francisco, CA</span></div>
-          <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 1/28/2026</span></div>
-        </div>
-        <a class="slack-btn" href="https://profarm-team.slack.com/messages/@levon" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0AGGLDHS87','https://profarm-team.slack.com/messages/@levon'); return false;">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg> Message
-        </a>
-      </div>
-    </div>
-      <div class="connector-v" style="height:60px;"></div>
+    
+      <div class="branch-stem"></div>
         <div id="super-commercial" class="super-col">
           <div id="section-title-commercial" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Commercial</div>
           <div class="branch-stem"></div>
@@ -1788,23 +1792,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
           <!-- ── SALES TEAM ── -->
           <div class="branch" id="branch-sales" style="min-width:1060px;">
             <div class="branch-stem"></div>
-            <div class="card c-sales" id="card-tim" data-slack="tim" style="position:relative;">
-              <div class="card-inner">
-                <span class="dept-badge badge-sales">Sales Team (US Foliar)</span>
-                <div class="card-name">Tim Knight</div>
-                <div class="card-title">Head of Sales NA</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Raleigh, NC</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 2/24/2020</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@tim" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07KVJ666KW','https://profarm-team.slack.com/messages/@tim'); return false;">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>
-                  Message
-                </a>
-              </div>
-              <div class="toggle-btn" id="toggle-tim">−</div>
-            </div>
-            <div class="card-stem"></div>
+            <div class="connector-v" style="height:70px;"></div>
             <div id="team-tim" style="display:flex;flex-direction:column;align-items:center;width:100%;">
               <div id="tim-sub-row" style="display:flex;flex-direction:row;align-items:flex-start;gap:40px;position:relative;">
                 <div id="tim-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
@@ -1987,20 +1975,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
           <!-- ── MARKETING & FIELD DEV ── -->
           <div class="branch" id="branch-mkt" style="min-width:1060px;">
             <div class="branch-stem"></div>
-            <div class="card c-mkt" id="card-nevada" data-slack="nevada" style="position:relative;">
-              <div class="card-inner">
-                <span class="dept-badge badge-mkt">Marketing &amp; Field Dev</span>
-                <div class="card-name">Nevada Smith</div>
-                <div class="card-title">Head of Marketing, NA</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Sacramento, CA</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 9/20/2023</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@nevada" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07J1R821RP','https://profarm-team.slack.com/messages/@nevada'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-              <div class="toggle-btn" id="toggle-nevada">−</div>
-            </div>
-            <div class="card-stem"></div>
+            <div class="connector-v" style="height:70px;"></div>
             <div id="team-nevada" style="display:flex;flex-direction:column;align-items:center;width:100%;">
               <div id="nevada-sub-row" style="display:flex;flex-direction:row;align-items:flex-start;gap:40px;position:relative;">
                 <div id="nevada-hbar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
@@ -2008,7 +1983,6 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                 <!-- Direct reports -->
                 <div style="display:flex;flex-direction:column;align-items:center;">
                   <div class="branch-stem"></div>
-                  <div class="sub-label" id="lbl-direct" style="background:#0d9488;">Direct Reports <span class="sub-label-arrow">▾</span></div>
                   <div class="team-pairs" id="grp-direct">
                     <div class="pair-v"></div>
                     <div class="pair-row">
@@ -2156,6 +2130,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
         </div><!-- /super-commercial -->
     </div><!-- /levon-super -->
 <div class="super-col" id="scott-super">
+      <div class="branch-stem"></div>
       <div class="card c-cfo" data-slack="scott.n">
               <div class="card-inner">
                 <div class="card-name">Scott Nirenberski</div>
@@ -2297,6 +2272,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
     <!-- SCOTT / FINANCE column -->
 
   </div><!-- /levon-branches -->
+  </div><!-- /ceo-wrap -->
 
 </div></div></div><!-- /chart-root /zoom-wrapper /chart-container -->
 
@@ -2409,31 +2385,9 @@ function updateHBarRd() {
 }
 
     function updateHBarLevon() {
-    updateLevonConnectors();
     updateHBar(document.getElementById('nancy-reports'),  document.getElementById('h-bar-nancy'));
   }
 
-  // Paul/Scott connect to the vertical middle of Levon's card (not its top).
-  // Each connector spans only the gap between the adjacent cards, positioned
-  // at Levon's card's mid-height, so it doesn't overlap any card.
-  function updateLevonConnectors() {
-    const paulCard  = document.querySelector('[data-slack="ptansey"]');
-    const levonCard = document.querySelector('[data-slack="levon"]');
-    const scottCard = document.querySelector('[data-slack="scott.n"]');
-    const leftBar  = document.getElementById('paul-levon-bar');
-    const rightBar = document.getElementById('levon-scott-bar');
-    if (!paulCard || !levonCard || !scottCard || !leftBar || !rightBar) return;
-
-    const midY = levonCard.offsetTop + levonCard.offsetHeight / 2 - 3; // -3 centers the 6px bar
-
-    leftBar.style.top   = midY + 'px';
-    leftBar.style.left  = (paulCard.offsetLeft + paulCard.offsetWidth) + 'px';
-    leftBar.style.width = Math.max(0, levonCard.offsetLeft - (paulCard.offsetLeft + paulCard.offsetWidth)) + 'px';
-
-    rightBar.style.top   = midY + 'px';
-    rightBar.style.left  = (levonCard.offsetLeft + levonCard.offsetWidth) + 'px';
-    rightBar.style.width = Math.max(0, scottCard.offsetLeft - (levonCard.offsetLeft + levonCard.offsetWidth)) + 'px';
-  }
 function updateHBarOps() {
     updateHBar(document.getElementById('ops-branches'),   document.getElementById('h-bar-ops'));
     updateHBar(document.getElementById('tamara-reports'), document.getElementById('h-bar-tamara'));
@@ -2448,6 +2402,7 @@ function updateHBarOps() {
   updateHBar(document.getElementById('tim-sub-row'),   document.getElementById('tim-hbar'));
   updateHBar(document.getElementById('nevada-sub-row'),document.getElementById('nevada-hbar'));
   updateHBar(document.getElementById('paul-branches'), document.getElementById('paul-hbar'));
+  updateHBar(document.getElementById('levon-branches'), document.getElementById('levon-hbar'));
   // support-row merged into paul-branches
   updateHBar(document.getElementById('eu-row'), document.getElementById('eu-hbar'));
   updateHBar(document.getElementById('virge-reports'), document.getElementById('virge-hbar'));
@@ -2487,12 +2442,10 @@ function setupToggle(btnId, teamId) {
     setTimeout(() => { updateSpines(); updateAllHBars(); }, 20);
   });
 }
-setupToggle('toggle-tim', 'team-tim');
-setupToggle('toggle-nevada', 'team-nevada');
 
 const SUB_GROUPS = [
   { lbl:'lbl-ram', grp:'grp-ram' }, { lbl:'lbl-tsm', grp:'grp-tsm' },
-  { lbl:'lbl-direct', grp:'grp-direct' }, { lbl:'lbl-fielddev', grp:'grp-fielddev' },
+  { lbl:'lbl-fielddev', grp:'grp-fielddev' },
 ];
 SUB_GROUPS.forEach(({ lbl, grp }) => {
   const label = document.getElementById(lbl);
@@ -2632,8 +2585,6 @@ const GOTO_TEXT = {
   'ptansey': 'Basically, everything — from operations and IT to P&C. Paul leads the charge on supporting our internal team members, so if something involves you as an employee, it likely involves him. Please feel free to reach out!',
   'ruben':   'LATAM and EMEA market strategy, international portfolio management, and technical support for those regions.',
   'keith':   'Government relations, industry affairs, strategic solutions, and regulatory/political landscape questions.',
-  'tim':     'US foliar sales direction, sales team leadership, North & Central America commercial execution.',
-  'nevada':  'Marketing strategy, field development, brand and product promotion, and marketing team leadership.',
   'andre':   'Seed applied treatment, third-party management, and biz dev questions.',
   'coneill': 'Northeast region account management, dealer/distributor relationships, and northeastern US field support.',
   'wyly':    'East region account management, dealer/distributor relationships, and eastern US field support.',
@@ -3087,11 +3038,9 @@ const REPORTING_TO = {
 
   // Paul direct reports (commercial branches + ops + p&c)
   'ruben':        'andre',
-  'keith':        'ptansey',
+  'keith':        'levon',
   'denis':        'ptansey',
-  'tim':          'ptansey',
-  'nevada':       'ptansey',
-  'andre':        'ptansey',
+  'andre':        'levon',
   'lacey.g':      'ptansey',
   'tamara.n':     'ptansey',
   'luis.l':       'ptansey',
@@ -3103,28 +3052,28 @@ const REPORTING_TO = {
   'gsantarelli':  'virge',
   'vcherniavskyy':'virge',
 
-  // Tim's team
-  'coneill':      'tim',
-  'wyly':         'tim',
-  'taylor':       'tim',
-  'john.driver':  'tim',
-  'doug.mcdowell':'tim',
-  'brad':         'tim',
-  'jake':         'tim',
-  'david.youngquist': 'tim',
-  'jon.collison': 'tim',
-  'john.torbert': 'tim',
-  'jon.bender':  'tim',
-  'jeff.downs':  'tim',
+  // Former Sales team (US Foliar) - now direct to Paul
+  'coneill':      'ptansey',
+  'wyly':         'ptansey',
+  'taylor':       'ptansey',
+  'john.driver':  'ptansey',
+  'doug.mcdowell':'ptansey',
+  'brad':         'ptansey',
+  'jake':         'ptansey',
+  'david.youngquist': 'ptansey',
+  'jon.collison': 'ptansey',
+  'john.torbert': 'ptansey',
+  'jon.bender':  'ptansey',
+  'jeff.downs':  'ptansey',
 
-  // Nevada's team
-  'nancy.n':      'nevada',
-  'caleb':        'nevada',
+  // Former Marketing & Field Dev - now direct to Paul
+  'nancy.n':      'ptansey',
+  'caleb':        'ptansey',
   'jr':           'levon',
-  'seth':         'nevada',
-  'melissa':      'nevada',
-  'rob.blundell': 'nevada',
-  'amanda':       'nevada',
+  'seth':         'ptansey',
+  'melissa':      'ptansey',
+  'rob.blundell': 'ptansey',
+  'amanda':       'ptansey',
 
   // R&D + Regulatory dept leads → Paul (Cole is Director of R&D)
   'cole':         'ptansey',
@@ -3367,10 +3316,9 @@ function updateHeadcounts() {
 const PHOTO_DIR = 'Rippling%20profile%20pics/';
 const PHOTOS = {
   'Levon Sarkissian': 'Levon_Sarkissian.png',
-  'Paul Tansey': 'Paul_Tansey.jpg',
+  'Paul Tansey': 'Paul_Tansey.png',
   'Ruben Ramos': 'RUBEN_E_RAMOS.png',
   'Keith Pitts': 'Keith_Pitts.png',
-  'Tim Knight': 'Tim_Knight.png',
   'Wyly Brown': 'WYLY_BROWN_III.png',
   'Taylor Hoover': 'TAYLOR_HOOVER.png',
   'John Driver': 'John_Driver.png',
@@ -3382,14 +3330,15 @@ const PHOTOS = {
   'Jon Bender': 'Jon_Bender.png',
   'Jeff Downs': 'Jeff Downs.png',
   'Christin Peabody': 'Christin Peabody.jpg',
-  'Nevada Smith': 'NEVADA_SMITH.png',
   'Nancy Nomellini': 'Nancy_Nomellini.png',
   'Caleb Winne': 'CALEB_WINNE.png',
   'Seth Little': 'Seth_Little.png',
   "Melissa O'Neal": "Melissa_O'Neal.png",
   'Robert Blundell': 'Rob_BLUNDELL.png',
   'Amanda Koppel': 'AMANDA_KOPPEL.png',
-  'Andre Trepanier': 'Andre_Trepanier.png',
+  'Andre Trepanier': 'Andre Trepanier.jpeg',
+  "Collin O'Neill": "Collin O'Neill.jpeg",
+  "Melissa O'Neal": "Melissa_O'Neal.png",
   'Cole Pearson': 'Cole_Pearson.png',
   'Anna Chernyavskiy': 'Anna_Chernyavskiy.png',
   'Liz Henry': 'Liz_Henry.png',
@@ -3433,8 +3382,8 @@ const PHOTOS = {
   'Sabra Depaulo': 'SABRA_DEPAULO.png',
   'Lou Beltran': 'Lou_Beltran.png',
   'Douglas Deland': 'DOUGLAS_DELAND.png',
-  'Nancy McNichols': 'Nancy_McNichols.jpeg',
-  'Ineah Coleman': 'Ineah_Coleman.jpg',
+  'Nancy McNichols': 'Nancy McNichols.jpeg',
+  'Ineah Coleman': 'Ineah Coleman.jpg',
   'Michelle Leonard': 'Michelle Leonard2.png',
   'Marbella Chavez': 'Marbella_Chavez.png',
   'Dominik Ausland': 'Dominik_Ausland.png',
@@ -3535,54 +3484,6 @@ window.addEventListener('load', () => {
   }, 200);
 });
 
-// ── SECTION TITLES + C-SUITE ROW ──
-// Titles stay raised at Levon's original level (as before). Levon, Paul and
-// Scott's row is then raised further so it sits ABOVE that title row.
-function raiseSectionTitles() {
-  const levon = document.querySelector('[data-slack="levon"]');
-  const paul = document.querySelector('[data-slack="ptansey"]');
-  const levonWrap = document.getElementById('levon-wrap');
-  const levonBranches = document.getElementById('levon-branches');
-  if (!levon || !paul || !levonWrap || !levonBranches) return;
-
-  // Reset any prior transforms before measuring
-  levonWrap.style.transform = '';
-  levonBranches.style.transform = '';
-
-  const levonRect = levon.getBoundingClientRect();
-  const paulRect = paul.getBoundingClientRect();
-  const levonMidY = levonRect.top + levonRect.height / 2;
-
-  // How far to raise Levon/Paul/Scott so Paul & Scott (currently a row below
-  // Levon) end up above the title row, which stays at Levon's old level.
-  const R = (paulRect.top - levonRect.top) + 40;
-
-  // Finance title stays hidden — Finance is under Scott (Levon>Scott>Finance)
-  const finTitle = document.getElementById('section-title-fin');
-  if (finTitle) finTitle.style.display = 'none';
-
-  ['section-title-commercial', 'section-title-rd', 'section-title-reg', 'section-title-fac', 'section-title-ops-qual', 'section-title-sc', 'section-title-mfg', 'section-title-hr', 'section-title-partners'].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.style.transform = ''; // reset first
-    const elRect = el.getBoundingClientRect();
-    const elMidY = elRect.top + elRect.height / 2;
-    const delta = levonMidY - elMidY;
-    // delta alone would put the title at Levon's old level; add R back so
-    // it lands there even after the ancestor shift below moves it up by R.
-    el.style.transform = `translateY(${delta + R}px)`;
-    el.style.position = 'relative';
-    el.style.zIndex = '20';
-    el.style.pointerEvents = 'none';
-    el.style.height = '0';
-    el.style.overflow = 'visible';
-    el.style.marginBottom = '100px';
-  });
-
-  // Raise Levon + the Paul/Scott row above the (now-floating) title row
-  levonWrap.style.transform = `translateY(${-R}px)`;
-  levonBranches.style.transform = `translateY(${-R}px)`;
-}
 
 </script>
 </body>
