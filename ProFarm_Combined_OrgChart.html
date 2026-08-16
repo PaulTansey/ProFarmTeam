@@ -167,6 +167,13 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 .branch-row { display: flex; flex-direction: row; align-items: flex-start; gap: 28px; position: relative; }
 .branch { display: flex; flex-direction: column; align-items: center; min-width: 500px; }
 .branch.single { min-width: 240px; }
+/* Commercial split into two reporting groups */
+.comm-group { display:flex; flex-direction:column; align-items:center; }
+.comm-group-label {
+  color:#fff; border-radius:8px; padding:7px 18px; font-weight:700; font-size:13px;
+  white-space:nowrap; margin-bottom:4px; letter-spacing:0.2px;
+}
+.comm-group-sub { font-size:10.5px; font-weight:500; opacity:0.75; }
 .branch-stem {
   width: 2px; height: 20px; background: #2d2d2d;
   position: relative; z-index: 5;
@@ -323,6 +330,11 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 /* ── R&D ADDITIONS ── */
 .c-rd { border-left-color: #e2e8f0; }
 .c-gm { border-left-color: #e2e8f0; }
+/* interns — blue card instead of white */
+.c-intern { background: #e3f2fd; border-left-color: #1976d2; }
+.c-intern .dept-badge { background: #bbdefb; color: #0d47a1; }
+.c-intern .card-email { display:block; font-size:10.5px; color:#0d47a1; text-decoration:none; margin-top:3px; word-break:break-all; }
+.c-intern .card-email:hover { text-decoration:underline; }
 .rd-column { display: flex; flex-direction: column; align-items: center; width: 220px; flex-shrink: 0; }
 .team-reports { display: flex; flex-direction: column; align-items: center; width: 100%; }
 .div-label {
@@ -648,6 +660,33 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
           <button class="toggle-btn" data-target="team-micro">−</button>
         </div>
         <div id="team-micro" class="team-reports">
+          <div class="report-stem"></div>
+        <div class="card c-intern " data-slack="chelsea" style="position:relative;">
+          <div class="card-inner">
+            <div class="card-name">Chelsea Ha</div>
+            <div class="card-title">Intern, Plant Health & Microbial Sciences</div>
+            <div class="dept-badge">Plant Health &amp; Microbial Sciences</div>
+            <div class="card-meta">
+              <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span>
+              <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 8/10/2026</span></div></div>
+            </div>
+            <a class="card-email" href="mailto:chelsea.ha@profarm.com">chelsea.ha@profarm.com</a>
+          </div>
+        </div>
+          <div class="report-stem"></div>
+        <div class="card c-intern " data-slack="david.n" style="position:relative;">
+          <div class="card-inner">
+            <div class="card-name">David Navarrete</div>
+            <div class="card-title">Intern, Plant Health & Microbial Sciences</div>
+            <div class="dept-badge">Plant Health &amp; Microbial Sciences</div>
+            <div class="card-meta">
+              <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span>
+              <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 8/10/2026</span></div></div>
+            </div>
+            <a class="card-email" href="mailto:david.navarrete@profarm.com">david.navarrete@profarm.com</a>
+          </div>
+        </div>
+
           
           <div class="report-stem"></div>
         <div class="card c-rd " data-slack="rachel" style="position:relative;">
@@ -730,6 +769,20 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
           <button class="toggle-btn" data-target="team-ferm">−</button>
         </div>
         <div id="team-ferm" class="team-reports">
+          <div class="report-stem"></div>
+        <div class="card c-intern " data-slack="corina" style="position:relative;">
+          <div class="card-inner">
+            <div class="card-name">Corina Limpus</div>
+            <div class="card-title">Intern, Formulation</div>
+            <div class="dept-badge">Formulation</div>
+            <div class="card-meta">
+              <div class="card-detail"><span class="icon">📍</span><span class="val">Davis, CA</span>
+              <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 8/10/2026</span></div></div>
+            </div>
+            <a class="card-email" href="mailto:corina.limpus@profarm.com">corina.limpus@profarm.com</a>
+          </div>
+        </div>
+
           <div class="report-stem"></div>
         <div class="card c-rd " data-slack="brian" style="position:relative;">
           <div class="card-inner">
@@ -1052,7 +1105,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                 </div>
                 <a class="slack-btn" href="https://profarm-team.slack.com/messages/@symphony" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0ATU68JUPN','https://profarm-team.slack.com/messages/@symphony'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
               </div>
-            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-qual" data-slack="abigail">
+            </div><div style="display:flex;flex-direction:column;align-items:center;"><div class="connector-v" style="height:20px;"></div><div class="branch-stem"></div><div class="card c-qual c-intern" data-slack="abigail">
               <div class="card-inner">
                 <div class="dept-badge">Quality</div>
                 <div class="card-name">Abigail Kizner</div>
@@ -1064,7 +1117,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                 <a class="slack-btn" href="https://profarm-team.slack.com/messages/@abigail" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U0ASG9VBHLG','https://profarm-team.slack.com/messages/@abigail'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
               </div>
             </div>
-<div style="height:12px;"></div><div class="card c-qual" data-slack="evan.m">
+<div style="height:12px;"></div><div class="card c-qual c-intern" data-slack="evan.m">
               <div class="card-inner">
                 <div class="dept-badge">Quality</div>
                 <div class="card-name">Evan Morris</div>
@@ -1746,6 +1799,7 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
     <div class="super-col" id="levon-super">
     
       <div class="branch-stem"></div>
+      <div class="connector-v" id="commercial-drop" style="height:0;"></div>
         <div id="super-commercial" class="super-col">
           <div id="section-title-commercial" style="font-size:96px;font-weight:900;color:#111;text-align:center;margin-bottom:16px;letter-spacing:-2px;line-height:1;font-family:inherit;">Commercial</div>
           <div class="branch-stem"></div>
@@ -1757,8 +1811,15 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
             <div class="connector-v" style="height:20px;"></div>
             <div class="branch-row" id="branch-row">
               <div id="h-bar" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
-    <!-- ── INDUSTRY AFFAIRS ── -->
-          <div class="branch single" id="branch-industry">
+
+          <!-- ══ reports to LEVON ══ -->
+          <div class="comm-group" id="comm-levon">
+            <div class="branch-stem"></div>
+            <div class="comm-group-label" style="background:#1a1a1a;">Reports to Levon Sarkissian<br><span class="comm-group-sub">Chief Executive Officer</span></div>
+            <div class="connector-v" style="height:16px;"></div>
+            <div class="branch-row" id="comm-levon-row">
+              <div id="h-bar-comm-levon" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+<div class="branch single" id="branch-industry">
             <div class="branch-stem"></div>
             <div class="card c-ind" data-slack="keith">
               <div class="card-inner">
@@ -1788,9 +1849,58 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
                   </div>
                 </div>
           </div>
+<div class="branch single" id="branch-biz">
+            <div class="branch-stem"></div>
+            <div class="card c-biz" data-slack="andre">
+              <div class="card-inner">
+                <span class="dept-badge badge-biz">Biz Dev &amp; Seed Treatment</span>
+                <div class="card-name">Andre Trepanier</div>
+                <div class="card-title">VP, Seed Applied Treatment &amp; Third Party Management</div>
+                <div class="card-meta">
+                  <div class="card-detail"><span class="icon">📍</span><span class="val">Double Springs, AL</span></div>
+                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 6/6/2016</span></div>
+                </div>
+                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@andre" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07JZS4HT7A','https://profarm-team.slack.com/messages/@andre'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+              </div>
+            </div>
+            <div class="connector-v" style="height:14px;"></div><div class="branch-stem"></div><div class="card c-latam" data-slack="ruben">
+                  <div class="card-inner">
+                    <span class="dept-badge badge-latam">LATAM &amp; EMEA</span>
+                    <div class="card-name">Ruben Ramos</div>
+                    <div class="card-title">International Portfolio &amp; Technical Manager, LATAM, EMEA &amp; ROW</div>
+                    <div class="card-meta">
+                      <div class="card-detail"><span class="icon">📍</span><span class="val">Orlando, FL</span></div>
+                      <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 9/12/2016</span></div>
+                    </div>
+                    <a class="slack-btn" href="https://profarm-team.slack.com/messages/@ruben" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08555SQ620','https://profarm-team.slack.com/messages/@ruben'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+                  </div>
+                </div>
+          </div>
+<div class="branch single" id="branch-jr">
+            <div class="branch-stem"></div>
+            <div class="card c-mkt" data-slack="jr">
+                        <div class="card-inner">
+                          <div class="card-name">J.R. Abele</div>
+                          <div class="card-title">Senior Advisor, Commercial Development</div>
+                          <div class="card-meta">
+                            <div class="card-detail"><span class="icon">📍</span><span class="val">Williams, CA</span></div>
+                            <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 9/11/2023</span></div>
+                          </div>
+                          <a class="slack-btn" href="https://profarm-team.slack.com/messages/@jr" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07KVJ61BBN','https://profarm-team.slack.com/messages/@jr'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
+                        </div>
+                      </div>
+          </div>
+            </div><!-- /comm-levon-row -->
+          </div><!-- /comm-levon -->
 
-          <!-- ── SALES TEAM ── -->
-          <div class="branch" id="branch-sales" style="min-width:1060px;">
+          <!-- ══ reports to PAUL ══ -->
+          <div class="comm-group" id="comm-paul">
+            <div class="branch-stem"></div>
+            <div class="comm-group-label" style="background:#2d5a3d;">Reports to Paul Tansey<br><span class="comm-group-sub">COO</span></div>
+            <div class="connector-v" style="height:16px;"></div>
+            <div class="branch-row" id="comm-paul-row">
+              <div id="h-bar-comm-paul" style="position:absolute;top:0;height:2px;background:#2d2d2d;width:0;pointer-events:none;"></div>
+<div class="branch" id="branch-sales" style="min-width:1060px;">
             <div class="branch-stem"></div>
             <div class="connector-v" style="height:70px;"></div>
             <div id="team-tim" style="display:flex;flex-direction:column;align-items:center;width:100%;">
@@ -1970,10 +2080,8 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 
               </div>
             </div><!-- /team-tim -->
-          </div><!-- /branch-sales -->
-
-          <!-- ── MARKETING & FIELD DEV ── -->
-          <div class="branch" id="branch-mkt" style="min-width:1060px;">
+          </div>
+<div class="branch" id="branch-mkt" style="min-width:1060px;">
             <div class="branch-stem"></div>
             <div class="connector-v" style="height:70px;"></div>
             <div id="team-nevada" style="display:flex;flex-direction:column;align-items:center;width:100%;">
@@ -2078,53 +2186,25 @@ header h1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); }
 
               </div>
             </div><!-- /team-nevada -->
-          </div><!-- /branch-mkt -->
+          </div>
+            </div><!-- /comm-paul-row -->
+          </div><!-- /comm-paul -->
+
+    <!-- ── INDUSTRY AFFAIRS ── -->
+          
+
+          <!-- ── SALES TEAM ── -->
+          <!-- /branch-sales -->
+
+          <!-- ── MARKETING & FIELD DEV ── -->
+          <!-- /branch-mkt -->
 
           <!-- ── BIZ DEV & SEED TREATMENT ── -->
-          <div class="branch single" id="branch-biz">
-            <div class="branch-stem"></div>
-            <div class="card c-biz" data-slack="andre">
-              <div class="card-inner">
-                <span class="dept-badge badge-biz">Biz Dev &amp; Seed Treatment</span>
-                <div class="card-name">Andre Trepanier</div>
-                <div class="card-title">VP, Seed Applied Treatment &amp; Third Party Management</div>
-                <div class="card-meta">
-                  <div class="card-detail"><span class="icon">📍</span><span class="val">Double Springs, AL</span></div>
-                  <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 6/6/2016</span></div>
-                </div>
-                <a class="slack-btn" href="https://profarm-team.slack.com/messages/@andre" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07JZS4HT7A','https://profarm-team.slack.com/messages/@andre'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-              </div>
-            </div>
-            <div class="connector-v" style="height:14px;"></div><div class="branch-stem"></div><div class="card c-latam" data-slack="ruben">
-                  <div class="card-inner">
-                    <span class="dept-badge badge-latam">LATAM &amp; EMEA</span>
-                    <div class="card-name">Ruben Ramos</div>
-                    <div class="card-title">International Portfolio &amp; Technical Manager, LATAM, EMEA &amp; ROW</div>
-                    <div class="card-meta">
-                      <div class="card-detail"><span class="icon">📍</span><span class="val">Orlando, FL</span></div>
-                      <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 9/12/2016</span></div>
-                    </div>
-                    <a class="slack-btn" href="https://profarm-team.slack.com/messages/@ruben" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U08555SQ620','https://profarm-team.slack.com/messages/@ruben'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-                  </div>
-                </div>
-          </div>
+          
 
 
           <!-- JR ABELE -->
-          <div class="branch single" id="branch-jr">
-            <div class="branch-stem"></div>
-            <div class="card c-mkt" data-slack="jr">
-                        <div class="card-inner">
-                          <div class="card-name">J.R. Abele</div>
-                          <div class="card-title">Senior Advisor, Commercial Development</div>
-                          <div class="card-meta">
-                            <div class="card-detail"><span class="icon">📍</span><span class="val">Williams, CA</span></div>
-                            <div class="card-detail"><span class="icon">📅</span><span class="val">Start: 9/11/2023</span></div>
-                          </div>
-                          <a class="slack-btn" href="https://profarm-team.slack.com/messages/@jr" onclick="openSlackDM('slack://user?team=T06EU738U6A&id=U07KVJ61BBN','https://profarm-team.slack.com/messages/@jr'); return false;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Message</a>
-                        </div>
-                      </div>
-          </div>
+          
             </div><!-- /branch-row -->
           </div><!-- /branches-outer -->
         </div><!-- /super-commercial -->
@@ -2388,6 +2468,15 @@ function updateHBarRd() {
     updateHBar(document.getElementById('nancy-reports'),  document.getElementById('h-bar-nancy'));
   }
 
+// Commercial has no person-card above it (Levon sits a level up), so it would
+// float to the top of the row. Drop it to match where Paul's department boxes
+// begin: his card height + the 60px connector beneath it.
+function alignCommercialBox() {
+  const paulCard = document.querySelector('[data-slack="ptansey"]');
+  const drop     = document.getElementById('commercial-drop');
+  if (!paulCard || !drop) return;
+  drop.style.height = (paulCard.offsetHeight + 60) + 'px';
+}
 function updateHBarOps() {
     updateHBar(document.getElementById('ops-branches'),   document.getElementById('h-bar-ops'));
     updateHBar(document.getElementById('tamara-reports'), document.getElementById('h-bar-tamara'));
@@ -2399,10 +2488,13 @@ function updateHBarOps() {
 
   function updateAllHBars() {
   updateHBar(document.getElementById('branch-row'),    document.getElementById('h-bar'));
+  updateHBar(document.getElementById('comm-levon-row'), document.getElementById('h-bar-comm-levon'));
+  updateHBar(document.getElementById('comm-paul-row'),  document.getElementById('h-bar-comm-paul'));
   updateHBar(document.getElementById('tim-sub-row'),   document.getElementById('tim-hbar'));
   updateHBar(document.getElementById('nevada-sub-row'),document.getElementById('nevada-hbar'));
   updateHBar(document.getElementById('paul-branches'), document.getElementById('paul-hbar'));
   updateHBar(document.getElementById('levon-branches'), document.getElementById('levon-hbar'));
+  alignCommercialBox();
   // support-row merged into paul-branches
   updateHBar(document.getElementById('eu-row'), document.getElementById('eu-hbar'));
   updateHBar(document.getElementById('virge-reports'), document.getElementById('virge-hbar'));
@@ -3078,6 +3170,9 @@ const REPORTING_TO = {
   // R&D + Regulatory dept leads → Paul (Cole is Director of R&D)
   'cole':         'ptansey',
   'liz':          'cole',
+  'corina':       'bob',
+  'chelsea':      'liz',
+  'david.n':      'liz',
   'ratnakar':     'cole',
   'bob':          'cole',
   'maggie':       'ptansey',
@@ -3337,6 +3432,9 @@ const PHOTOS = {
   'Robert Blundell': 'Rob_BLUNDELL.png',
   'Amanda Koppel': 'AMANDA_KOPPEL.png',
   'Andre Trepanier': 'Andre_Trepanier.png',
+  'Corina Limpus': 'Corina Limpus.jpg',
+  'Chelsea Ha': 'Chelsea Ha.png',
+  'David Navarrete': 'David Navarrete.png',
   "Collin O'Neill": "Collin O'Neill.jpeg",
   "Melissa O'Neal": "Melissa_O'Neal.png",
   'Cole Pearson': 'Cole_Pearson.png',
